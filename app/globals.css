@@ -4,207 +4,82 @@
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 36, 100%, 55%;
-    --background-end-rgb: 25, 65%, 75%;
+    --background-start-rgb: 39, 100%, 50%; /* Mexican yellow-orange */
+    --background-end-rgb: 16, 75%, 65%; /* Peach terracotta coral */
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 36, 80%, 40%;
-        --background-end-rgb: 25, 65%, 55%;
-    }
-}
-
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
+        --background-start-rgb: 39, 80%, 40%;
+        --background-end-rgb: 16, 65%, 55%;
     }
 }
 
 @layer base {
     :root {
-        --background: 36 100% 55%;
-        --foreground: 0 0% 0%;
-        --card: 25 65% 75%;
-        --card-foreground: 0 0% 0%;
-        --popover: 25 65% 75%;
-        --popover-foreground: 0 0% 0%;
-        --primary: 36 100% 55%;
-        --primary-foreground: 0 0% 0%;
-        --secondary: 120 60% 40%;
-        --secondary-foreground: 0 0% 100%;
-        --muted: 25 30% 85%;
-        --muted-foreground: 0 0% 0%;
-        --accent: 120 60% 40%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 36 70% 65%;
-        --input: 25 65% 75%;
-        --ring: 36 100% 55%;
-        --chart-1: 36 100% 55%;
-        --chart-2: 25 65% 75%;
-        --chart-3: 120 60% 40%;
-        --chart-4: 36 80% 45%;
-        --chart-5: 120 70% 30%;
-        --radius: 0.5rem;
-        --sidebar-background: 36 90% 60%;
-        --sidebar-foreground: 0 0% 0%;
-        --sidebar-primary: 36 100% 55%;
-        --sidebar-primary-foreground: 0 0% 0%;
-        --sidebar-accent: 120 60% 40%;
-        --sidebar-accent-foreground: 0 0% 100%;
-        --sidebar-border: 36 70% 65%;
-        --sidebar-ring: 36 100% 55%;
+        --background: 39 100% 50%;
+        --card: 16 75% 65%;
+        --popover: 16 75% 65%;
+        --primary: 39 100% 50%;
+        --border: 39 70% 60%;
+        --input: 16 75% 65%;
+        --ring: 39 100% 50%;
+        --chart-1: 39 100% 50%;
+        --chart-2: 16 75% 65%;
+        --sidebar-background: 39 90% 55%;
+        --sidebar-primary: 39 100% 50%;
+        --sidebar-border: 39 70% 60%;
+        --sidebar-ring: 39 100% 50%;
     }
     .dark {
-        --background: 36 100% 40%;
-        --foreground: 0 0% 100%;
-        --card: 36 80% 30%;
-        --card-foreground: 0 0% 100%;
-        --popover: 36 80% 30%;
-        --popover-foreground: 0 0% 100%;
-        --primary: 25 65% 65%;
-        --primary-foreground: 0 0% 0%;
-        --secondary: 120 50% 30%;
-        --secondary-foreground: 0 0% 100%;
-        --muted: 36 60% 25%;
-        --muted-foreground: 0 0% 90%;
-        --accent: 120 50% 30%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 100%;
-        --border: 36 60% 45%;
-        --input: 36 60% 45%;
-        --ring: 25 50% 75%;
-        --chart-1: 36 100% 55%;
-        --chart-2: 25 65% 65%;
-        --chart-3: 120 60% 40%;
-        --chart-4: 36 80% 45%;
-        --chart-5: 120 70% 30%;
-        --sidebar-background: 36 90% 30%;
-        --sidebar-foreground: 0 0% 100%;
-        --sidebar-primary: 36 100% 45%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 120 50% 30%;
-        --sidebar-accent-foreground: 0 0% 100%;
-        --sidebar-border: 36 60% 45%;
-        --sidebar-ring: 36 100% 55%;
+        --background: 39 100% 40%;
+        --card: 39 80% 30%;
+        --popover: 39 80% 30%;
+        --primary: 16 65% 60%;
+        --border: 39 60% 45%;
+        --input: 39 60% 45%;
+        --ring: 16 50% 70%;
+        --chart-1: 39 100% 50%;
+        --chart-2: 16 65% 60%;
+        --sidebar-background: 39 90% 30%;
+        --sidebar-primary: 39 100% 45%;
+        --sidebar-border: 39 60% 45%;
+        --sidebar-ring: 39 100% 50%;
     }
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
-
     body {
-        background: linear-gradient(to right, hsl(36, 100%, 55%), hsl(25, 65%, 75%));
-        @apply text-foreground;
+        background: linear-gradient(to right, hsl(39, 100%, 50%), hsl(16, 75%, 65%));
     }
-
     .dark body {
-        background: linear-gradient(to right, hsl(36, 80%, 40%), hsl(25, 65%, 55%));
+        background: linear-gradient(to right, hsl(39, 80%, 40%), hsl(16, 65%, 55%));
     }
-
-    @font-face {
-        font-family: "geist";
-        font-style: normal;
-        font-weight: 100 900;
-        src: url(/fonts/geist.woff2) format("woff2");
-    }
-
-    @font-face {
-        font-family: "geist-mono";
-        font-style: normal;
-        font-weight: 100 900;
-        src: url(/fonts/geist-mono.woff2) format("woff2");
-    }
-}
-
-.skeleton {
-    * {
-        pointer-events: none !important;
-    }
-
-    *[class^="text-"] {
-        color: transparent;
-        @apply rounded-md bg-foreground/20 select-none animate-pulse;
-    }
-
-    .skeleton-bg {
-        @apply bg-foreground/10;
-    }
-
-    .skeleton-div {
-        @apply bg-foreground/20 animate-pulse;
-    }
-}
-
-.ProseMirror {
-    outline: none;
 }
 
 .cm-editor,
 .cm-gutters {
-    @apply outline-none selection:bg-zinc-900 !important;
-    background: linear-gradient(to right, hsl(36, 100%, 55%), hsl(25, 65%, 75%)) !important;
+    background: linear-gradient(to right, hsl(39, 100%, 50%), hsl(16, 75%, 65%)) !important;
 }
 
 .dark .cm-editor,
 .dark .cm-gutters {
-    background: linear-gradient(to right, hsl(36, 80%, 40%), hsl(25, 65%, 55%)) !important;
+    background: linear-gradient(to right, hsl(39, 80%, 40%), hsl(16, 65%, 55%)) !important;
 }
 
-.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
-.ͼo.cm-selectionBackground,
-.ͼo.cm-content::selection {
-    @apply bg-zinc-200 dark:bg-zinc-900 !important;
-}
-
-.cm-activeLine,
-.cm-activeLineGutter {
-    @apply bg-transparent !important;
-}
-
-.cm-activeLine {
-    @apply rounded-r-sm !important;
-}
-
-.cm-lineNumbers {
-    @apply min-w-7;
-}
-
-.cm-foldGutter {
-    @apply min-w-3;
-}
-
-.cm-lineNumbers .cm-activeLineGutter {
-    @apply rounded-l-sm !important;
-}
-
-.suggestion-highlight {
-    @apply bg-green-200 hover:bg-green-300 dark:hover:bg-green-400/50 dark:text-green-50 dark:bg-green-500/40;
-}
-
-/* Add any additional styles for various components */
 .card, .button, .input {
-    background: linear-gradient(to right, hsl(36, 90%, 60%), hsl(25, 60%, 70%));
-    @apply border-green-500 text-green-900;
+    background: linear-gradient(to right, hsl(39, 90%, 55%), hsl(16, 70%, 60%));
 }
 
 .dark .card, .dark .button, .dark .input {
-    background: linear-gradient(to right, hsl(36, 70%, 45%), hsl(25, 55%, 50%));
-    @apply border-green-700 text-green-100;
+    background: linear-gradient(to right, hsl(39, 70%, 45%), hsl(16, 60%, 50%));
 }
 
-/* The bottom gradient with green */
 .footer {
-    background: linear-gradient(to bottom, hsl(25, 65%, 75%), hsl(120, 60%, 40%));
+    background: linear-gradient(to bottom, hsl(16, 75%, 65%), hsl(120, 60%, 40%));
 }
 
 .dark .footer {
-    background: linear-gradient(to bottom, hsl(25, 65%, 55%), hsl(120, 50%, 30%));
+    background: linear-gradient(to bottom, hsl(16, 65%, 55%), hsl(120, 50%, 30%));
 }
-
