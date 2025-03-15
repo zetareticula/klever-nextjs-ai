@@ -27,7 +27,7 @@ export const Overview = () => {
           
         </p>
         <p>
-          This is Klever{' '}
+          Klever{' '}
           <Link
             className="font-medium underline underline-offset-4"
             href="https://github.com/vercel/ai-chatbot"
