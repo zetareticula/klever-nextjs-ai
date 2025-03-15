@@ -4,7 +4,12 @@ import Link from 'next/link';
 import { MessageIcon, VercelIcon } from './icons';
 
 
-//Overview component is expor
+//Overview component is exported
+//This component is used to display the overview of the chatbot
+//It is a functional component  
+//It uses motion.div to animate the component
+//It uses Link from next/link to provide links to the user
+
 export const Overview = () => {
   return (
     <motion.div
@@ -17,9 +22,9 @@ export const Overview = () => {
     >
       <div className="rounded-xl p-6 flex flex-col gap-8 leading-relaxed text-center max-w-xl">
         <p className="flex flex-row justify-center gap-4 items-center">
-          <VercelIcon size={32} />
+          
           <span></span>
-          <MessageIcon size={32} />
+          
         </p>
         <p>
           This is Klever{' '}
@@ -28,7 +33,7 @@ export const Overview = () => {
             href="https://github.com/vercel/ai-chatbot"
             target="_blank"
           >
-            AI Chatbot
+            AI
           </Link>{' '}
           {' '}
           <code className="rounded-md bg-muted px-1 py-0.5"></code>{' '}
