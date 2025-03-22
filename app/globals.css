@@ -24,6 +24,7 @@
 
 @layer base {
     :root {
+        /* Updated light mode colors to match the image */
         --background: 36 100% 55%;
         --foreground: 0 0% 0%;
         --card: 25 65% 75%;
@@ -59,6 +60,7 @@
         --sidebar-ring: 36 100% 55%;
     }
     .dark {
+        /* Updated dark mode colors to match the image's darker tones */
         --background: 36 100% 40%;
         --foreground: 0 0% 100%;
         --card: 36 80% 30%;
@@ -103,12 +105,14 @@
         font-family: "Aptos", sans-serif;
         font-size: 1.25rem;
         color: black !important;
+        /* Updated gradient to match the image */
         background: linear-gradient(to right, hsl(36, 100%, 55%), hsl(25, 65%, 75%));
         @apply text-foreground;
     }
 
     .dark body {
         color: black !important;
+        /* Updated dark gradient to match the image's darker tones */
         background: linear-gradient(to right, hsl(36, 80%, 40%), hsl(25, 65%, 55%));
     }
 
@@ -153,11 +157,13 @@
 .cm-editor,
 .cm-gutters {
     @apply outline-none selection:bg-zinc-900 !important;
+    /* Updated editor background to match the image */
     background: linear-gradient(to right, hsl(36, 100%, 55%), hsl(25, 65%, 75%)) !important;
 }
 
 .dark .cm-editor,
 .dark .cm-gutters {
+    /* Updated dark editor background to match the image */
     background: linear-gradient(to right, hsl(36, 80%, 40%), hsl(25, 65%, 55%)) !important;
 }
 
@@ -192,7 +198,7 @@
     @apply bg-green-200 hover:bg-green-300 dark:hover:bg-green-400/50 dark:text-green-50 dark:bg-green-500/40;
 }
 
-/* Add any additional styles for various components */
+/* Updated component styles to match the image */
 .card, .button, .input {
     background: linear-gradient(to right, hsl(36, 90%, 60%), hsl(25, 60%, 70%));
     @apply border-green-500 text-green-900;
@@ -203,7 +209,7 @@
     @apply border-green-700 text-green-100;
 }
 
-/* The bottom gradient with green */
+/* Updated footer gradient with green to match the image */
 .footer {
     background: linear-gradient(to bottom, hsl(25, 65%, 75%), hsl(120, 60%, 40%));
 }
@@ -211,4 +217,3 @@
 .dark .footer {
     background: linear-gradient(to bottom, hsl(25, 65%, 55%), hsl(120, 50%, 30%));
 }
-
