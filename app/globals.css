@@ -284,3 +284,19 @@ select {
     }
 }
 
+/* Improve readability of long text */
+@media (max-width: 768px) {
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+/* Improve readability of code blocks */
+pre {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background: var(--input);
+    color: var(--foreground);
+}
