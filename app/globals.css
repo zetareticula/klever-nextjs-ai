@@ -105,24 +105,29 @@
         @apply border-border;
     }
 
-    body {
-        /* Ensure Aptos font is applied */
-        font-family: "Aptos", sans-serif;
-        /* Increased font size for better accessibility */
-        font-size: 1.4rem;
-        line-height: 1.5;
-        /* Slightly softer than pure black */
-        color: rgba(0, 0, 0, 0.85) !important;
-        /* Warm orange to peach gradient */
-        background: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%));
-        @apply text-foreground;
-    }
+ /* Body background gradient fix */
+body {
+    /* Ensure Aptos font is applied */
+    font-family: "Aptos", sans-serif;
+    /* Increased font size for better accessibility */
+    font-size: 1.4rem;
+    line-height: 1.5;
+    /* Slightly softer than pure black */
+    color: rgba(0, 0, 0, 0.85) !important;
+    /* Fix the warm orange to peach gradient */
+    background: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%)) fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    @apply text-foreground;
+}
 
-    .dark body {
-        color: rgba(245, 245, 245, 0.95) !important;
-        /* Darker gradient for dark mode */
-        background: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%));
-    }
+.dark body {
+    color: rgba(245, 245, 245, 0.95) !important;
+    /* Darker gradient for dark mode - fixed */
+    background: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%)) fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
     /* Ensure Aptos font is properly defined */
     @font-face {
@@ -171,7 +176,7 @@
     }
 
     *[class^="text-"] {
-        color: transparent;
+        color: transparent; 
         @apply rounded-md bg-foreground/15 select-none animate-pulse;
     }
 
