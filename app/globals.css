@@ -3,20 +3,109 @@
 @tailwind utilities;
 
 :root {
-    /* Base colors for light mode */
+    /* Base colors for light mode with proper HSL syntax */
     --foreground-rgb: 0, 0, 0;
-    /* Warm orange to peach gradient for reduced eye strain */
     --background-start-rgb: 30, 95%, 60%;
     --background-end-rgb: 28, 70%, 80%;
+    
+    /* Color system variables */
+    --background: hsl(30, 95%, 60%);
+    --foreground: hsl(0, 0%, 15%);  /* Slightly softer than pure black */
+    --card: hsl(28, 70%, 80%);
+    --card-foreground: hsl(0, 0%, 15%);
+    --popover: hsl(28, 70%, 80%);
+    --popover-foreground: hsl(0, 0%, 15%);
+    --primary: hsl(30, 95%, 60%);
+    --primary-foreground: hsl(0, 0%, 15%);
+    --secondary: hsl(120, 40%, 45%);  /* Softer green */
+    --secondary-foreground: hsl(0, 0%, 100%);
+    --muted: hsl(28, 30%, 90%);
+    --muted-foreground: hsl(0, 0%, 20%);
+    --accent: hsl(120, 40%, 45%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --destructive: hsl(0, 70%, 60%);  /* Softer red */
+    --destructive-foreground: hsl(0, 0%, 98%);
+    --border: hsl(30, 60%, 65%);
+    --input: hsl(28, 70%, 80%);
+    --ring: hsl(30, 95%, 60%);
+    --chart-1: hsl(30, 95%, 60%);
+    --chart-2: hsl(28, 70%, 80%);
+    --chart-3: hsl(120, 40%, 45%);
+    --chart-4: hsl(30, 75%, 55%);
+    --chart-5: hsl(120, 50%, 40%);
+    --radius: 0.8rem;
+    
+    /* Sidebar specific variables */
+    --sidebar-background: hsl(30, 80%, 65%);
+    --sidebar-foreground: hsl(0, 0%, 15%);
+    --sidebar-primary: hsl(30, 95%, 60%);
+    --sidebar-primary-foreground: hsl(0, 0%, 15%);
+    --sidebar-accent: hsl(120, 40%, 45%);
+    --sidebar-accent-foreground: hsl(0, 0%, 100%);
+    --sidebar-border: hsl(30, 60%, 65%);
+    --sidebar-ring: hsl(30, 95%, 60%);
+    
+    /* Gradient definitions */
+    --main-gradient: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%));
+    --button-gradient: linear-gradient(to right, hsl(30, 90%, 60%), hsl(28, 70%, 70%));
+    --header-gradient: linear-gradient(to right, hsl(30, 95%, 55%), hsl(28, 65%, 75%));
+    --table-header-gradient: linear-gradient(to right, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(30, 50%, 85%), hsl(28, 40%, 90%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        /* Darker version of the same gradient for dark mode */
         --background-start-rgb: 30, 70%, 40%;
         --background-end-rgb: 28, 60%, 55%;
     }
+}
+
+.dark {
+    /* Dark mode with reduced contrast for eye strain */
+    --background: hsl(30, 70%, 40%);
+    --foreground: hsl(0, 0%, 95%);  /* Not pure white */
+    --card: hsl(30, 65%, 35%);
+    --card-foreground: hsl(0, 0%, 95%);
+    --popover: hsl(30, 65%, 35%);
+    --popover-foreground: hsl(0, 0%, 95%);
+    --primary: hsl(28, 60%, 65%);
+    --primary-foreground: hsl(0, 0%, 15%);
+    --secondary: hsl(120, 35%, 35%);
+    --secondary-foreground: hsl(0, 0%, 95%);
+    --muted: hsl(30, 50%, 30%);
+    --muted-foreground: hsl(0, 0%, 85%);
+    --accent: hsl(120, 35%, 35%);
+    --accent-foreground: hsl(0, 0%, 95%);
+    --destructive: hsl(0, 50%, 40%);
+    --destructive-foreground: hsl(0, 0%, 95%);
+    --border: hsl(30, 50%, 45%);
+    --input: hsl(30, 50%, 45%);
+    --ring: hsl(28, 45%, 70%);
+    --chart-1: hsl(30, 70%, 55%);
+    --chart-2: hsl(28, 60%, 65%);
+    --chart-3: hsl(120, 35%, 45%);
+    --chart-4: hsl(30, 65%, 50%);
+    --chart-5: hsl(120, 45%, 35%);
+    
+    /* Sidebar dark mode variables */
+    --sidebar-background: hsl(30, 65%, 35%);
+    --sidebar-foreground: hsl(0, 0%, 95%);
+    --sidebar-primary: hsl(30, 70%, 50%);
+    --sidebar-primary-foreground: hsl(0, 0%, 95%);
+    --sidebar-accent: hsl(120, 35%, 35%);
+    --sidebar-accent-foreground: hsl(0, 0%, 95%);
+    --sidebar-border: hsl(30, 50%, 45%);
+    --sidebar-ring: hsl(30, 70%, 55%);
+    
+    /* Dark mode gradient definitions */
+    --main-gradient: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%));
+    --button-gradient: linear-gradient(to right, hsl(30, 70%, 45%), hsl(28, 60%, 55%));
+    --header-gradient: linear-gradient(to right, hsl(30, 70%, 35%), hsl(28, 55%, 45%));
+    --table-header-gradient: linear-gradient(to right, hsl(30, 60%, 40%), hsl(28, 50%, 45%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(30, 30%, 25%), hsl(28, 25%, 30%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(30, 50%, 45%), hsl(28, 45%, 50%));
 }
 
 @layer utilities {
@@ -26,108 +115,35 @@
 }
 
 @layer base {
-    :root {
-        /* Updated colors for eye strain reduction */
-        --background: 30 95% 60%;
-        --foreground: 0 0% 15%;  /* Slightly softer than pure black */
-        --card: 28 70% 80%;
-        --card-foreground: 0 0% 15%;
-        --popover: 28 70% 80%;
-        --popover-foreground: 0 0% 15%;
-        --primary: 30 95% 60%;
-        --primary-foreground: 0 0% 15%;
-        --secondary: 120 40% 45%;  /* Softer green */
-        --secondary-foreground: 0 0% 100%;
-        --muted: 28 30% 90%;
-        --muted-foreground: 0 0% 20%;
-        --accent: 120 40% 45%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 70% 60%;  /* Softer red */
-        --destructive-foreground: 0 0% 98%;
-        --border: 30 60% 65%;
-        --input: 28 70% 80%;
-        --ring: 30 95% 60%;
-        --chart-1: 30 95% 60%;
-        --chart-2: 28 70% 80%;
-        --chart-3: 120 40% 45%;
-        --chart-4: 30 75% 55%;
-        --chart-5: 120 50% 40%;
-        --radius: 0.8rem;  /* Slightly larger radius for softer appearance */
-        --sidebar-background: 30 80% 65%;
-        --sidebar-foreground: 0 0% 15%;
-        --sidebar-primary: 30 95% 60%;
-        --sidebar-primary-foreground: 0 0% 15%;
-        --sidebar-accent: 120 40% 45%;
-        --sidebar-accent-foreground: 0 0% 100%;
-        --sidebar-border: 30 60% 65%;
-        --sidebar-ring: 30 95% 60%;
-    }
-    
-    .dark {
-        /* Dark mode with reduced contrast for eye strain */
-        --background: 30 70% 40%;
-        --foreground: 0 0% 95%;  /* Not pure white */
-        --card: 30 65% 35%;
-        --card-foreground: 0 0% 95%;
-        --popover: 30 65% 35%;
-        --popover-foreground: 0 0% 95%;
-        --primary: 28 60% 65%;
-        --primary-foreground: 0 0% 15%;
-        --secondary: 120 35% 35%;
-        --secondary-foreground: 0 0% 95%;
-        --muted: 30 50% 30%;
-        --muted-foreground: 0 0% 85%;
-        --accent: 120 35% 35%;
-        --accent-foreground: 0 0% 95%;
-        --destructive: 0 50% 40%;
-        --destructive-foreground: 0 0% 95%;
-        --border: 30 50% 45%;
-        --input: 30 50% 45%;
-        --ring: 28 45% 70%;
-        --chart-1: 30 70% 55%;
-        --chart-2: 28 60% 65%;
-        --chart-3: 120 35% 45%;
-        --chart-4: 30 65% 50%;
-        --chart-5: 120 45% 35%;
-        --sidebar-background: 30 65% 35%;
-        --sidebar-foreground: 0 0% 95%;
-        --sidebar-primary: 30 70% 50%;
-        --sidebar-primary-foreground: 0 0% 95%;
-        --sidebar-accent: 120 35% 35%;
-        --sidebar-accent-foreground: 0 0% 95%;
-        --sidebar-border: 30 50% 45%;
-        --sidebar-ring: 30 70% 55%;
-    }
-}
-
-@layer base {
     * {
         @apply border-border;
     }
 
- /* Body background gradient fix */
-body {
-    /* Ensure Aptos font is applied */
-    font-family: "Aptos", sans-serif;
-    /* Increased font size for better accessibility */
-    font-size: 1.4rem;
-    line-height: 1.5;
-    /* Slightly softer than pure black */
-    color: rgba(0, 0, 0, 0.85) !important;
-    /* Fix the warm orange to peach gradient */
-    background: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%)) fixed;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    @apply text-foreground;
-}
+    /* Body with proper background gradient implementation */
+    body {
+        /* Ensure Aptos font is applied */
+        font-family: "Aptos", sans-serif;
+        /* Increased font size for better accessibility */
+        font-size: 1.4rem;
+        line-height: 1.5;
+        /* Slightly softer than pure black */
+        color: rgba(0, 0, 0, 0.85) !important;
+        /* Fix the warm orange to terracotta gradient */
+        background: var(--main-gradient);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        @apply text-foreground;
+    }
 
-.dark body {
-    color: rgba(245, 245, 245, 0.95) !important;
-    /* Darker gradient for dark mode - fixed */
-    background: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%)) fixed;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
+    .dark body {
+        color: rgba(245, 245, 245, 0.95) !important;
+        /* Darker gradient for dark mode - fixed */
+        background: var(--main-gradient);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
 
     /* Ensure Aptos font is properly defined */
     @font-face {
@@ -160,12 +176,8 @@ body {
     
     /* Improve focus states for accessibility */
     :focus {
-        outline: 3px solid hsl(30, 95%, 60%);
+        outline: 3px solid var(--primary);
         outline-offset: 2px;
-    }
-    
-    .dark :focus {
-        outline: 3px solid hsl(30, 70%, 50%);
     }
 }
 
@@ -198,12 +210,7 @@ body {
 .cm-gutters {
     @apply outline-none selection:bg-zinc-200 dark:selection:bg-zinc-700 !important;
     /* Match main gradient */
-    background: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%)) !important;
-}
-
-.dark .cm-editor,
-.dark .cm-gutters {
-    background: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%)) !important;
+    background: var(--main-gradient) !important;
 }
 
 /* Softer selection colors */
@@ -241,22 +248,22 @@ body {
 
 /* Component styles with eye-friendly gradients */
 .card, .button, .input {
-    background: linear-gradient(to right, hsl(30, 85%, 65%), hsl(28, 65%, 75%));
+    background: var(--main-gradient);
     @apply border-green-500/60 text-green-900 shadow-sm;
 }
 
 .dark .card, .dark .button, .dark .input {
-    background: linear-gradient(to right, hsl(30, 65%, 45%), hsl(28, 55%, 50%));
+    background: var(--main-gradient);
     @apply border-green-700/60 text-green-100 shadow-sm;
 }
 
 /* Softer footer gradient */
 .footer {
-    background: linear-gradient(to bottom, hsl(28, 70%, 80%), hsl(120, 40%, 45%));
+    background: linear-gradient(to bottom, var(--card), var(--secondary));
 }
 
 .dark .footer {
-    background: linear-gradient(to bottom, hsl(28, 60%, 55%), hsl(120, 35%, 35%));
+    background: linear-gradient(to bottom, var(--card), var(--secondary));
 }
 
 /* Accessibility improvements for interactive elements */
@@ -379,7 +386,7 @@ button, .btn {
     border-radius: var(--radius);
     font-weight: 500;
     transition: all 0.2s ease;
-    background: linear-gradient(to right, hsl(30, 90%, 60%), hsl(28, 70%, 70%));
+    background: var(--button-gradient);
     border: 1px solid transparent;
     color: hsla(0, 0%, 10%, 0.9);
 }
@@ -394,7 +401,7 @@ button:active, .btn:active {
 }
 
 .dark button, .dark .btn {
-    background: linear-gradient(to right, hsl(30, 70%, 45%), hsl(28, 60%, 55%));
+    background: var(--button-gradient);
     color: hsla(0, 0%, 95%, 0.9);
 }
 
@@ -426,12 +433,12 @@ button:active, .btn:active {
 /* Navigation enhancement */
 .nav {
     padding: 1rem;
-    background: linear-gradient(to right, hsl(30, 95%, 55%), hsl(28, 75%, 75%));
+    background: var(--header-gradient);
     border-bottom: 1px solid hsla(30, 60%, 65%, 0.3);
 }
 
 .dark .nav {
-    background: linear-gradient(to right, hsl(30, 70%, 35%), hsl(28, 60%, 50%));
+    background: var(--header-gradient);
     border-bottom: 1px solid hsla(30, 50%, 45%, 0.3);
 }
 
@@ -466,13 +473,13 @@ table {
 th {
     text-align: left;
     padding: 0.75rem 1rem;
-    background: linear-gradient(to right, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
+    background: var(--table-header-gradient);
     font-weight: 600;
     border-bottom: 2px solid hsla(30, 60%, 60%, 0.5);
 }
 
 .dark th {
-    background: linear-gradient(to right, hsl(30, 60%, 40%), hsl(28, 50%, 45%));
+    background: var(--table-header-gradient);
     border-bottom: 2px solid hsla(30, 50%, 40%, 0.5);
 }
 
@@ -541,15 +548,15 @@ pre code {
 }
 
 ::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, hsl(30, 50%, 85%), hsl(28, 40%, 90%));
+    background: var(--scrollbar-track-gradient);
 }
 
 .dark ::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, hsl(30, 30%, 25%), hsl(28, 25%, 30%));
+    background: var(--scrollbar-track-gradient);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
+    background: var(--scrollbar-thumb-gradient);
     border-radius: 7px;
     border: 3px solid transparent;
     background-clip: content-box;
@@ -561,7 +568,7 @@ pre code {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, hsl(30, 50%, 45%), hsl(28, 45%, 50%));
+    background: var(--scrollbar-thumb-gradient);
     background-clip: content-box;
 }
 
@@ -612,12 +619,12 @@ pre code {
 /* Header component with eye-friendly styling */
 .header {
     padding: 1.5rem 1rem;
-    background: linear-gradient(to right, hsl(30, 95%, 55%), hsl(28, 65%, 75%));
+    background: var(--header-gradient);
     border-bottom: 1px solid hsla(30, 60%, 60%, 0.3);
 }
 
 .dark .header {
-    background: linear-gradient(to right, hsl(30, 70%, 35%), hsl(28, 55%, 45%));
+    background: var(--header-gradient);
     border-bottom: 1px solid hsla(30, 50%, 40%, 0.3);
 }
 
@@ -652,7 +659,7 @@ pre code {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(to right, hsl(30, 90%, 60%), hsl(28, 70%, 70%));
+    background: var(--button-gradient);
     border-radius: var(--radius);
     transition: width 0.3s ease;
 }
@@ -662,7 +669,7 @@ pre code {
 }
 
 .dark .progress-bar {
-    background: linear-gradient(to right, hsl(30, 70%, 45%), hsl(28, 60%, 55%));
+    background: var(--button-gradient);
 }
 
 /* Media queries for responsive design */
@@ -728,4 +735,44 @@ pre code {
 .dark .skip-link {
     background: hsl(30, 70%, 50%);
     color: white;
+}
+
+/* Special embedding effect for switching background colors */
+.embedding-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    transition: background 0.5s ease;
+}
+
+.embedding-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, 
+                               hsla(30, 95%, 60%, 0.25), 
+                               hsla(28, 70%, 80%, 0.25));
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.embedding-container:hover::before {
+    background: linear-gradient(to right, 
+                              hsla(28, 70%, 80%, 0.25), 
+                              hsla(30, 95%, 60%, 0.25));
+}
+
+.dark .embedding-container::before {
+    background: linear-gradient(to right, 
+                               hsla(30, 70%, 40%, 0.25), 
+                               hsla(28, 60%, 55%, 0.25));
+}
+
+.dark .embedding-container:hover::before {
+    background: linear-gradient(to right, 
+                              hsla(28, 60%, 55%, 0.25), 
+                              hsla(30, 70%, 40%, 0.25));
 }
