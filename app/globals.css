@@ -5,107 +5,117 @@
 :root {
     /* Base colors for light mode with proper HSL syntax */
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 30, 95%, 60%;
-    --background-end-rgb: 28, 70%, 80%;
+    --background-start-rgb: 16, 80%, 65%; /* More peachy/terracotta */
+    --background-end-rgb: 25, 65%, 45%; /* Darker hue */
     
     /* Color system variables */
-    --background: hsl(30, 95%, 60%);
-    --foreground: hsl(0, 0%, 15%);  /* Slightly softer than pure black */
-    --card: hsl(28, 70%, 80%);
+    --background: hsl(16, 80%, 65%);
+    --foreground: hsl(0, 0%, 15%);
+    --card: hsl(25, 70%, 90%);
     --card-foreground: hsl(0, 0%, 15%);
-    --popover: hsl(28, 70%, 80%);
+    --popover: hsl(25, 70%, 90%);
     --popover-foreground: hsl(0, 0%, 15%);
-    --primary: hsl(30, 95%, 60%);
+    --primary: hsl(16, 80%, 65%);
     --primary-foreground: hsl(0, 0%, 15%);
-    --secondary: hsl(120, 40%, 45%);  /* Softer green */
+    --secondary: hsl(120, 40%, 45%);
     --secondary-foreground: hsl(0, 0%, 100%);
-    --muted: hsl(28, 30%, 90%);
+    --muted: hsl(25, 30%, 90%);
     --muted-foreground: hsl(0, 0%, 20%);
     --accent: hsl(120, 40%, 45%);
     --accent-foreground: hsl(0, 0%, 100%);
-    --destructive: hsl(0, 70%, 60%);  /* Softer red */
+    --destructive: hsl(0, 70%, 60%);
     --destructive-foreground: hsl(0, 0%, 98%);
-    --border: hsl(30, 60%, 65%);
-    --input: hsl(28, 70%, 80%);
-    --ring: hsl(30, 95%, 60%);
-    --chart-1: hsl(30, 95%, 60%);
-    --chart-2: hsl(28, 70%, 80%);
+    --border: hsl(16, 60%, 65%);
+    --input: hsl(25, 70%, 90%);
+    --ring: hsl(16, 80%, 65%);
+    --chart-1: hsl(16, 80%, 65%);
+    --chart-2: hsl(25, 70%, 90%);
     --chart-3: hsl(120, 40%, 45%);
-    --chart-4: hsl(30, 75%, 55%);
+    --chart-4: hsl(16, 75%, 55%);
     --chart-5: hsl(120, 50%, 40%);
-    --radius: 0.8rem;
+    --radius: 1.5rem; /* Increased border radius */
     
     /* Sidebar specific variables */
-    --sidebar-background: hsl(30, 80%, 65%);
+    --sidebar-background: hsl(16, 80%, 55%);
     --sidebar-foreground: hsl(0, 0%, 15%);
-    --sidebar-primary: hsl(30, 95%, 60%);
+    --sidebar-primary: hsl(16, 80%, 65%);
     --sidebar-primary-foreground: hsl(0, 0%, 15%);
     --sidebar-accent: hsl(120, 40%, 45%);
     --sidebar-accent-foreground: hsl(0, 0%, 100%);
-    --sidebar-border: hsl(30, 60%, 65%);
-    --sidebar-ring: hsl(30, 95%, 60%);
+    --sidebar-border: hsl(16, 60%, 65%);
+    --sidebar-ring: hsl(16, 80%, 65%);
     
-    /* Gradient definitions */
-    --main-gradient: linear-gradient(to right, hsl(30, 95%, 60%), hsl(28, 70%, 80%));
-    --button-gradient: linear-gradient(to right, hsl(30, 90%, 60%), hsl(28, 70%, 70%));
-    --header-gradient: linear-gradient(to right, hsl(30, 95%, 55%), hsl(28, 65%, 75%));
-    --table-header-gradient: linear-gradient(to right, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(30, 50%, 85%), hsl(28, 40%, 90%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(30, 70%, 65%), hsl(28, 60%, 75%));
+    /* Gradient definitions - updated for peach/terracotta to darker hue */
+    --main-gradient: linear-gradient(to right, hsl(16, 80%, 65%), hsl(25, 65%, 45%));
+    --button-gradient: linear-gradient(to right, hsl(16, 75%, 65%), hsl(25, 65%, 55%));
+    --header-gradient: linear-gradient(to right, hsl(16, 80%, 60%), hsl(25, 60%, 50%));
+    --table-header-gradient: linear-gradient(to right, hsl(16, 70%, 65%), hsl(25, 60%, 55%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(16, 50%, 85%), hsl(25, 40%, 75%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(16, 70%, 65%), hsl(25, 60%, 55%));
+    
+    /* New variables for floating effects */
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.05);
+    --floating-blur: 15px;
+    --floating-opacity: 0.9;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 30, 70%, 40%;
-        --background-end-rgb: 28, 60%, 55%;
+        --background-start-rgb: 16, 70%, 35%;
+        --background-end-rgb: 25, 60%, 25%;
     }
 }
 
 .dark {
     /* Dark mode with reduced contrast for eye strain */
-    --background: hsl(30, 70%, 40%);
-    --foreground: hsl(0, 0%, 95%);  /* Not pure white */
-    --card: hsl(30, 65%, 35%);
+    --background: hsl(16, 70%, 35%);
+    --foreground: hsl(0, 0%, 95%);
+    --card: hsl(16, 65%, 25%);
     --card-foreground: hsl(0, 0%, 95%);
-    --popover: hsl(30, 65%, 35%);
+    --popover: hsl(16, 65%, 25%);
     --popover-foreground: hsl(0, 0%, 95%);
-    --primary: hsl(28, 60%, 65%);
+    --primary: hsl(25, 60%, 55%);
     --primary-foreground: hsl(0, 0%, 15%);
     --secondary: hsl(120, 35%, 35%);
     --secondary-foreground: hsl(0, 0%, 95%);
-    --muted: hsl(30, 50%, 30%);
+    --muted: hsl(16, 50%, 20%);
     --muted-foreground: hsl(0, 0%, 85%);
     --accent: hsl(120, 35%, 35%);
     --accent-foreground: hsl(0, 0%, 95%);
     --destructive: hsl(0, 50%, 40%);
     --destructive-foreground: hsl(0, 0%, 95%);
-    --border: hsl(30, 50%, 45%);
-    --input: hsl(30, 50%, 45%);
-    --ring: hsl(28, 45%, 70%);
-    --chart-1: hsl(30, 70%, 55%);
-    --chart-2: hsl(28, 60%, 65%);
+    --border: hsl(16, 50%, 35%);
+    --input: hsl(16, 50%, 35%);
+    --ring: hsl(25, 45%, 60%);
+    --chart-1: hsl(16, 70%, 45%);
+    --chart-2: hsl(25, 60%, 55%);
     --chart-3: hsl(120, 35%, 45%);
-    --chart-4: hsl(30, 65%, 50%);
+    --chart-4: hsl(16, 65%, 40%);
     --chart-5: hsl(120, 45%, 35%);
     
     /* Sidebar dark mode variables */
-    --sidebar-background: hsl(30, 65%, 35%);
+    --sidebar-background: hsl(16, 65%, 25%);
     --sidebar-foreground: hsl(0, 0%, 95%);
-    --sidebar-primary: hsl(30, 70%, 50%);
+    --sidebar-primary: hsl(16, 70%, 40%);
     --sidebar-primary-foreground: hsl(0, 0%, 95%);
     --sidebar-accent: hsl(120, 35%, 35%);
     --sidebar-accent-foreground: hsl(0, 0%, 95%);
-    --sidebar-border: hsl(30, 50%, 45%);
-    --sidebar-ring: hsl(30, 70%, 55%);
+    --sidebar-border: hsl(16, 50%, 35%);
+    --sidebar-ring: hsl(16, 70%, 45%);
     
     /* Dark mode gradient definitions */
-    --main-gradient: linear-gradient(to right, hsl(30, 70%, 40%), hsl(28, 60%, 55%));
-    --button-gradient: linear-gradient(to right, hsl(30, 70%, 45%), hsl(28, 60%, 55%));
-    --header-gradient: linear-gradient(to right, hsl(30, 70%, 35%), hsl(28, 55%, 45%));
-    --table-header-gradient: linear-gradient(to right, hsl(30, 60%, 40%), hsl(28, 50%, 45%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(30, 30%, 25%), hsl(28, 25%, 30%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(30, 50%, 45%), hsl(28, 45%, 50%));
+    --main-gradient: linear-gradient(to right, hsl(16, 70%, 35%), hsl(25, 60%, 25%));
+    --button-gradient: linear-gradient(to right, hsl(16, 70%, 40%), hsl(25, 60%, 30%));
+    --header-gradient: linear-gradient(to right, hsl(16, 70%, 30%), hsl(25, 55%, 25%));
+    --table-header-gradient: linear-gradient(to right, hsl(16, 60%, 35%), hsl(25, 50%, 30%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(16, 30%, 20%), hsl(25, 25%, 25%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(16, 50%, 35%), hsl(25, 45%, 30%));
+    
+    /* Dark mode floating effects */
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 1px 8px rgba(0, 0, 0, 0.15);
+    --floating-blur: 20px;
+    --floating-opacity: 0.85;
 }
 
 @layer utilities {
@@ -128,7 +138,7 @@
         line-height: 1.5;
         /* Slightly softer than pure black */
         color: rgba(0, 0, 0, 0.85) !important;
-        /* Fix the warm orange to terracotta gradient */
+        /* Updated gradient for peach/terracotta to darker hue */
         background: var(--main-gradient);
         background-size: 100% 100%;
         background-repeat: no-repeat;
@@ -201,344 +211,221 @@
     }
 }
 
-/* CodeMirror editor with eye-friendly colors */
-.ProseMirror {
-    outline: none;
+/* Layout container for the entire page */
+.page-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+    grid-template-areas:
+        "sidebar main"
+        "footer footer";
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
-.cm-editor,
-.cm-gutters {
-    @apply outline-none selection:bg-zinc-200 dark:selection:bg-zinc-700 !important;
-    /* Match main gradient */
-    background: var(--main-gradient) !important;
+/* Sidebar styling with sundrenched matted effect */
+.sidebar {
+    grid-area: sidebar;
+    background: var(--sidebar-background);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Softer selection colors */
-.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
-.ͼo.cm-selectionBackground,
-.ͼo.cm-content::selection {
-    @apply bg-zinc-200/60 dark:bg-zinc-700/60 !important;
+/* Add matted sundrenched effect */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        hsla(16, 90%, 75%, 0.4),
+        hsla(16, 80%, 65%, 0.2)
+    );
+    z-index: 0;
+    opacity: 0.8;
 }
 
-.cm-activeLine,
-.cm-activeLineGutter {
-    @apply bg-transparent !important;
+.sidebar > * {
+    position: relative;
+    z-index: 1;
 }
 
-.cm-activeLine {
-    @apply rounded-r-sm !important;
+/* Main content area with floating effect */
+.main-content {
+    grid-area: main;
+    position: relative;
 }
 
-.cm-lineNumbers {
-    @apply min-w-7;
+/* Floating container with blur effect */
+.floating-container {
+    background: hsla(25, 70%, 90%, var(--floating-opacity));
+    backdrop-filter: blur(var(--floating-blur));
+    -webkit-backdrop-filter: blur(var(--floating-blur));
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid hsla(16, 60%, 75%, 0.3);
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cm-foldGutter {
-    @apply min-w-3;
+.floating-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.cm-lineNumbers .cm-activeLineGutter {
-    @apply rounded-l-sm !important;
+.dark .floating-container {
+    background: hsla(16, 65%, 25%, var(--floating-opacity));
+    border: 1px solid hsla(16, 50%, 45%, 0.3);
 }
 
-/* Softer highlight colors */
-.suggestion-highlight {
-    @apply bg-green-200/70 hover:bg-green-300/70 dark:hover:bg-green-400/40 dark:text-green-50 dark:bg-green-500/30;
-}
-
-/* Component styles with eye-friendly gradients */
-.card, .button, .input {
-    background: var(--main-gradient);
-    @apply border-green-500/60 text-green-900 shadow-sm;
-}
-
-.dark .card, .dark .button, .dark .input {
-    background: var(--main-gradient);
-    @apply border-green-700/60 text-green-100 shadow-sm;
-}
-
-/* Softer footer gradient */
+/* Footer with sundrenched matted effect */
 .footer {
-    background: linear-gradient(to bottom, var(--card), var(--secondary));
-}
-
-.dark .footer {
-    background: linear-gradient(to bottom, var(--card), var(--secondary));
-}
-
-/* Accessibility improvements for interactive elements */
-button, 
-input[type="button"], 
-input[type="submit"],
-input[type="reset"] {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    grid-area: footer;
+    background: var(--sidebar-background);
     border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Improved contrast for form elements */
-input, 
-textarea, 
-select {
-    font-size: 1rem;
-    padding: 0.75rem;
-    border-radius: var(--radius);
-    border: 2px solid var(--border);
+/* Add matted sundrenched effect to footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        hsla(16, 90%, 75%, 0.4),
+        hsla(16, 80%, 65%, 0.2)
+    );
+    z-index: 0;
+    opacity: 0.8;
 }
 
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+.footer > * {
+    position: relative;
+    z-index: 1;
 }
 
-/* Improve readability of long text */
-@media (max-width: 768px) {
-    body {
-        font-size: 1.2rem;
-    }
-}
-
-/* Improve readability of code blocks */
-pre {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 1rem;
-    border-radius: var(--radius);
-    background: var(--input);
-    color: var(--foreground);
-}
-
-/* Improved spacing and layout */
-.container {
-    padding: 1rem;
-    margin: 0 auto;
-    max-width: 1440px; /* Generous width for readability */
-}
-
-/* Enhanced typography scale */
-.text-xs {
-    font-size: 0.875rem;
-    line-height: 1.5;
-}
-
-.text-sm {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.text-base {
-    font-size: 1.25rem;
-    line-height: 1.6;
-}
-
-.text-lg {
-    font-size: 1.4rem;
-    line-height: 1.6;
-}
-
-.text-xl {
-    font-size: 1.625rem;
-    line-height: 1.4;
-}
-
-.text-2xl {
-    font-size: 1.875rem;
-    line-height: 1.3;
-}
-
-.text-3xl {
-    font-size: 2.25rem;
-    line-height: 1.2;
-}
-
-/* Enhanced form elements with eye-friendly styling */
-input, select, textarea {
-    background-color: hsla(28, 70%, 85%, 0.5); /* Soft transparent background */
-    border: 2px solid hsla(30, 60%, 65%, 0.6);
-    box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.05);
-    transition: all 0.2s ease;
-}
-
-.dark input, .dark select, .dark textarea {
-    background-color: hsla(30, 50%, 25%, 0.5);
-    border: 2px solid hsla(30, 50%, 45%, 0.6);
-    color: hsla(0, 0%, 95%, 0.9);
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: hsla(30, 95%, 60%, 0.8);
-    box-shadow: 0 0 0 3px hsla(30, 95%, 60%, 0.2);
-}
-
-.dark input:focus, .dark select:focus, .dark textarea:focus {
-    border-color: hsla(30, 70%, 50%, 0.8);
-    box-shadow: 0 0 0 3px hsla(30, 70%, 50%, 0.2);
-}
-
-/* Improved buttons with proper states */
-button, .btn {
-    padding: 0.65rem 1.25rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-    transition: all 0.2s ease;
-    background: var(--button-gradient);
-    border: 1px solid transparent;
-    color: hsla(0, 0%, 10%, 0.9);
-}
-
-button:hover, .btn:hover {
-    background: linear-gradient(to right, hsl(30, 95%, 65%), hsl(28, 75%, 75%));
-    transform: translateY(-1px);
-}
-
-button:active, .btn:active {
-    transform: translateY(1px);
-}
-
-.dark button, .dark .btn {
-    background: var(--button-gradient);
-    color: hsla(0, 0%, 95%, 0.9);
-}
-
-.dark button:hover, .dark .btn:hover {
-    background: linear-gradient(to right, hsl(30, 75%, 50%), hsl(28, 65%, 60%));
-}
-
-/* Enhanced card components */
+/* Card component with floating effect */
 .card {
     border-radius: var(--radius);
     padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: hsla(25, 70%, 95%, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid hsla(16, 60%, 75%, 0.3);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 .dark .card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: hsla(16, 60%, 20%, 0.85);
+    border: 1px solid hsla(16, 50%, 35%, 0.3);
 }
 
-.dark .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* Navigation enhancement */
-.nav {
-    padding: 1rem;
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(30, 60%, 65%, 0.3);
-}
-
-.dark .nav {
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(30, 50%, 45%, 0.3);
-}
-
-.nav-link {
-    padding: 0.5rem 1rem;
+/* Buttons with gradient and 3D effect */
+.button, .btn {
+    padding: 0.65rem 1.25rem;
+    background: var(--button-gradient);
     border-radius: var(--radius);
+    font-weight: 500;
     color: hsla(0, 0%, 10%, 0.9);
-    text-decoration: none;
-    transition: background-color 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transform: translateY(0);
 }
 
-.nav-link:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
+.button:hover, .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.dark .nav-link {
+.button:active, .btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.dark .button, .dark .btn {
+    background: var(--button-gradient);
     color: hsla(0, 0%, 95%, 0.9);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.16);
 }
 
-.dark .nav-link:hover {
-    background-color: hsla(0, 0%, 0%, 0.15);
+/* Special 3D floating divider */
+.floating-divider {
+    height: 5px;
+    background: linear-gradient(to right, hsla(16, 90%, 70%, 0.7), hsla(25, 70%, 50%, 0.7));
+    border-radius: 5px;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Tables with soft styling */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 1.5rem 0;
+.floating-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: hsla(16, 90%, 85%, 0.8);
+    border-radius: 5px;
 }
 
-th {
-    text-align: left;
-    padding: 0.75rem 1rem;
-    background: var(--table-header-gradient);
-    font-weight: 600;
-    border-bottom: 2px solid hsla(30, 60%, 60%, 0.5);
+.dark .floating-divider {
+    background: linear-gradient(to right, hsla(16, 70%, 45%, 0.7), hsla(25, 60%, 35%, 0.7));
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
 }
 
-.dark th {
-    background: var(--table-header-gradient);
-    border-bottom: 2px solid hsla(30, 50%, 40%, 0.5);
+.dark .floating-divider::before {
+    background: hsla(16, 70%, 55%, 0.4);
 }
 
-td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid hsla(30, 60%, 70%, 0.3);
-}
-
-.dark td {
-    border-bottom: 1px solid hsla(30, 50%, 40%, 0.3);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-/* Helper classes for eye comfort */
-.soft-shadow {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 2px rgba(0, 0, 0, 0.06);
-}
-
-.dark .soft-shadow {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.2);
-}
-
-.glass {
-    background: linear-gradient(to right, hsla(30, 95%, 60%, 0.15), hsla(28, 70%, 80%, 0.15));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsla(30, 70%, 70%, 0.3);
-}
-
-.dark .glass {
-    background: linear-gradient(to right, hsla(30, 70%, 40%, 0.2), hsla(28, 60%, 55%, 0.2));
-    border: 1px solid hsla(30, 50%, 50%, 0.3);
-}
-
-/* Code blocks with eye-friendly styling */
-pre, code {
-    font-family: "Aptos Mono", monospace;
-    font-size: 1rem;
-    background-color: hsla(30, 30%, 95%, 0.7);
-    border-radius: calc(var(--radius) - 0.25rem);
-    padding: 0.2em 0.4em;
-}
-
-pre {
-    padding: 1rem;
-    overflow-x: auto;
-    line-height: 1.45;
-}
-
-pre code {
-    background-color: transparent;
-    padding: 0;
-}
-
-.dark pre, .dark code {
-    background-color: hsla(30, 20%, 20%, 0.7);
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .page-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sidebar"
+            "main"
+            "footer";
+    }
+    
+    body {
+        font-size: 1.2rem;
+    }
+    
+    .floating-container,
+    .sidebar,
+    .footer {
+        padding: 1rem;
+    }
 }
 
 /* Custom scrollbar for eye comfort */
@@ -551,10 +438,6 @@ pre code {
     background: var(--scrollbar-track-gradient);
 }
 
-.dark ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-gradient);
-}
-
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb-gradient);
     border-radius: 7px;
@@ -563,178 +446,41 @@ pre code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(30, 75%, 60%), hsl(28, 65%, 70%));
+    background: linear-gradient(to bottom, hsl(16, 75%, 60%), hsl(25, 65%, 50%));
     background-clip: content-box;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-gradient);
-    background-clip: content-box;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(30, 55%, 50%), hsl(28, 50%, 55%));
-    background-clip: content-box;
-}
-
-/* Custom highlighting and selection */
-::selection {
-    background-color: hsla(30, 90%, 60%, 0.25);
-    color: inherit;
-}
-
-.dark ::selection {
-    background-color: hsla(30, 70%, 50%, 0.3);
-    color: inherit;
-}
-
-/* Print styles for accessibility */
-@media print {
-    body {
-        background: none !important;
-        color: black !important;
-        font-size: 12pt;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        color: black !important;
-        page-break-after: avoid;
-    }
-    
-    a {
-        color: black !important;
-        text-decoration: underline;
-    }
-    
-    .card, .btn, .nav {
-        background: none !important;
-        border: 1px solid #ddd;
-    }
-    
-    .no-print {
-        display: none !important;
-    }
-}
-
-/* Header component with eye-friendly styling */
-.header {
-    padding: 1.5rem 1rem;
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(30, 60%, 60%, 0.3);
-}
-
-.dark .header {
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(30, 50%, 40%, 0.3);
-}
-
-/* Enhanced loading indicators */
-.loading-spinner {
-    border: 4px solid hsla(30, 50%, 80%, 0.3);
-    border-top-color: hsl(30, 90%, 60%);
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    animation: spin 0.8s linear infinite;
-}
-
-.dark .loading-spinner {
-    border-color: hsla(30, 30%, 30%, 0.3);
-    border-top-color: hsl(30, 70%, 50%);
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Progress bar */
-.progress {
-    height: 0.5rem;
-    background-color: hsla(30, 50%, 80%, 0.3);
-    border-radius: var(--radius);
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: var(--button-gradient);
-    border-radius: var(--radius);
-    transition: width 0.3s ease;
-}
-
-.dark .progress {
-    background-color: hsla(30, 30%, 30%, 0.3);
-}
-
-.dark .progress-bar {
-    background: var(--button-gradient);
-}
-
-/* Media queries for responsive design */
-@media (max-width: 640px) {
-    body {
-        font-size: 1.2rem;
-    }
-    
-    .container {
-        padding: 0.75rem;
-    }
-    
-    .card {
-        padding: 1rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        padding: 1.5rem;
-    }
-    
-    .text-lg {
-        font-size: 1.5rem;
-    }
-    
-    .text-xl {
-        font-size: 1.75rem;
-    }
-}
-
-/* High contrast mode */
-@media (forced-colors: active) {
-    * {
-        border-color: CanvasText;
-    }
-    
-    a, button, .btn {
-        color: LinkText;
-    }
-    
-    input, textarea, select {
-        border: 2px solid CanvasText;
-    }
-}
-
-/* Skip to main content link for keyboard accessibility */
-.skip-link {
+/* Special blurred background elements */
+.blur-element {
     position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 0.5rem 1rem;
-    background: hsl(30, 95%, 60%);
-    color: black;
-    z-index: 100;
-    transition: top 0.2s ease;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.4;
 }
 
-.skip-link:focus {
-    top: 0;
+.blur-element-1 {
+    background: hsla(16, 90%, 65%, 0.6);
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
 }
 
-.dark .skip-link {
-    background: hsl(30, 70%, 50%);
-    color: white;
+.blur-element-2 {
+    background: hsla(25, 80%, 55%, 0.6);
+    width: 300px;
+    height: 300px;
+    bottom: 10%;
+    right: 5%;
+}
+
+.dark .blur-element-1 {
+    background: hsla(16, 70%, 45%, 0.5);
+}
+
+.dark .blur-element-2 {
+    background: hsla(25, 60%, 35%, 0.5);
 }
 
 /* Special embedding effect for switching background colors */
@@ -753,26 +499,26 @@ pre code {
     right: 0;
     bottom: 0;
     background: linear-gradient(to right, 
-                               hsla(30, 95%, 60%, 0.25), 
-                               hsla(28, 70%, 80%, 0.25));
+                               hsla(16, 80%, 65%, 0.25), 
+                               hsla(25, 70%, 45%, 0.25));
     z-index: -1;
     transition: opacity 0.5s ease;
 }
 
 .embedding-container:hover::before {
     background: linear-gradient(to right, 
-                              hsla(28, 70%, 80%, 0.25), 
-                              hsla(30, 95%, 60%, 0.25));
+                              hsla(25, 70%, 45%, 0.25), 
+                              hsla(16, 80%, 65%, 0.25));
 }
 
 .dark .embedding-container::before {
     background: linear-gradient(to right, 
-                               hsla(30, 70%, 40%, 0.25), 
-                               hsla(28, 60%, 55%, 0.25));
+                               hsla(16, 70%, 35%, 0.25), 
+                               hsla(25, 60%, 25%, 0.25));
 }
 
 .dark .embedding-container:hover::before {
     background: linear-gradient(to right, 
-                              hsla(28, 60%, 55%, 0.25), 
-                              hsla(30, 70%, 40%, 0.25));
+                              hsla(25, 60%, 25%, 0.25), 
+                              hsla(16, 70%, 35%, 0.25));
 }
