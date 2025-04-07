@@ -5,13 +5,13 @@
 :root {
     /* Base colors for light mode with proper HSL syntax */
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 43, 85%, 55%;  /* Mexican yellow */
-    --background-end-rgb: 28, 80%, 75%;    /* Amber infused yellow */
+    --background-start-rgb: 10, 70%, 62%;  /* Terracotta peach #E2725B */
+    --background-end-rgb: 20, 70%, 75%;    /* Lighter peach */
     
     /* Color system variables */
-    --background: hsl(43, 85%, 55%);
+    --background: hsl(10, 70%, 62%);
     --foreground: hsl(0, 0%, 15%);
-    --card: hsl(20, 75%, 80%);             /* Peach terracotta */
+    --card: hsl(20, 75%, 80%);             /* Soft peach */
     --card-foreground: hsl(0, 0%, 15%);
     --popover: hsl(20, 75%, 80%);
     --popover-foreground: hsl(0, 0%, 15%);
@@ -19,160 +19,100 @@
     --primary-foreground: hsl(0, 0%, 15%);
     --secondary: hsl(75, 45%, 45%);        /* Warm olive accent */
     --secondary-foreground: hsl(0, 0%, 100%);
-    --muted: hsl(20, 50%, 90%);
+    --muted: hsl(15, 50%, 90%);
     --muted-foreground: hsl(0, 0%, 20%);
     --accent: hsl(75, 45%, 45%);
     --accent-foreground: hsl(0, 0%, 100%);
     --destructive: hsl(0, 70%, 60%);
     --destructive-foreground: hsl(0, 0%, 98%);
-    --border: hsl(28, 60%, 65%);
+    --border: hsl(15, 60%, 65%);
     --input: hsl(20, 75%, 80%);
-    --ring: hsl(43, 85%, 55%);
-    --chart-1: hsl(43, 85%, 55%);
+    --ring: hsl(10, 70%, 62%);
+    --chart-1: hsl(10, 70%, 62%);
     --chart-2: hsl(20, 75%, 80%);
     --chart-3: hsl(75, 45%, 45%);
-    --chart-4: hsl(28, 75%, 60%);
+    --chart-4: hsl(15, 75%, 60%);
     --chart-5: hsl(75, 50%, 40%);
     --radius: 1.5rem;                      /* Increased border radius for more pronounced rounded corners */
     
-    /* 3D Effect Variables */
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --shadow-depth: 6px;
-    --shadow-spread: 10px;
-    --card-elevation: 5px;
-    --button-depth: 3px;
-    --panel-depth: 8px;
-    --inner-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-    --light-source: 135deg; /* Top-right light source */
-    --highlight-opacity: 0.3;
-    --edge-shadow: rgba(0, 0, 0, 0.15);
-    
     /* Sidebar specific variables */
-    --sidebar-background: hsl(28, 80%, 70%);
+    --sidebar-background: hsl(15, 80%, 70%);
     --sidebar-foreground: hsl(0, 0%, 15%);
     --sidebar-primary: hsl(43, 85%, 55%);
     --sidebar-primary-foreground: hsl(0, 0%, 15%);
     --sidebar-accent: hsl(75, 45%, 45%);
     --sidebar-accent-foreground: hsl(0, 0%, 100%);
-    --sidebar-border: hsl(28, 60%, 65%);
+    --sidebar-border: hsl(15, 60%, 65%);
     --sidebar-ring: hsl(43, 85%, 55%);
     
-    /* Gradient definitions - adjusted for Mexican yellow and peach terracotta */
-    --main-gradient: linear-gradient(to right, hsl(43, 85%, 55%), hsl(28, 80%, 70%));
+    /* Gradient definitions - adjusted for terracotta peach and mexican yellow */
+    --main-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
     --bottom-gradient: linear-gradient(to right, hsl(43, 70%, 50%), hsl(75, 45%, 45%));
-    --button-gradient: linear-gradient(to right, hsl(43, 85%, 60%), hsl(28, 75%, 75%));
-    --header-gradient: linear-gradient(to right, hsl(28, 85%, 70%), hsl(20, 70%, 80%));
-    --table-header-gradient: linear-gradient(to right, hsl(28, 70%, 75%), hsl(20, 60%, 80%));
+    --button-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
+    --header-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
+    --table-header-gradient: linear-gradient(to right, hsl(15, 70%, 75%), hsl(20, 60%, 80%));
     --scrollbar-track-gradient: linear-gradient(to bottom, hsl(20, 50%, 85%), hsl(20, 40%, 90%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(28, 70%, 70%), hsl(20, 60%, 80%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 70%, 62%), hsl(20, 60%, 80%));
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 43, 70%, 35%;
-        --background-end-rgb: 28, 60%, 45%;
+        --background-start-rgb: 10, 60%, 42%;
+        --background-end-rgb: 20, 55%, 50%;
     }
 }
 
 .dark {
     /* Dark mode with reduced contrast for eye strain */
-    --background: hsl(43, 70%, 35%);
+    --background: hsl(10, 60%, 35%);
     --foreground: hsl(0, 0%, 95%);
-    --card: hsl(20, 65%, 40%);            /* Darker peach terracotta */
+    --card: hsl(15, 55%, 40%);            /* Darker terracotta peach */
     --card-foreground: hsl(0, 0%, 95%);
-    --popover: hsl(20, 65%, 40%);
+    --popover: hsl(15, 55%, 40%);
     --popover-foreground: hsl(0, 0%, 95%);
     --primary: hsl(43, 60%, 55%);
     --primary-foreground: hsl(0, 0%, 15%);
     --secondary: hsl(75, 35%, 35%);
     --secondary-foreground: hsl(0, 0%, 95%);
-    --muted: hsl(20, 50%, 30%);
+    --muted: hsl(15, 40%, 30%);
     --muted-foreground: hsl(0, 0%, 85%);
     --accent: hsl(75, 35%, 35%);
     --accent-foreground: hsl(0, 0%, 95%);
     --destructive: hsl(0, 50%, 40%);
     --destructive-foreground: hsl(0, 0%, 95%);
-    --border: hsl(28, 50%, 45%);
-    --input: hsl(20, 50%, 45%);
-    --ring: hsl(43, 45%, 60%);
-    --chart-1: hsl(43, 70%, 50%);
+    --border: hsl(15, 50%, 45%);
+    --input: hsl(15, 50%, 45%);
+    --ring: hsl(10, 45%, 50%);
+    --chart-1: hsl(10, 60%, 50%);
     --chart-2: hsl(20, 60%, 60%);
     --chart-3: hsl(75, 35%, 45%);
-    --chart-4: hsl(28, 65%, 45%);
+    --chart-4: hsl(15, 65%, 45%);
     --chart-5: hsl(75, 45%, 35%);
     
-    /* 3D Effect Variables for Dark Mode */
-    --shadow-color: rgba(0, 0, 0, 0.4);
-    --shadow-depth: 6px;
-    --shadow-spread: 12px;
-    --inner-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-    --highlight-opacity: 0.15;
-    --edge-shadow: rgba(0, 0, 0, 0.25);
-    
     /* Sidebar dark mode variables */
-    --sidebar-background: hsl(28, 65%, 35%);
+    --sidebar-background: hsl(15, 55%, 35%);
     --sidebar-foreground: hsl(0, 0%, 95%);
     --sidebar-primary: hsl(43, 70%, 45%);
     --sidebar-primary-foreground: hsl(0, 0%, 95%);
     --sidebar-accent: hsl(75, 35%, 35%);
     --sidebar-accent-foreground: hsl(0, 0%, 95%);
-    --sidebar-border: hsl(28, 50%, 40%);
+    --sidebar-border: hsl(15, 50%, 40%);
     --sidebar-ring: hsl(43, 70%, 50%);
     
     /* Dark mode gradient definitions */
-    --main-gradient: linear-gradient(to right, hsl(43, 70%, 35%), hsl(28, 60%, 45%));
+    --main-gradient: linear-gradient(to right, hsl(10, 60%, 35%), hsl(20, 55%, 50%));
     --bottom-gradient: linear-gradient(to right, hsl(43, 60%, 30%), hsl(75, 35%, 35%));
-    --button-gradient: linear-gradient(to right, hsl(43, 70%, 40%), hsl(28, 60%, 50%));
-    --header-gradient: linear-gradient(to right, hsl(28, 70%, 30%), hsl(20, 55%, 40%));
-    --table-header-gradient: linear-gradient(to right, hsl(28, 60%, 35%), hsl(20, 50%, 40%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(20, 30%, 25%), hsl(20, 25%, 30%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(28, 50%, 40%), hsl(20, 45%, 45%));
+    --button-gradient: linear-gradient(to right, hsl(10, 60%, 40%), hsl(20, 55%, 50%));
+    --header-gradient: linear-gradient(to right, hsl(10, 60%, 35%), hsl(20, 50%, 45%));
+    --table-header-gradient: linear-gradient(to right, hsl(15, 55%, 40%), hsl(20, 50%, 45%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(15, 30%, 25%), hsl(15, 25%, 30%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 50%, 40%), hsl(20, 45%, 45%));
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
-    }
-    
-    /* 3D utility classes */
-    .depth-shadow {
-        box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
-    }
-    
-    .raised {
-        transform: translateZ(var(--card-elevation));
-        transform-style: preserve-3d;
-    }
-    
-    .inset {
-        box-shadow: var(--inner-shadow);
-    }
-    
-    .floating {
-        animation: float 6s ease-in-out infinite;
-    }
-    
-    .highlights {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .highlights::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -150%;
-        width: 200%;
-        height: 100%;
-        background: linear-gradient(
-            var(--light-source),
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, var(--highlight-opacity)) 50%,
-            rgba(255, 255, 255, 0) 100%
-        );
-        transform: rotate(25deg);
-        pointer-events: none;
     }
 }
 
@@ -192,11 +132,9 @@
         min-height: 100vh;
         @apply text-foreground;
         overflow-x: hidden;
-        /* Add perspective for 3D effects */
-        perspective: 1000px;
     }
     
-    /* Main background gradient with 3D layering */
+    /* Main background gradient */
     body::before {
         content: '';
         position: absolute;
@@ -209,13 +147,9 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: -2;
-        /* Add subtle noise texture for depth */
-        background-image: 
-            var(--main-gradient),
-            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     }
     
-    /* Bottom gradient overlay with 3D effect */
+    /* Bottom gradient overlay */
     body::after {
         content: '';
         position: absolute;
@@ -227,47 +161,21 @@
         background-size: 100% 100%;
         background-repeat: no-repeat;
         z-index: -1;
-        /* Add blur for depth perception */
-        filter: blur(1px);
-        transform: translateZ(-5px);
-        transform-style: preserve-3d;
     }
     
-    /* Panel effect with border radius and 3D shadow */
+    /* Panel effect with border radius */
     .main-panel {
-        background-color: hsl(20, 75%, 80%);  /* Peach terracotta */
+        background-color: hsl(20, 75%, 80%);  /* Soft peach */
         border-radius: var(--radius);
         margin-left: 10%;
         margin-right: 2%;
         margin-top: 2%;
         margin-bottom: 8%;
         min-height: 80vh;
-        /* Enhanced 3D shadow */
-        box-shadow: 
-            0 var(--panel-depth) var(--shadow-spread) var(--shadow-color),
-            0 1px 0 rgba(255, 255, 255, 0.4) inset,
-            0 -1px 0 var(--edge-shadow) inset;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         position: relative;
         z-index: 1;
-        /* 3D transformation */
-        transform: translateZ(0);
-        transform-style: preserve-3d;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-        /* Edge highlight effect */
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid var(--edge-shadow);
-        border-right: 1px solid var(--edge-shadow);
-    }
-    
-    /* Main panel hover state for interactive 3D */
-    .main-panel:hover {
-        transform: translateZ(2px) translateY(-2px);
-        box-shadow: 
-            0 calc(var(--panel-depth) + 2px) calc(var(--shadow-spread) + 5px) var(--shadow-color),
-            0 1px 0 rgba(255, 255, 255, 0.4) inset,
-            0 -1px 0 var(--edge-shadow) inset;
     }
 
     .dark body {
@@ -275,11 +183,7 @@
     }
     
     .dark .main-panel {
-        background-color: hsl(20, 65%, 40%); /* Darker peach terracotta */
-        /* Darker edge highlight */
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid var(--edge-shadow);
-        border-right: 1px solid var(--edge-shadow);
+        background-color: hsl(15, 55%, 40%); /* Darker terracotta peach */
     }
 
     /* Ensure Aptos font is properly defined */
@@ -300,71 +204,21 @@
         src: url(/fonts/geist-mono.woff2) format("woff2");
     }
     
-    /* Accessibility improvements with 3D enhancements */
+    /* Accessibility improvements */
     h1, h2, h3, h4, h5, h6 {
         line-height: 1.3;
         margin-bottom: 0.8em;
-        /* Text shadow for depth */
-        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-        position: relative;
-        z-index: 1;
-    }
-    
-    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     }
     
     a {
         text-decoration: underline;
         text-underline-offset: 0.2em;
-        /* Add subtle 3D effect to links */
-        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
-        position: relative;
-        transition: transform 0.2s ease;
-    }
-    
-    a:hover {
-        transform: translateY(-1px);
-    }
-    
-    .dark a {
-        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
     }
     
     /* Improve focus states for accessibility */
     :focus {
         outline: 3px solid var(--primary);
         outline-offset: 2px;
-        /* Add glow effect for focus */
-        box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
-    }
-    
-    /* 3D Keyframe animations */
-    @keyframes float {
-        0% {
-            transform: translateZ(0px);
-            box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
-        }
-        50% {
-            transform: translateZ(10px) translateY(-5px);
-            box-shadow: 0 calc(var(--shadow-depth) + 5px) calc(var(--shadow-spread) + 5px) var(--shadow-color);
-        }
-        100% {
-            transform: translateZ(0px);
-            box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
-        }
-    }
-    
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-        100% {
-            transform: scale(1);
-        }
     }
 }
 
@@ -385,12 +239,10 @@
 
     .skeleton-div {
         @apply bg-foreground/15 animate-pulse;
-        /* Add 3D effect to skeletons */
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 }
 
-/* CodeMirror editor with eye-friendly colors and 3D effect */
+/* CodeMirror editor with eye-friendly colors */
 .ProseMirror {
     outline: none;
 }
@@ -398,22 +250,8 @@
 .cm-editor,
 .cm-gutters {
     @apply outline-none selection:bg-zinc-200 dark:selection:bg-zinc-700 !important;
-    /* Match main gradient with 3D effect */
+    /* Match main gradient */
     background: var(--main-gradient) !important;
-    /* Add depth to code editor */
-    box-shadow: 
-        0 2px 5px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    transform-style: preserve-3d;
-}
-
-.dark .cm-editor,
-.dark .cm-gutters {
-    box-shadow: 
-        0 2px 5px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Softer selection colors */
@@ -426,8 +264,6 @@
 .cm-activeLine,
 .cm-activeLineGutter {
     @apply bg-transparent !important;
-    /* Add subtle highlight for active line */
-    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 .cm-activeLine {
@@ -436,10 +272,6 @@
 
 .cm-lineNumbers {
     @apply min-w-7;
-    /* Add depth to line numbers */
-    border-right: 1px solid var(--border);
-    position: relative;
-    z-index: 2;
 }
 
 .cm-foldGutter {
@@ -448,63 +280,34 @@
 
 .cm-lineNumbers .cm-activeLineGutter {
     @apply rounded-l-sm !important;
-    /* Add subtle highlight for active gutter */
-    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Softer highlight colors with 3D elevation */
+/* Softer highlight colors */
 .suggestion-highlight {
     @apply bg-green-200/70 hover:bg-green-300/70 dark:hover:bg-green-400/40 dark:text-green-50 dark:bg-green-500/30;
-    /* Add elevation to highlighted suggestions */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transform: translateZ(1px);
 }
 
-/* Component styles with eye-friendly gradients and 3D effects */
+/* Component styles with eye-friendly gradients */
 .card, .button, .input {
     background: var(--main-gradient);
-    @apply border-green-500/60 text-green-900;
-    /* Enhanced 3D shadow */
-    box-shadow: 
-        0 var(--card-elevation) 15px rgba(0, 0, 0, 0.08),
-        0 1px 0 rgba(255, 255, 255, 0.4) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-    /* 3D transform */
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @apply border-green-500/60 text-green-900 shadow-sm;
 }
 
 .dark .card, .dark .button, .dark .input {
     background: var(--main-gradient);
-    @apply border-green-700/60 text-green-100;
-    box-shadow: 
-        0 var(--card-elevation) 15px rgba(0, 0, 0, 0.15),
-        0 1px 0 rgba(255, 255, 255, 0.05) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+    @apply border-green-700/60 text-green-100 shadow-sm;
 }
 
-/* Softer footer gradient with 3D effect */
+/* Softer footer gradient - now uses bottom gradient */
 .footer {
     background: var(--bottom-gradient);
-    /* 3D effect for footer */
-    box-shadow: 
-        0 -4px 6px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    z-index: 1;
-    transform-style: preserve-3d;
 }
 
 .dark .footer {
     background: var(--bottom-gradient);
-    box-shadow: 
-        0 -4px 6px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Accessibility improvements for interactive elements with 3D effects */
+/* Accessibility improvements for interactive elements */
 button, 
 input[type="button"], 
 input[type="submit"],
@@ -512,42 +315,9 @@ input[type="reset"] {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: var(--radius);
-    /* 3D button effect */
-    position: relative;
-    transform-style: preserve-3d;
-    transform: translateZ(0);
-    transition: all 0.2s ease;
-    /* Shadow for depth */
-    box-shadow: 
-        0 var(--button-depth) 5px rgba(0, 0, 0, 0.1),
-        0 1px 0 rgba(255, 255, 255, 0.3) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
 }
 
-button:hover, 
-input[type="button"]:hover, 
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-    transform: translateY(-1px) translateZ(1px);
-    box-shadow: 
-        0 calc(var(--button-depth) + 1px) 7px rgba(0, 0, 0, 0.12),
-        0 1px 0 rgba(255, 255, 255, 0.3) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-}
-
-button:active, 
-input[type="button"]:active, 
-input[type="submit"]:active,
-input[type="reset"]:active {
-    /* Push effect on click */
-    transform: translateY(1px) translateZ(-1px);
-    box-shadow: 
-        0 1px 2px rgba(0, 0, 0, 0.1),
-        0 1px 0 rgba(255, 255, 255, 0.3) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-}
-
-/* Improved contrast for form elements with 3D effects */
+/* Improved contrast for form elements */
 input, 
 textarea, 
 select {
@@ -555,25 +325,6 @@ select {
     padding: 0.75rem;
     border-radius: var(--radius);
     border: 2px solid var(--border);
-    /* Inset shadow for depth */
-    box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.05),
-        0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    transform: translateZ(0);
-}
-
-input:focus, 
-textarea:focus, 
-select:focus {
-    /* Elevation on focus */
-    box-shadow: 
-        inset 0 1px 3px rgba(0, 0, 0, 0.02),
-        0 0 0 3px rgba(255, 204, 0, 0.2),
-        0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: var(--primary);
-    transform: translateZ(1px);
 }
 
 /* Reduce motion for users who prefer it */
@@ -598,7 +349,7 @@ select:focus {
     }
 }
 
-/* Improve readability of code blocks with 3D effects */
+/* Improve readability of code blocks */
 pre {
     font-size: 1rem;
     line-height: 1.5;
@@ -606,23 +357,6 @@ pre {
     border-radius: var(--radius);
     background: var(--input);
     color: var(--foreground);
-    /* 3D code block effect */
-    box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.05),
-        0 1px 3px rgba(0, 0, 0, 0.1);
-    position: relative;
-    /* Bevel effect */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    /* Transform */
-    transform: translateZ(0);
-}
-
-.dark pre {
-    box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.1),
-        0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Improved spacing and layout */
@@ -630,86 +364,66 @@ pre {
     padding: 1rem;
     margin: 0 auto;
     max-width: 1440px;
-    /* 3D container effect */
-    position: relative;
-    transform-style: preserve-3d;
 }
 
-/* Enhanced typography scale with 3D text effects */
+/* Enhanced typography scale */
 .text-xs {
     font-size: 0.875rem;
     line-height: 1.5;
-    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-sm {
     font-size: 1rem;
     line-height: 1.5;
-    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-base {
     font-size: 1.25rem;
     line-height: 1.6;
-    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-lg {
     font-size: 1.4rem;
     line-height: 1.6;
-    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-xl {
     font-size: 1.625rem;
     line-height: 1.4;
-    text-shadow: 0 0.75px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-2xl {
     font-size: 1.875rem;
     line-height: 1.3;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-3xl {
     font-size: 2.25rem;
     line-height: 1.2;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.dark .text-xs,
-.dark .text-sm,
-.dark .text-base,
-.dark .text-lg,
-.dark .text-xl,
-.dark .text-2xl,
-.dark .text-3xl {
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-}
-
-/* Enhanced form elements with eye-friendly styling and 3D effects */
+/* Enhanced form elements with eye-friendly styling */
 input, select, textarea {
-    background-color: hsla(20, 70%, 85%, 0.5);
-    border: 2px solid hsla(28, 60%, 65%, 0.6);
+    background-color: hsla(15, 70%, 85%, 0.5);
+    border: 2px solid hsla(15, 60%, 65%, 0.6);
     box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.05);
     transition: all 0.2s ease;
 }
 
 .dark input, .dark select, .dark textarea {
-    background-color: hsla(20, 50%, 25%, 0.5);
-    border: 2px solid hsla(28, 50%, 45%, 0.6);
+    background-color: hsla(15, 40%, 25%, 0.5);
+    border: 2px solid hsla(15, 50%, 45%, 0.6);
     color: hsla(0, 0%, 95%, 0.9);
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: hsla(43, 90%, 60%, 0.8);
-    box-shadow: 0 0 0 3px hsla(43, 90%, 60%, 0.2);
+    border-color: hsla(10, 70%, 62%, 0.8);
+    box-shadow: 0 0 0 3px hsla(10, 70%, 62%, 0.2);
 }
 
 .dark input:focus, .dark select:focus, .dark textarea:focus {
-    border-color: hsla(43, 70%, 50%, 0.8);
-    box-shadow: 0 0 0 3px hsla(43, 70%, 50%, 0.2);
+    border-color: hsla(10, 60%, 50%, 0.8);
+    box-shadow: 0 0 0 3px hsla(10, 60%, 50%, 0.2);
 }
 
 /* Improved buttons with proper states */
@@ -724,7 +438,7 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-    background: linear-gradient(to right, hsl(43, 95%, 65%), hsl(28, 75%, 75%));
+    background: linear-gradient(to right, hsl(10, 75%, 65%), hsl(20, 70%, 80%));
     transform: translateY(-1px);
 }
 
@@ -738,7 +452,7 @@ button:active, .btn:active {
 }
 
 .dark button:hover, .dark .btn:hover {
-    background: linear-gradient(to right, hsl(43, 75%, 50%), hsl(28, 65%, 55%));
+    background: linear-gradient(to right, hsl(10, 65%, 45%), hsl(20, 60%, 55%));
 }
 
 /* Enhanced card components */
@@ -766,12 +480,12 @@ button:active, .btn:active {
 .nav {
     padding: 1rem;
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(28, 60%, 65%, 0.3);
+    border-bottom: 1px solid hsla(15, 60%, 65%, 0.3);
 }
 
 .dark .nav {
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(28, 50%, 45%, 0.3);
+    border-bottom: 1px solid hsla(15, 50%, 45%, 0.3);
 }
 
 .nav-link {
@@ -807,21 +521,21 @@ th {
     padding: 0.75rem 1rem;
     background: var(--table-header-gradient);
     font-weight: 600;
-    border-bottom: 2px solid hsla(28, 60%, 60%, 0.5);
+    border-bottom: 2px solid hsla(15, 60%, 60%, 0.5);
 }
 
 .dark th {
     background: var(--table-header-gradient);
-    border-bottom: 2px solid hsla(28, 50%, 40%, 0.5);
+    border-bottom: 2px solid hsla(15, 50%, 40%, 0.5);
 }
 
 td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid hsla(28, 60%, 70%, 0.3);
+    border-bottom: 1px solid hsla(15, 60%, 70%, 0.3);
 }
 
 .dark td {
-    border-bottom: 1px solid hsla(28, 50%, 40%, 0.3);
+    border-bottom: 1px solid hsla(15, 50%, 40%, 0.3);
 }
 
 tr:last-child td {
@@ -838,22 +552,22 @@ tr:last-child td {
 }
 
 .glass {
-    background: linear-gradient(to right, hsla(43, 90%, 60%, 0.15), hsla(20, 70%, 80%, 0.15));
+    background: linear-gradient(to right, hsla(10, 70%, 62%, 0.15), hsla(20, 70%, 80%, 0.15));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsla(28, 70%, 70%, 0.3);
+    border: 1px solid hsla(15, 70%, 70%, 0.3);
 }
 
 .dark .glass {
-    background: linear-gradient(to right, hsla(43, 70%, 40%, 0.2), hsla(20, 60%, 55%, 0.2));
-    border: 1px solid hsla(28, 50%, 50%, 0.3);
+    background: linear-gradient(to right, hsla(10, 60%, 40%, 0.2), hsla(20, 55%, 50%, 0.2));
+    border: 1px solid hsla(15, 50%, 50%, 0.3);
 }
 
 /* Code blocks with eye-friendly styling */
 pre, code {
     font-family: "Aptos Mono", monospace;
     font-size: 1rem;
-    background-color: hsla(28, 30%, 95%, 0.7);
+    background-color: hsla(15, 30%, 95%, 0.7);
     border-radius: calc(var(--radius) - 0.25rem);
     padding: 0.2em 0.4em;
 }
@@ -870,7 +584,7 @@ pre code {
 }
 
 .dark pre, .dark code {
-    background-color: hsla(28, 20%, 20%, 0.7);
+    background-color: hsla(15, 20%, 20%, 0.7);
 }
 
 /* Custom scrollbar for eye comfort */
@@ -895,7 +609,7 @@ pre code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(28, 75%, 65%), hsl(20, 65%, 75%));
+    background: linear-gradient(to bottom, hsl(10, 75%, 65%), hsl(20, 65%, 75%));
     background-clip: content-box;
 }
 
@@ -905,18 +619,18 @@ pre code {
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(28, 55%, 50%), hsl(20, 50%, 55%));
+    background: linear-gradient(to bottom, hsl(10, 55%, 50%), hsl(20, 50%, 55%));
     background-clip: content-box;
 }
 
 /* Custom highlighting and selection */
 ::selection {
-    background-color: hsla(43, 90%, 60%, 0.25);
+    background-color: hsla(10, 70%, 62%, 0.25);
     color: inherit;
 }
 
 .dark ::selection {
-    background-color: hsla(43, 70%, 50%, 0.3);
+    background-color: hsla(10, 60%, 50%, 0.3);
     color: inherit;
 }
 
@@ -952,18 +666,18 @@ pre code {
 .header {
     padding: 1.5rem 1rem;
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(28, 60%, 60%, 0.3);
+    border-bottom: 1px solid hsla(15, 60%, 60%, 0.3);
 }
 
 .dark .header {
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(28, 50%, 40%, 0.3);
+    border-bottom: 1px solid hsla(15, 50%, 40%, 0.3);
 }
 
 /* Enhanced loading indicators */
 .loading-spinner {
-    border: 4px solid hsla(20, 50%, 80%, 0.3);
-    border-top-color: hsl(43, 90%, 60%);
+    border: 4px solid hsla(15, 50%, 80%, 0.3);
+    border-top-color: hsl(10, 70%, 62%);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -971,8 +685,8 @@ pre code {
 }
 
 .dark .loading-spinner {
-    border-color: hsla(20, 30%, 30%, 0.3);
-    border-top-color: hsl(43, 70%, 50%);
+    border-color: hsla(15, 30%, 30%, 0.3);
+    border-top-color: hsl(10, 60%, 50%);
 }
 
 @keyframes spin {
@@ -984,7 +698,7 @@ pre code {
 /* Progress bar */
 .progress {
     height: 0.5rem;
-    background-color: hsla(20, 50%, 80%, 0.3);
+    background-color: hsla(15, 50%, 80%, 0.3);
     border-radius: var(--radius);
     overflow: hidden;
 }
@@ -997,7 +711,7 @@ pre code {
 }
 
 .dark .progress {
-    background-color: hsla(20, 30%, 30%, 0.3);
+    background-color: hsla(15, 30%, 30%, 0.3);
 }
 
 .dark .progress-bar {
@@ -1054,7 +768,7 @@ pre code {
     top: -40px;
     left: 0;
     padding: 0.5rem 1rem;
-    background: hsl(43, 90%, 60%);
+    background: hsl(10, 70%, 62%);
     color: black;
     z-index: 100;
     transition: top 0.2s ease;
@@ -1065,7 +779,7 @@ pre code {
 }
 
 .dark .skip-link {
-    background: hsl(43, 70%, 50%);
+    background: hsl(10, 60%, 50%);
     color: white;
 }
 
@@ -1085,7 +799,7 @@ pre code {
     right: 0;
     bottom: 0;
     background: linear-gradient(to right, 
-                               hsla(43, 90%, 60%, 0.25), 
+                               hsla(10, 70%, 62%, 0.25), 
                                hsla(20, 70%, 80%, 0.25));
     z-index: -1;
     transition: opacity 0.5s ease;
@@ -1094,17 +808,17 @@ pre code {
 .embedding-container:hover::before {
     background: linear-gradient(to right, 
                               hsla(20, 70%, 80%, 0.25), 
-                              hsla(43, 90%, 60%, 0.25));
+                              hsla(10, 70%, 62%, 0.25));
 }
 
 .dark .embedding-container::before {
     background: linear-gradient(to right, 
-                               hsla(43, 70%, 40%, 0.25), 
-                               hsla(20, 60%, 55%, 0.25));
+                               hsla(10, 60%, 40%, 0.25), 
+                               hsla(20, 55%, 50%, 0.25));
 }
 
 .dark .embedding-container:hover::before {
     background: linear-gradient(to right, 
-                              hsla(20, 60%, 55%, 0.25), 
-                              hsla(43, 70%, 40%, 0.25));
+                              hsla(20, 55%, 50%, 0.25), 
+                              hsla(10, 60%, 40%, 0.25));
 }
