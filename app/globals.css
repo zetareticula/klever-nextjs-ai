@@ -5,139 +5,114 @@
 :root {
     /* Base colors for light mode with proper HSL syntax */
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 22, 60%, 75%;   /* Peach terracotta */
-    --background-end-rgb: 190, 30%, 70%;    /* Desaturated teal blue */
+    --background-start-rgb: 43, 85%, 55%;  /* Mexican yellow */
+    --background-end-rgb: 28, 80%, 75%;    /* Amber infused yellow */
     
     /* Color system variables */
-    --background: hsl(22, 60%, 75%);
+    --background: hsl(43, 85%, 55%);
     --foreground: hsl(0, 0%, 15%);
-    --card: hsl(35, 80%, 85%);              /* Soft buttery peach */
+    --card: hsl(20, 75%, 80%);             /* Peach terracotta */
     --card-foreground: hsl(0, 0%, 15%);
-    --popover: hsl(35, 80%, 85%);
+    --popover: hsl(20, 75%, 80%);
     --popover-foreground: hsl(0, 0%, 15%);
-    --primary: hsl(45, 90%, 65%);           /* Mexican yellow */
+    --primary: hsl(43, 85%, 55%);          /* Mexican yellow */
     --primary-foreground: hsl(0, 0%, 15%);
-    --secondary: hsl(60, 50%, 60%);         /* Warm buttery accent */
-    --secondary-foreground: hsl(0, 0%, 15%);
-    --muted: hsl(25, 50%, 90%);
+    --secondary: hsl(75, 45%, 45%);        /* Warm olive accent */
+    --secondary-foreground: hsl(0, 0%, 100%);
+    --muted: hsl(20, 50%, 90%);
     --muted-foreground: hsl(0, 0%, 20%);
-    --accent: hsl(60, 50%, 60%);
-    --accent-foreground: hsl(0, 0%, 15%);
+    --accent: hsl(75, 45%, 45%);
+    --accent-foreground: hsl(0, 0%, 100%);
     --destructive: hsl(0, 70%, 60%);
     --destructive-foreground: hsl(0, 0%, 98%);
-    --border: hsl(25, 60%, 80%);
-    --input: hsl(35, 80%, 85%);
-    --ring: hsl(22, 60%, 75%);
-    --chart-1: hsl(22, 60%, 75%);
-    --chart-2: hsl(35, 80%, 85%);
-    --chart-3: hsl(60, 50%, 60%);
-    --chart-4: hsl(25, 70%, 75%);
-    --chart-5: hsl(60, 55%, 55%);
+    --border: hsl(28, 60%, 65%);
+    --input: hsl(20, 75%, 80%);
+    --ring: hsl(43, 85%, 55%);
+    --chart-1: hsl(43, 85%, 55%);
+    --chart-2: hsl(20, 75%, 80%);
+    --chart-3: hsl(75, 45%, 45%);
+    --chart-4: hsl(28, 75%, 60%);
+    --chart-5: hsl(75, 50%, 40%);
     --radius: 1.5rem;                      /* Increased border radius for more pronounced rounded corners */
     
     /* Sidebar specific variables */
-    --sidebar-background: hsl(30, 80%, 80%);
+    --sidebar-background: hsl(28, 80%, 70%);
     --sidebar-foreground: hsl(0, 0%, 15%);
-    --sidebar-primary: hsl(45, 90%, 65%);
+    --sidebar-primary: hsl(43, 85%, 55%);
     --sidebar-primary-foreground: hsl(0, 0%, 15%);
-    --sidebar-accent: hsl(60, 50%, 60%);
-    --sidebar-accent-foreground: hsl(0, 0%, 15%);
-    --sidebar-border: hsl(25, 60%, 80%);
-    --sidebar-ring: hsl(45, 90%, 65%);
+    --sidebar-accent: hsl(75, 45%, 45%);
+    --sidebar-accent-foreground: hsl(0, 0%, 100%);
+    --sidebar-border: hsl(28, 60%, 65%);
+    --sidebar-ring: hsl(43, 85%, 55%);
     
-    /* Gradient definitions - adjusted for peach terracotta and mexican yellow */
-    --main-gradient: linear-gradient(to top right, 
-                                    hsl(22, 60%, 75%) 0%, 
-                                    hsl(45, 90%, 65%) 40%, 
-                                    hsl(190, 30%, 70%) 100%);
-    --bottom-gradient: linear-gradient(to right, hsl(45, 70%, 65%), hsl(60, 50%, 60%));
-    --button-gradient: linear-gradient(to right, hsl(22, 60%, 75%), hsl(35, 70%, 80%));
-    --header-gradient: linear-gradient(to right, hsl(22, 60%, 75%), hsl(35, 70%, 80%));
-    --table-header-gradient: linear-gradient(to right, hsl(25, 70%, 80%), hsl(30, 60%, 85%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(30, 50%, 90%), hsl(30, 40%, 95%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(22, 60%, 75%), hsl(35, 60%, 85%));
+    /* Gradient definitions - adjusted for Mexican yellow and peach terracotta */
+    --main-gradient: linear-gradient(to right, hsl(43, 85%, 55%), hsl(28, 80%, 70%));
+    --bottom-gradient: linear-gradient(to right, hsl(43, 70%, 50%), hsl(75, 45%, 45%));
+    --button-gradient: linear-gradient(to right, hsl(43, 85%, 60%), hsl(28, 75%, 75%));
+    --header-gradient: linear-gradient(to right, hsl(28, 85%, 70%), hsl(20, 70%, 80%));
+    --table-header-gradient: linear-gradient(to right, hsl(28, 70%, 75%), hsl(20, 60%, 80%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(20, 50%, 85%), hsl(20, 40%, 90%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(28, 70%, 70%), hsl(20, 60%, 80%));
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 22, 40%, 45%;
-        --background-end-rgb: 190, 20%, 35%;
+        --background-start-rgb: 43, 70%, 35%;
+        --background-end-rgb: 28, 60%, 45%;
     }
 }
 
 .dark {
     /* Dark mode with reduced contrast for eye strain */
-    --background: hsl(22, 40%, 45%);
+    --background: hsl(43, 70%, 35%);
     --foreground: hsl(0, 0%, 95%);
-    --card: hsl(25, 40%, 45%);            /* Darker terracotta peach */
+    --card: hsl(20, 65%, 40%);            /* Darker peach terracotta */
     --card-foreground: hsl(0, 0%, 95%);
-    --popover: hsl(25, 40%, 45%);
+    --popover: hsl(20, 65%, 40%);
     --popover-foreground: hsl(0, 0%, 95%);
-    --primary: hsl(45, 60%, 55%);
+    --primary: hsl(43, 60%, 55%);
     --primary-foreground: hsl(0, 0%, 15%);
-    --secondary: hsl(60, 35%, 45%);
+    --secondary: hsl(75, 35%, 35%);
     --secondary-foreground: hsl(0, 0%, 95%);
-    --muted: hsl(25, 30%, 35%);
+    --muted: hsl(20, 50%, 30%);
     --muted-foreground: hsl(0, 0%, 85%);
-    --accent: hsl(60, 35%, 45%);
+    --accent: hsl(75, 35%, 35%);
     --accent-foreground: hsl(0, 0%, 95%);
     --destructive: hsl(0, 50%, 40%);
     --destructive-foreground: hsl(0, 0%, 95%);
-    --border: hsl(25, 40%, 50%);
-    --input: hsl(25, 40%, 50%);
-    --ring: hsl(22, 40%, 50%);
-    --chart-1: hsl(22, 50%, 50%);
-    --chart-2: hsl(35, 50%, 60%);
-    --chart-3: hsl(60, 35%, 45%);
-    --chart-4: hsl(25, 55%, 45%);
-    --chart-5: hsl(60, 40%, 40%);
+    --border: hsl(28, 50%, 45%);
+    --input: hsl(20, 50%, 45%);
+    --ring: hsl(43, 45%, 60%);
+    --chart-1: hsl(43, 70%, 50%);
+    --chart-2: hsl(20, 60%, 60%);
+    --chart-3: hsl(75, 35%, 45%);
+    --chart-4: hsl(28, 65%, 45%);
+    --chart-5: hsl(75, 45%, 35%);
     
     /* Sidebar dark mode variables */
-    --sidebar-background: hsl(25, 40%, 40%);
+    --sidebar-background: hsl(28, 65%, 35%);
     --sidebar-foreground: hsl(0, 0%, 95%);
-    --sidebar-primary: hsl(45, 60%, 50%);
+    --sidebar-primary: hsl(43, 70%, 45%);
     --sidebar-primary-foreground: hsl(0, 0%, 95%);
-    --sidebar-accent: hsl(60, 35%, 45%);
+    --sidebar-accent: hsl(75, 35%, 35%);
     --sidebar-accent-foreground: hsl(0, 0%, 95%);
-    --sidebar-border: hsl(25, 40%, 45%);
-    --sidebar-ring: hsl(45, 60%, 55%);
+    --sidebar-border: hsl(28, 50%, 40%);
+    --sidebar-ring: hsl(43, 70%, 50%);
     
     /* Dark mode gradient definitions */
-    --main-gradient: linear-gradient(to top right, 
-                                   hsl(22, 40%, 45%) 0%, 
-                                   hsl(45, 50%, 45%) 40%, 
-                                   hsl(190, 20%, 35%) 100%);
-    --bottom-gradient: linear-gradient(to right, hsl(45, 50%, 40%), hsl(60, 35%, 45%));
-    --button-gradient: linear-gradient(to right, hsl(22, 45%, 50%), hsl(35, 45%, 55%));
-    --header-gradient: linear-gradient(to right, hsl(22, 40%, 45%), hsl(35, 40%, 50%));
-    --table-header-gradient: linear-gradient(to right, hsl(25, 40%, 45%), hsl(30, 40%, 50%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(25, 25%, 30%), hsl(25, 20%, 35%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(22, 40%, 45%), hsl(35, 35%, 50%));
+    --main-gradient: linear-gradient(to right, hsl(43, 70%, 35%), hsl(28, 60%, 45%));
+    --bottom-gradient: linear-gradient(to right, hsl(43, 60%, 30%), hsl(75, 35%, 35%));
+    --button-gradient: linear-gradient(to right, hsl(43, 70%, 40%), hsl(28, 60%, 50%));
+    --header-gradient: linear-gradient(to right, hsl(28, 70%, 30%), hsl(20, 55%, 40%));
+    --table-header-gradient: linear-gradient(to right, hsl(28, 60%, 35%), hsl(20, 50%, 40%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(20, 30%, 25%), hsl(20, 25%, 30%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(28, 50%, 40%), hsl(20, 45%, 45%));
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
-    }
-    
-    /* Adding the custom background utility class */
-    .bg-soft-sunset {
-        background-image: linear-gradient(
-            to top right,
-            hsl(22, 60%, 75%) 0%,
-            hsl(45, 90%, 65%) 40%,
-            hsl(190, 30%, 70%) 100%
-        );
-    }
-    
-    .dark .bg-soft-sunset {
-        background-image: linear-gradient(
-            to top right,
-            hsl(22, 40%, 45%) 0%,
-            hsl(45, 50%, 45%) 40%,
-            hsl(190, 20%, 35%) 100%
-        );
     }
 }
 
@@ -152,6 +127,7 @@
         font-size: 1.4rem;
         line-height: 1.5;
         color: rgba(0, 0, 0, 0.85) !important;
+        /* Create the panel effect with positioning */
         position: relative;
         min-height: 100vh;
         @apply text-foreground;
@@ -173,17 +149,15 @@
         z-index: -2;
     }
     
-    /* Subtle overlay for depth (removed bottom gradient in favor of full main gradient) */
+    /* Bottom gradient overlay */
     body::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at bottom left, 
-                                  hsla(22, 60%, 75%, 0.3) 0%,
-                                  transparent 70%);
+        height: 25%; /* Controls how much of the bottom has the olive gradient */
+        background: var(--bottom-gradient);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         z-index: -1;
@@ -191,7 +165,7 @@
     
     /* Panel effect with border radius */
     .main-panel {
-        background-color: hsl(35, 80%, 85%);  /* Soft buttery peach */
+        background-color: hsl(20, 75%, 80%);  /* Peach terracotta */
         border-radius: var(--radius);
         margin-left: 10%;
         margin-right: 2%;
@@ -209,7 +183,7 @@
     }
     
     .dark .main-panel {
-        background-color: hsl(25, 40%, 45%); /* Darker terracotta peach */
+        background-color: hsl(20, 65%, 40%); /* Darker peach terracotta */
     }
 
     /* Ensure Aptos font is properly defined */
@@ -246,21 +220,6 @@
         outline: 3px solid var(--primary);
         outline-offset: 2px;
     }
-}
-
-/* Card-like elements for UI components like in image */
-.ui-card {
-    background-color: hsla(0, 0%, 100%, 0.15);
-    backdrop-filter: blur(12px);
-    border-radius: var(--radius);
-    border: 1px solid hsla(0, 0%, 100%, 0.2);
-    padding: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.dark .ui-card {
-    background-color: hsla(0, 0%, 0%, 0.2);
-    border: 1px solid hsla(0, 0%, 100%, 0.1);
 }
 
 /* Make skeleton loading states easier on the eyes */
@@ -445,26 +404,26 @@ pre {
 
 /* Enhanced form elements with eye-friendly styling */
 input, select, textarea {
-    background-color: hsla(25, 60%, 90%, 0.5);
-    border: 2px solid hsla(25, 60%, 80%, 0.6);
+    background-color: hsla(20, 70%, 85%, 0.5);
+    border: 2px solid hsla(28, 60%, 65%, 0.6);
     box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.05);
     transition: all 0.2s ease;
 }
 
 .dark input, .dark select, .dark textarea {
-    background-color: hsla(25, 30%, 30%, 0.5);
-    border: 2px solid hsla(25, 40%, 50%, 0.6);
+    background-color: hsla(20, 50%, 25%, 0.5);
+    border: 2px solid hsla(28, 50%, 45%, 0.6);
     color: hsla(0, 0%, 95%, 0.9);
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: hsla(22, 60%, 75%, 0.8);
-    box-shadow: 0 0 0 3px hsla(22, 60%, 75%, 0.2);
+    border-color: hsla(43, 90%, 60%, 0.8);
+    box-shadow: 0 0 0 3px hsla(43, 90%, 60%, 0.2);
 }
 
 .dark input:focus, .dark select:focus, .dark textarea:focus {
-    border-color: hsla(22, 40%, 50%, 0.8);
-    box-shadow: 0 0 0 3px hsla(22, 40%, 50%, 0.2);
+    border-color: hsla(43, 70%, 50%, 0.8);
+    box-shadow: 0 0 0 3px hsla(43, 70%, 50%, 0.2);
 }
 
 /* Improved buttons with proper states */
@@ -479,7 +438,7 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-    background: linear-gradient(to right, hsl(22, 65%, 80%), hsl(35, 70%, 85%));
+    background: linear-gradient(to right, hsl(43, 95%, 65%), hsl(28, 75%, 75%));
     transform: translateY(-1px);
 }
 
@@ -493,7 +452,7 @@ button:active, .btn:active {
 }
 
 .dark button:hover, .dark .btn:hover {
-    background: linear-gradient(to right, hsl(22, 50%, 55%), hsl(35, 50%, 60%));
+    background: linear-gradient(to right, hsl(43, 75%, 50%), hsl(28, 65%, 55%));
 }
 
 /* Enhanced card components */
@@ -521,12 +480,12 @@ button:active, .btn:active {
 .nav {
     padding: 1rem;
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(25, 60%, 75%, 0.3);
+    border-bottom: 1px solid hsla(28, 60%, 65%, 0.3);
 }
 
 .dark .nav {
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(25, 40%, 45%, 0.3);
+    border-bottom: 1px solid hsla(28, 50%, 45%, 0.3);
 }
 
 .nav-link {
@@ -562,21 +521,21 @@ th {
     padding: 0.75rem 1rem;
     background: var(--table-header-gradient);
     font-weight: 600;
-    border-bottom: 2px solid hsla(25, 60%, 75%, 0.5);
+    border-bottom: 2px solid hsla(28, 60%, 60%, 0.5);
 }
 
 .dark th {
     background: var(--table-header-gradient);
-    border-bottom: 2px solid hsla(25, 40%, 45%, 0.5);
+    border-bottom: 2px solid hsla(28, 50%, 40%, 0.5);
 }
 
 td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid hsla(25, 60%, 80%, 0.3);
+    border-bottom: 1px solid hsla(28, 60%, 70%, 0.3);
 }
 
 .dark td {
-    border-bottom: 1px solid hsla(25, 40%, 45%, 0.3);
+    border-bottom: 1px solid hsla(28, 50%, 40%, 0.3);
 }
 
 tr:last-child td {
@@ -593,22 +552,22 @@ tr:last-child td {
 }
 
 .glass {
-    background: linear-gradient(to right, hsla(22, 60%, 75%, 0.15), hsla(35, 70%, 85%, 0.15));
+    background: linear-gradient(to right, hsla(43, 90%, 60%, 0.15), hsla(20, 70%, 80%, 0.15));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsla(25, 70%, 80%, 0.3);
+    border: 1px solid hsla(28, 70%, 70%, 0.3);
 }
 
 .dark .glass {
-    background: linear-gradient(to right, hsla(22, 40%, 50%, 0.2), hsla(35, 45%, 55%, 0.2));
-    border: 1px solid hsla(25, 40%, 50%, 0.3);
+    background: linear-gradient(to right, hsla(43, 70%, 40%, 0.2), hsla(20, 60%, 55%, 0.2));
+    border: 1px solid hsla(28, 50%, 50%, 0.3);
 }
 
 /* Code blocks with eye-friendly styling */
 pre, code {
     font-family: "Aptos Mono", monospace;
     font-size: 1rem;
-    background-color: hsla(25, 30%, 95%, 0.7);
+    background-color: hsla(28, 30%, 95%, 0.7);
     border-radius: calc(var(--radius) - 0.25rem);
     padding: 0.2em 0.4em;
 }
@@ -625,7 +584,7 @@ pre code {
 }
 
 .dark pre, .dark code {
-    background-color: hsla(25, 20%, 20%, 0.7);
+    background-color: hsla(28, 20%, 20%, 0.7);
 }
 
 /* Custom scrollbar for eye comfort */
@@ -650,7 +609,7 @@ pre code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(22, 65%, 80%), hsl(35, 65%, 85%));
+    background: linear-gradient(to bottom, hsl(28, 75%, 65%), hsl(20, 65%, 75%));
     background-clip: content-box;
 }
 
@@ -660,18 +619,18 @@ pre code {
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(22, 45%, 55%), hsl(35, 45%, 60%));
+    background: linear-gradient(to bottom, hsl(28, 55%, 50%), hsl(20, 50%, 55%));
     background-clip: content-box;
 }
 
 /* Custom highlighting and selection */
 ::selection {
-    background-color: hsla(22, 60%, 75%, 0.25);
+    background-color: hsla(43, 90%, 60%, 0.25);
     color: inherit;
 }
 
 .dark ::selection {
-    background-color: hsla(22, 40%, 50%, 0.3);
+    background-color: hsla(43, 70%, 50%, 0.3);
     color: inherit;
 }
 
@@ -707,18 +666,18 @@ pre code {
 .header {
     padding: 1.5rem 1rem;
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(25, 60%, 75%, 0.3);
+    border-bottom: 1px solid hsla(28, 60%, 60%, 0.3);
 }
 
 .dark .header {
     background: var(--header-gradient);
-    border-bottom: 1px solid hsla(25, 40%, 45%, 0.3);
+    border-bottom: 1px solid hsla(28, 50%, 40%, 0.3);
 }
 
 /* Enhanced loading indicators */
 .loading-spinner {
-    border: 4px solid hsla(25, 50%, 80%, 0.3);
-    border-top-color: hsl(22, 60%, 75%);
+    border: 4px solid hsla(20, 50%, 80%, 0.3);
+    border-top-color: hsl(43, 90%, 60%);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -726,8 +685,8 @@ pre code {
 }
 
 .dark .loading-spinner {
-    border-color: hsla(25, 30%, 30%, 0.3);
-    border-top-color: hsl(22, 40%, 50%);
+    border-color: hsla(20, 30%, 30%, 0.3);
+    border-top-color: hsl(43, 70%, 50%);
 }
 
 @keyframes spin {
@@ -739,7 +698,7 @@ pre code {
 /* Progress bar */
 .progress {
     height: 0.5rem;
-    background-color: hsla(25, 50%, 80%, 0.3);
+    background-color: hsla(20, 50%, 80%, 0.3);
     border-radius: var(--radius);
     overflow: hidden;
 }
@@ -752,7 +711,7 @@ pre code {
 }
 
 .dark .progress {
-    background-color: hsla(25, 30%, 30%, 0.3);
+    background-color: hsla(20, 30%, 30%, 0.3);
 }
 
 .dark .progress-bar {
@@ -809,7 +768,7 @@ pre code {
     top: -40px;
     left: 0;
     padding: 0.5rem 1rem;
-    background: hsl(22, 60%, 75%);
+    background: hsl(43, 90%, 60%);
     color: black;
     z-index: 100;
     transition: top 0.2s ease;
@@ -820,7 +779,7 @@ pre code {
 }
 
 .dark .skip-link {
-    background: hsl(22, 40%, 50%);
+    background: hsl(43, 70%, 50%);
     color: white;
 }
 
@@ -839,9 +798,9 @@ pre code {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top right, 
-                               hsla(22, 60%, 75%, 0.25), 
-                               hsla(45, 90%, 65%, 0.25));
+    background: linear-gradient(to right, 
+                               hsla(43, 90%, 60%, 0.25), 
+                               hsla(20, 70%, 80%, 0.25));
     z-index: -1;
     transition: opacity 0.5s ease;
 }
@@ -849,17 +808,17 @@ pre code {
 .embedding-container:hover::before {
     background: linear-gradient(to right, 
                               hsla(20, 70%, 80%, 0.25), 
-                              hsla(10, 70%, 62%, 0.25));
+                              hsla(43, 90%, 60%, 0.25));
 }
 
 .dark .embedding-container::before {
     background: linear-gradient(to right, 
-                               hsla(10, 60%, 40%, 0.25), 
-                               hsla(20, 55%, 50%, 0.25));
+                               hsla(43, 70%, 40%, 0.25), 
+                               hsla(20, 60%, 55%, 0.25));
 }
 
 .dark .embedding-container:hover::before {
     background: linear-gradient(to right, 
-                              hsla(20, 55%, 50%, 0.25), 
-                              hsla(10, 60%, 40%, 0.25));
+                              hsla(20, 60%, 55%, 0.25), 
+                              hsla(43, 70%, 40%, 0.25));
 }
