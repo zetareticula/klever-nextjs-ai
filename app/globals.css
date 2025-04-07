@@ -719,7 +719,7 @@ button::after, .btn::after {
 
 .dark button:hover, .dark .btn:hover {
     background: linear-gradient(to right, hsl(10, 65%, 45%), hsl(20, 60%, 55%));
-    
+
 }
 
 /* Enhanced card components */
@@ -1088,4 +1088,6 @@ pre code {
     background: linear-gradient(to right, 
                               hsla(20, 55%, 50%, 0.25), 
                               hsla(10, 60%, 40%, 0.25));
-}
+} /* End of embedding effect */
+} /* End of CSS file */
+
