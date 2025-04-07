@@ -35,6 +35,18 @@
     --chart-5: hsl(75, 50%, 40%);
     --radius: 1.5rem;                      /* Increased border radius for more pronounced rounded corners */
     
+    /* 3D Effect Variables */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-depth: 6px;
+    --shadow-spread: 10px;
+    --card-elevation: 5px;
+    --button-depth: 3px;
+    --panel-depth: 8px;
+    --inner-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    --light-source: 135deg; /* Top-right light source */
+    --highlight-opacity: 0.3;
+    --edge-shadow: rgba(0, 0, 0, 0.15);
+    
     /* Sidebar specific variables */
     --sidebar-background: hsl(28, 80%, 70%);
     --sidebar-foreground: hsl(0, 0%, 15%);
@@ -90,6 +102,14 @@
     --chart-4: hsl(28, 65%, 45%);
     --chart-5: hsl(75, 45%, 35%);
     
+    /* 3D Effect Variables for Dark Mode */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-depth: 6px;
+    --shadow-spread: 12px;
+    --inner-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    --highlight-opacity: 0.15;
+    --edge-shadow: rgba(0, 0, 0, 0.25);
+    
     /* Sidebar dark mode variables */
     --sidebar-background: hsl(28, 65%, 35%);
     --sidebar-foreground: hsl(0, 0%, 95%);
@@ -114,6 +134,46 @@
     .text-balance {
         text-wrap: balance;
     }
+    
+    /* 3D utility classes */
+    .depth-shadow {
+        box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
+    }
+    
+    .raised {
+        transform: translateZ(var(--card-elevation));
+        transform-style: preserve-3d;
+    }
+    
+    .inset {
+        box-shadow: var(--inner-shadow);
+    }
+    
+    .floating {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .highlights {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .highlights::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+            var(--light-source),
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, var(--highlight-opacity)) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: rotate(25deg);
+        pointer-events: none;
+    }
 }
 
 @layer base {
@@ -132,9 +192,11 @@
         min-height: 100vh;
         @apply text-foreground;
         overflow-x: hidden;
+        /* Add perspective for 3D effects */
+        perspective: 1000px;
     }
     
-    /* Main background gradient */
+    /* Main background gradient with 3D layering */
     body::before {
         content: '';
         position: absolute;
@@ -147,9 +209,13 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: -2;
+        /* Add subtle noise texture for depth */
+        background-image: 
+            var(--main-gradient),
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     }
     
-    /* Bottom gradient overlay */
+    /* Bottom gradient overlay with 3D effect */
     body::after {
         content: '';
         position: absolute;
@@ -161,9 +227,13 @@
         background-size: 100% 100%;
         background-repeat: no-repeat;
         z-index: -1;
+        /* Add blur for depth perception */
+        filter: blur(1px);
+        transform: translateZ(-5px);
+        transform-style: preserve-3d;
     }
     
-    /* Panel effect with border radius */
+    /* Panel effect with border radius and 3D shadow */
     .main-panel {
         background-color: hsl(20, 75%, 80%);  /* Peach terracotta */
         border-radius: var(--radius);
@@ -172,10 +242,32 @@
         margin-top: 2%;
         margin-bottom: 8%;
         min-height: 80vh;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        /* Enhanced 3D shadow */
+        box-shadow: 
+            0 var(--panel-depth) var(--shadow-spread) var(--shadow-color),
+            0 1px 0 rgba(255, 255, 255, 0.4) inset,
+            0 -1px 0 var(--edge-shadow) inset;
         overflow: hidden;
         position: relative;
         z-index: 1;
+        /* 3D transformation */
+        transform: translateZ(0);
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        /* Edge highlight effect */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid var(--edge-shadow);
+        border-right: 1px solid var(--edge-shadow);
+    }
+    
+    /* Main panel hover state for interactive 3D */
+    .main-panel:hover {
+        transform: translateZ(2px) translateY(-2px);
+        box-shadow: 
+            0 calc(var(--panel-depth) + 2px) calc(var(--shadow-spread) + 5px) var(--shadow-color),
+            0 1px 0 rgba(255, 255, 255, 0.4) inset,
+            0 -1px 0 var(--edge-shadow) inset;
     }
 
     .dark body {
@@ -184,6 +276,10 @@
     
     .dark .main-panel {
         background-color: hsl(20, 65%, 40%); /* Darker peach terracotta */
+        /* Darker edge highlight */
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid var(--edge-shadow);
+        border-right: 1px solid var(--edge-shadow);
     }
 
     /* Ensure Aptos font is properly defined */
@@ -204,21 +300,71 @@
         src: url(/fonts/geist-mono.woff2) format("woff2");
     }
     
-    /* Accessibility improvements */
+    /* Accessibility improvements with 3D enhancements */
     h1, h2, h3, h4, h5, h6 {
         line-height: 1.3;
         margin-bottom: 0.8em;
+        /* Text shadow for depth */
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     }
     
     a {
         text-decoration: underline;
         text-underline-offset: 0.2em;
+        /* Add subtle 3D effect to links */
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+        position: relative;
+        transition: transform 0.2s ease;
+    }
+    
+    a:hover {
+        transform: translateY(-1px);
+    }
+    
+    .dark a {
+        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
     }
     
     /* Improve focus states for accessibility */
     :focus {
         outline: 3px solid var(--primary);
         outline-offset: 2px;
+        /* Add glow effect for focus */
+        box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+    }
+    
+    /* 3D Keyframe animations */
+    @keyframes float {
+        0% {
+            transform: translateZ(0px);
+            box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
+        }
+        50% {
+            transform: translateZ(10px) translateY(-5px);
+            box-shadow: 0 calc(var(--shadow-depth) + 5px) calc(var(--shadow-spread) + 5px) var(--shadow-color);
+        }
+        100% {
+            transform: translateZ(0px);
+            box-shadow: 0 var(--shadow-depth) var(--shadow-spread) var(--shadow-color);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 }
 
@@ -239,10 +385,12 @@
 
     .skeleton-div {
         @apply bg-foreground/15 animate-pulse;
+        /* Add 3D effect to skeletons */
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 }
 
-/* CodeMirror editor with eye-friendly colors */
+/* CodeMirror editor with eye-friendly colors and 3D effect */
 .ProseMirror {
     outline: none;
 }
@@ -250,8 +398,22 @@
 .cm-editor,
 .cm-gutters {
     @apply outline-none selection:bg-zinc-200 dark:selection:bg-zinc-700 !important;
-    /* Match main gradient */
+    /* Match main gradient with 3D effect */
     background: var(--main-gradient) !important;
+    /* Add depth to code editor */
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transform-style: preserve-3d;
+}
+
+.dark .cm-editor,
+.dark .cm-gutters {
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Softer selection colors */
@@ -264,6 +426,8 @@
 .cm-activeLine,
 .cm-activeLineGutter {
     @apply bg-transparent !important;
+    /* Add subtle highlight for active line */
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 .cm-activeLine {
@@ -272,6 +436,10 @@
 
 .cm-lineNumbers {
     @apply min-w-7;
+    /* Add depth to line numbers */
+    border-right: 1px solid var(--border);
+    position: relative;
+    z-index: 2;
 }
 
 .cm-foldGutter {
@@ -280,34 +448,63 @@
 
 .cm-lineNumbers .cm-activeLineGutter {
     @apply rounded-l-sm !important;
+    /* Add subtle highlight for active gutter */
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Softer highlight colors */
+/* Softer highlight colors with 3D elevation */
 .suggestion-highlight {
     @apply bg-green-200/70 hover:bg-green-300/70 dark:hover:bg-green-400/40 dark:text-green-50 dark:bg-green-500/30;
+    /* Add elevation to highlighted suggestions */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform: translateZ(1px);
 }
 
-/* Component styles with eye-friendly gradients */
+/* Component styles with eye-friendly gradients and 3D effects */
 .card, .button, .input {
     background: var(--main-gradient);
-    @apply border-green-500/60 text-green-900 shadow-sm;
+    @apply border-green-500/60 text-green-900;
+    /* Enhanced 3D shadow */
+    box-shadow: 
+        0 var(--card-elevation) 15px rgba(0, 0, 0, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.4) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    /* 3D transform */
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dark .card, .dark .button, .dark .input {
     background: var(--main-gradient);
-    @apply border-green-700/60 text-green-100 shadow-sm;
+    @apply border-green-700/60 text-green-100;
+    box-shadow: 
+        0 var(--card-elevation) 15px rgba(0, 0, 0, 0.15),
+        0 1px 0 rgba(255, 255, 255, 0.05) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.2) inset;
 }
 
-/* Softer footer gradient - now uses bottom gradient */
+/* Softer footer gradient with 3D effect */
 .footer {
     background: var(--bottom-gradient);
+    /* 3D effect for footer */
+    box-shadow: 
+        0 -4px 6px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
 }
 
 .dark .footer {
     background: var(--bottom-gradient);
+    box-shadow: 
+        0 -4px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Accessibility improvements for interactive elements */
+/* Accessibility improvements for interactive elements with 3D effects */
 button, 
 input[type="button"], 
 input[type="submit"],
@@ -315,9 +512,42 @@ input[type="reset"] {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: var(--radius);
+    /* 3D button effect */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: all 0.2s ease;
+    /* Shadow for depth */
+    box-shadow: 
+        0 var(--button-depth) 5px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
 }
 
-/* Improved contrast for form elements */
+button:hover, 
+input[type="button"]:hover, 
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    transform: translateY(-1px) translateZ(1px);
+    box-shadow: 
+        0 calc(var(--button-depth) + 1px) 7px rgba(0, 0, 0, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+button:active, 
+input[type="button"]:active, 
+input[type="submit"]:active,
+input[type="reset"]:active {
+    /* Push effect on click */
+    transform: translateY(1px) translateZ(-1px);
+    box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.3) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+/* Improved contrast for form elements with 3D effects */
 input, 
 textarea, 
 select {
@@ -325,6 +555,25 @@ select {
     padding: 0.75rem;
     border-radius: var(--radius);
     border: 2px solid var(--border);
+    /* Inset shadow for depth */
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    transform: translateZ(0);
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    /* Elevation on focus */
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.02),
+        0 0 0 3px rgba(255, 204, 0, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: var(--primary);
+    transform: translateZ(1px);
 }
 
 /* Reduce motion for users who prefer it */
@@ -349,7 +598,7 @@ select {
     }
 }
 
-/* Improve readability of code blocks */
+/* Improve readability of code blocks with 3D effects */
 pre {
     font-size: 1rem;
     line-height: 1.5;
@@ -357,6 +606,23 @@ pre {
     border-radius: var(--radius);
     background: var(--input);
     color: var(--foreground);
+    /* 3D code block effect */
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Bevel effect */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    /* Transform */
+    transform: translateZ(0);
+}
+
+.dark pre {
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Improved spacing and layout */
@@ -364,45 +630,65 @@ pre {
     padding: 1rem;
     margin: 0 auto;
     max-width: 1440px;
+    /* 3D container effect */
+    position: relative;
+    transform-style: preserve-3d;
 }
 
-/* Enhanced typography scale */
+/* Enhanced typography scale with 3D text effects */
 .text-xs {
     font-size: 0.875rem;
     line-height: 1.5;
+    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-sm {
     font-size: 1rem;
     line-height: 1.5;
+    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-base {
     font-size: 1.25rem;
     line-height: 1.6;
+    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-lg {
     font-size: 1.4rem;
     line-height: 1.6;
+    text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-xl {
     font-size: 1.625rem;
     line-height: 1.4;
+    text-shadow: 0 0.75px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-2xl {
     font-size: 1.875rem;
     line-height: 1.3;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .text-3xl {
     font-size: 2.25rem;
     line-height: 1.2;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Enhanced form elements with eye-friendly styling */
+.dark .text-xs,
+.dark .text-sm,
+.dark .text-base,
+.dark .text-lg,
+.dark .text-xl,
+.dark .text-2xl,
+.dark .text-3xl {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced form elements with eye-friendly styling and 3D effects */
 input, select, textarea {
     background-color: hsla(20, 70%, 85%, 0.5);
     border: 2px solid hsla(28, 60%, 65%, 0.6);
