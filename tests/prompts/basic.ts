@@ -1,5 +1,9 @@
 import { CoreMessage } from 'ai';
 
+// This file contains test prompts for the AI model
+// It defines the prompts and their expected responses using the `CoreMessage` type
+// The prompts are used to test the AI model and its responses
+// Record is a built-in TypeScript type that represents an object with string keys and values of a specific type
 export const TEST_PROMPTS: Record<string, CoreMessage> = {
   USER_SKY: {
     role: 'user',

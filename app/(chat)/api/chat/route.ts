@@ -28,6 +28,10 @@ import { myProvider } from '@/lib/ai/providers';
 
 export const maxDuration = 60;
 
+// POST is used to create a new chat, or append a message to an existing chat
+// it is a server action that is used to handle the chat messages
+// if the chat already exists, it will append the message to the existing chat
+// if the chat does not exist, it will create a new chat
 export async function POST(request: Request) {
   try {
     const {
@@ -35,17 +39,20 @@ export async function POST(request: Request) {
       messages,
       selectedChatModel,
     }: {
-      id: string;
-      messages: Array<Message>;
-      selectedChatModel: string;
-    } = await request.json();
+      id: string; // The chat ID
+      messages: Array<Message>; // The chat messages
+      selectedChatModel: string; // The selected chat model which is used to generate the response
+    } = await request.json(); // Parse the request body as JSON
 
+    // Check if the id is provided
     const session = await auth();
 
+    //if session is not found, return 401
     if (!session || !session.user || !session.user.id) {
       return new Response('Unauthorized', { status: 401 });
     }
-
+    
+    // userMessage is the most recent user message in the chat
     const userMessage = getMostRecentUserMessage(messages);
 
     if (!userMessage) {
@@ -54,6 +61,9 @@ export async function POST(request: Request) {
 
     const chat = await getChatById({ id });
 
+    // Check if the chat exists, if it doesn't, create a new chat
+    // if the chat exists, check if the user is authorized to access it
+    // if the user is not authorized, return 401
     if (!chat) {
       const title = await generateTitleFromUserMessage({
         message: userMessage,
@@ -66,10 +76,17 @@ export async function POST(request: Request) {
       }
     }
 
+    // Save the user message to the database which is used to display the chat history
+    // the user message is the most recent message in the chat
+    // the messages are the chat history
     await saveMessages({
       messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
     });
 
+    // Check if the chat model is valid
+    // if the chat model is not valid, return 400
+    // streamText is used to stream the response from the AI model
+    //experimental_activeTools is used to enable the tools that are used to generate the response
     return createDataStreamResponse({
       execute: (dataStream) => {
         const result = streamText({

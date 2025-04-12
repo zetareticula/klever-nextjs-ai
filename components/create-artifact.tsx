@@ -3,7 +3,11 @@ import { UseChatHelpers } from '@ai-sdk/react';
 import { ComponentType, Dispatch, ReactNode, SetStateAction } from 'react';
 import { DataStreamDelta } from './data-stream-handler';
 import { UIArtifact } from './artifact';
-
+// ArtifactActionContext is used to define the context of the artifact action
+// it contains the content, handleVersionChange, currentVersionIndex, isCurrentVersion, mode, metadata and setMetadata
+// the content is the content of the artifact, handleVersionChange is a function that is used to handle the version change
+// the currentVersionIndex is the index of the current version, isCurrentVersion is a boolean that indicates if the current version is the latest version
+// the mode is the mode of the artifact, metadata is the metadata of the artifact and setMetadata is a function that is used to set the metadata
 export type ArtifactActionContext<M = any> = {
   content: string;
   handleVersionChange: (type: 'next' | 'prev' | 'toggle' | 'latest') => void;
@@ -14,6 +18,12 @@ export type ArtifactActionContext<M = any> = {
   setMetadata: Dispatch<SetStateAction<M>>;
 };
 
+// ArtifactAction is used to define the action of the artifact
+// it contains the icon, label, description, onClick and isDisabled
+// ReactNode is used to define the icon of the artifact action which is a react component
+// the react component for icon is passed as a prop to the ArtifactAction
+// a prop is a property that is passed to a react component
+// onClick is a function that is used to handle the click event of the artifact action
 type ArtifactAction<M = any> = {
   icon: ReactNode;
   label?: string;
@@ -22,10 +32,13 @@ type ArtifactAction<M = any> = {
   isDisabled?: (context: ArtifactActionContext<M>) => boolean;
 };
 
+// ArtifactToolbarContext is used to define the context of the artifact toolbar
+// it contains the appendMessage function which is used to append a message to the chat
 export type ArtifactToolbarContext = {
   appendMessage: UseChatHelpers['append'];
 };
-
+// ArtifactToolbarItem is used to define the item of the artifact toolbar
+// it contains the description, icon and onClick
 export type ArtifactToolbarItem = {
   description: string;
   icon: ReactNode;

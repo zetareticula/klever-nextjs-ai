@@ -36,6 +36,13 @@ export const artifactDefinitions = [
 ];
 export type ArtifactKind = (typeof artifactDefinitions)[number]['kind'];
 
+/// This is the type of the artifact that is used in the UI
+/// It contains the title, documentId, kind, content, isVisible, status and boundingBox
+/// The title is the title of the artifact
+/// The documentId is the id of the document that is used to create the artifact
+/// The kind is the kind of the artifact, it can be text, code, image or sheet
+/// The content is the content of the artifact, it can be text, code or image
+/// The isVisible is a boolean that indicates if the artifact is visible or not
 export interface UIArtifact {
   title: string;
   documentId: string;

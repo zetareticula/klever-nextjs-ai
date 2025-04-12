@@ -1,6 +1,8 @@
 import { CoreMessage, LanguageModelV1StreamPart } from 'ai';
 import { TEST_PROMPTS } from './basic';
 
+// This function compares two messages to check if they are the same
+// It checks if the role is the same and if the content is the same
 export function compareMessages(
   firstMessage: CoreMessage,
   secondMessage: CoreMessage,
@@ -18,12 +20,17 @@ export function compareMessages(
     return false;
   }
 
+  // Check if the content types are the same, and if the content is the same
+  // for each item in the content array, if the type is 'image', check if the image is the same
+  // if the type is 'text', check if the text is the same
+  // if the type is 'tool-result', check if the toolCallId is the same
   for (let i = 0; i < firstMessage.content.length; i++) {
     const item1 = firstMessage.content[i];
     const item2 = secondMessage.content[i];
 
     if (item1.type !== item2.type) return false;
 
+    // Check if the content is the same, if the type is 'image', check if the image is the same
     if (item1.type === 'image' && item2.type === 'image') {
       // if (item1.image.toString() !== item2.image.toString()) return false;
       // if (item1.mimeType !== item2.mimeType) return false;
@@ -39,14 +46,19 @@ export function compareMessages(
   return true;
 }
 
+// This function takes a string and converts it into an array of LanguageModelV1StreamPart objects
+// LanguageModelV1StreamPart is a type that represents a part of the language model stream
+// It takes a string and splits it into an array of strings using the space character as a delimiter
+// It then maps each string to an object with the type 'text-delta' and the textDelta property
 const textToDeltas = (text: string): LanguageModelV1StreamPart[] => {
   const deltas = text
     .split(' ')
     .map((char) => ({ type: 'text-delta' as const, textDelta: `${char} ` }));
 
-  return deltas;
+  return deltas; 
 };
 
+// reasoningToDeltas is a function that takes a string and converts it into an array of LanguageModelV1StreamPart objects
 const reasoningToDeltas = (text: string): LanguageModelV1StreamPart[] => {
   const deltas = text
     .split(' ')
@@ -55,6 +67,9 @@ const reasoningToDeltas = (text: string): LanguageModelV1StreamPart[] => {
   return deltas;
 };
 
+// This function takes a prompt and a boolean value isReasoningEnabled
+// It checks if the prompt is a recent message, if it is, it returns an array of LanguageModelV1StreamPart objects
+// If the prompt is not a recent message, it throws an error
 export const getResponseChunksByPrompt = (
   prompt: CoreMessage[],
   isReasoningEnabled: boolean = false,
@@ -65,6 +80,11 @@ export const getResponseChunksByPrompt = (
     throw new Error('No recent message found!');
   }
 
+  //if isReasoningEnabled is true, then we can use reasoningToDeltas
+  // compareMessages is a function that compares two messages to check if they are the same
+  // it checks if the role is the same and if the content is the same
+  // if the content is the same, it returns true
+  // if the content is not the same, it returns false
   if (isReasoningEnabled) {
     if (compareMessages(recentMessage, TEST_PROMPTS.USER_SKY)) {
       return [

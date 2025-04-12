@@ -11,6 +11,9 @@ import {
   boolean,
 } from 'drizzle-orm/pg-core';
 
+// This file contains the database schema for the application.
+// It defines the tables and their columns using the drizzle-orm library.
+// The schema is used to create the database tables and their relationships.
 export const user = pgTable('User', {
   id: uuid('id').primaryKey().notNull().defaultRandom(),
   email: varchar('email', { length: 64 }).notNull(),
