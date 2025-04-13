@@ -41,24 +41,24 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   // this would display the emoji in the title and the text in the label
   const suggestedActions = [
     {
-      imageSrc: 'public/icons/image.png',
-      label: 'Render Fun activities for seniors in San Francisco',
-      action: 'Render Fun activities for seniors in San Francisco',
+      imageSrc: '/icons/image.png',
+      label: 'Genie',
+      action: 'Render Fun activities for seniors in San Francisco with links and images',
     },
     {
-      imageSrc: 'public/icons/owl.png',
-      label: 'Suggest Neurocognitive tasks for seniors',
-      action: `Suggest Neurocognitive tasks for seniors`,
+      imageSrc: '/icons/owl.png',
+      label: 'Neurogoo',
+      action: `Suggest a Neurocognitive task for seniors`,
     },
     {
-      imageSrc: 'public/icons/paperclip.png',
-      label: 'How can I save info using Vercel blobs and Supabase?',
-      action: `How can I save important information using Vercel blobs and Supabase?`,
+      imageSrc: '/icons/paperclip.png',
+      label: 'Trove?',
+      action: `Kindly and in a sophisticated manner implement a form of reminder using inference level LLM?`,
     },
     {
       imageSrc: '/icons/spiral.png',
-      label: 'What is the weather in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      label: 'Tutorial?',
+      action: 'Write a five step manual introducing chatbots to an accessibility first crowd, focus on simplicity and clarity; be folksy and friendly at the same time.?',
     },
   ];
 //this div is used to display the suggested actions, for example, if the user is asking about the weather, we can display suggested actions like "What is the weather in San Francisco?" or "What is the weather in New York?" etc.
@@ -129,7 +129,7 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ delay: 0.05 * index }}
-          key={`suggested-action-${suggestedAction.label}-${index}`}
+          key={`suggested-action-${index}`}
           className={index > 1 ? 'hidden sm:block' : 'block'}
         >
           <Button
