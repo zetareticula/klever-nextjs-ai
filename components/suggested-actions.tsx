@@ -148,8 +148,8 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   <Image
     src={suggestedAction.imageSrc}
     alt="icon"
-    width={96}
-    height={96}
+    width={40}
+    height={50}
     className="mb-1"
   />
 )}</span>
