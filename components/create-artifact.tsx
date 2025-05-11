@@ -80,6 +80,8 @@ type ArtifactConfig<T extends string, M = any> = {
   }) => void;
 };
 
+/// Artifact is used to define the artifact
+/// it contains the kind, description, content, actions and toolbar
 export class Artifact<T extends string, M = any> {
   readonly kind: T;
   readonly description: string;

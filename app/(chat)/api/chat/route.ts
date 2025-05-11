@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     } = await request.json(); // Parse the request body as JSON
 
     // Check if the id is provided
-    const session = await auth();
+    const session = await auth(); // Get the session from the auth provider
 
     //if session is not found, return 401
     if (!session || !session.user || !session.user.id) {
@@ -65,6 +65,7 @@ export async function POST(request: Request) {
     // if the chat exists, check if the user is authorized to access it
     // if the user is not authorized, return 401
     if (!chat) {
+      //
       const title = await generateTitleFromUserMessage({
         message: userMessage,
       });

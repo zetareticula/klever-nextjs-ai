@@ -27,10 +27,10 @@ export const Overview = () => {
           
         </p>
         <p>
-          Klever{' '}
+          Welcome to Klever{' '}
           <Link
             className="font-medium underline underline-offset-4"
-            href="https://github.com/vercel/ai-chatbot"
+            href="https://www.kleverinc.com"
             target="_blank"
           >
             AI
@@ -45,7 +45,7 @@ export const Overview = () => {
           {' '}
           <Link
             className="font-medium underline underline-offset-4"
-            href="https://sdk.vercel.ai/docs"
+            href="https://www.kleverinc.com"
             target="_blank"
           >
             

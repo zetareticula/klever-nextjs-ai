@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-    /* Base colors for light mode with proper HSL syntax - unchanged */
+    /* Base colors for light mode with proper HSL syntax */
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 10, 70%, 62%;  /* Terracotta peach #E2725B */
-    --background-end-rgb: 20, 70%, 75%;    /* Lighter peach */
+    --background-start-rgb: 158, 195, 210;  /* Misty Cyan Sky #9EC3D2 */
+    --background-end-rgb: 218, 140, 106;    /* Blush Terracotta #DA8C6A */
     
-    /* Color system variables - unchanged */
-    --background: hsl(10, 70%, 62%);
+    /* Color system variables */
+    --background: linear-gradient(135deg, hsl(195, 35%, 72%), hsl(36, 85%, 73%), hsl(15, 60%, 63%));
     --foreground: hsl(0, 0%, 15%);
     --card: hsl(20, 75%, 80%);             /* Soft peach */
     --card-foreground: hsl(0, 0%, 15%);
@@ -35,7 +35,7 @@
     --chart-5: hsl(75, 50%, 40%);
     --radius: 1.5rem;                      /* Increased border radius for more pronounced rounded corners */
     
-    /* 3D effect variables - NEW */
+    /* 3D effect variables */
     --shadow-light: hsla(10, 70%, 45%, 0.5);
     --shadow-dark: hsla(10, 70%, 20%, 0.4);
     --highlight: hsla(20, 70%, 95%, 0.6);
@@ -44,7 +44,7 @@
     --depth-large: 12px;
     --bevel-angle: 135deg;
     
-    /* Sidebar specific variables - unchanged */
+    /* Sidebar specific variables */
     --sidebar-background: hsl(15, 80%, 70%);
     --sidebar-foreground: hsl(0, 0%, 15%);
     --sidebar-primary: hsl(43, 85%, 55%);
@@ -54,9 +54,9 @@
     --sidebar-border: hsl(15, 60%, 65%);
     --sidebar-ring: hsl(43, 85%, 55%);
     
-    /* Gradient definitions - unchanged */
-    --main-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
-    --bottom-gradient: linear-gradient(to right, hsl(43, 70%, 50%), hsl(75, 45%, 45%));
+    /* Gradient definitions - UPDATED based on the image */
+    --main-gradient: linear-gradient(135deg, #9EC3D2, #F4C181, #DA8C6A);
+    --bottom-gradient: linear-gradient(135deg, #F2B2A1, #F6A96F);
     --button-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
     --header-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
     --table-header-gradient: linear-gradient(to right, hsl(15, 70%, 75%), hsl(20, 60%, 80%));
@@ -67,14 +67,14 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 10, 60%, 42%;
-        --background-end-rgb: 20, 55%, 50%;
+        --background-start-rgb: 120, 150, 170;  /* Darker Cyan */
+        --background-end-rgb: 165, 95, 70;      /* Darker Terracotta */
     }
 }
 
 .dark {
-    /* Dark mode with reduced contrast for eye strain - unchanged */
-    --background: hsl(10, 60%, 35%);
+    /* Dark mode with reduced contrast for eye strain */
+    --background: linear-gradient(135deg, hsl(195, 25%, 35%), hsl(36, 45%, 45%), hsl(15, 40%, 42%));
     --foreground: hsl(0, 0%, 95%);
     --card: hsl(15, 55%, 40%);            /* Darker terracotta peach */
     --card-foreground: hsl(0, 0%, 95%);
@@ -99,12 +99,12 @@
     --chart-4: hsl(15, 65%, 45%);
     --chart-5: hsl(75, 45%, 35%);
     
-    /* 3D effect variables for dark mode - NEW */
+    /* 3D effect variables for dark mode */
     --shadow-light: hsla(10, 60%, 45%, 0.5);
     --shadow-dark: hsla(10, 60%, 10%, 0.5);
     --highlight: hsla(20, 50%, 60%, 0.4);
     
-    /* Sidebar dark mode variables - unchanged */
+    /* Sidebar dark mode variables */
     --sidebar-background: hsl(15, 55%, 35%);
     --sidebar-foreground: hsl(0, 0%, 95%);
     --sidebar-primary: hsl(43, 70%, 45%);
@@ -114,9 +114,9 @@
     --sidebar-border: hsl(15, 50%, 40%);
     --sidebar-ring: hsl(43, 70%, 50%);
     
-    /* Dark mode gradient definitions - unchanged */
-    --main-gradient: linear-gradient(to right, hsl(10, 60%, 35%), hsl(20, 55%, 50%));
-    --bottom-gradient: linear-gradient(to right, hsl(43, 60%, 30%), hsl(75, 35%, 35%));
+    /* Dark mode gradient definitions - UPDATED based on the image with darker tones */
+    --main-gradient: linear-gradient(135deg, #527A8C, #B38556, #A55F46);
+    --bottom-gradient: linear-gradient(135deg, #A57265, #B37347);
     --button-gradient: linear-gradient(to right, hsl(10, 60%, 40%), hsl(20, 55%, 50%));
     --header-gradient: linear-gradient(to right, hsl(10, 60%, 35%), hsl(20, 50%, 45%));
     --table-header-gradient: linear-gradient(to right, hsl(15, 55%, 40%), hsl(20, 50%, 45%));
@@ -129,7 +129,7 @@
         text-wrap: balance;
     }
     
-    /* New 3D utility classes */
+    /* 3D utility classes */
     .embossed {
         box-shadow: 
             inset 2px 2px 5px var(--highlight),
@@ -185,11 +185,11 @@
         min-height: 100vh;
         @apply text-foreground;
         overflow-x: hidden;
-        /* 3D perspective for the entire page - NEW */
+        /* 3D perspective for the entire page */
         perspective: 1000px;
     }
     
-    /* Main background gradient with 3D depth - UPDATED */
+    /* Main background gradient with 3D depth - UPDATED to match the image */
     body::before {
         content: '';
         position: absolute;
@@ -198,31 +198,46 @@
         width: 100%;
         height: 100%;
         background: var(--main-gradient);
-        background-size: 100% 100%;
+        background-size: 400% 400%;
+        background-position: 0% 50%;
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: -2;
-        /* Add subtle texture for depth - NEW */
+        /* Add subtle texture for depth */
         box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
+        /* Slight animation for subtle movement - optional */
+        animation: gradient-shift 15s ease infinite alternate;
     }
     
-    /* Bottom gradient overlay with 3D effect - UPDATED */
+    @keyframes gradient-shift {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+    
+    /* Bottom gradient overlay with 3D effect - UPDATED to match the image */
     body::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 25%; /* Controls how much of the bottom has the olive gradient */
+        height: 30%;
         background: var(--bottom-gradient);
-        background-size: 100% 100%;
+        background-size: 200% 200%;
+        background-position: 0% 50%;
         background-repeat: no-repeat;
         z-index: -1;
-        /* 3D shadow for depth - NEW */
+        /* 3D shadow for depth */
         box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        opacity: 0.8;
     }
     
-    /* Panel effect with border radius and 3D effect - UPDATED */
+    /* Rest of your CSS remains unchanged */
+    /* Panel effect with border radius and 3D effect */
     .main-panel {
         background-color: hsl(20, 75%, 80%);  /* Soft peach */
         border-radius: var(--radius);
@@ -231,7 +246,7 @@
         margin-top: 2%;
         margin-bottom: 8%;
         min-height: 80vh;
-        /* Enhanced 3D shadow - UPDATED */
+        /* Enhanced 3D shadow */
         box-shadow: 
             5px 5px 20px var(--shadow-dark),
             -2px -2px 10px var(--highlight),
@@ -239,18 +254,18 @@
         overflow: hidden;
         position: relative;
         z-index: 1;
-        /* 3D transformation - NEW */
+        /* 3D transformation */
         transform: rotateX(1deg) rotateY(-1deg);
         transform-style: preserve-3d;
         transition: transform 0.3s ease;
     }
     
-    /* Add hover effect to enhance 3D - NEW */
+    /* Add hover effect to enhance 3D */
     .main-panel:hover {
         transform: rotateX(0.5deg) rotateY(-0.5deg) translateZ(5px);
     }
     
-    /* Add inner highlight to main panel - NEW */
+    /* Add inner highlight to main panel */
     .main-panel::after {
         content: '';
         position: absolute;
@@ -282,6 +297,11 @@
                                   hsla(15, 55%, 50%, 0.15), 
                                   transparent);
     }
+
+    /* The rest of your CSS remains unchanged */
+
+
+/* The remaining CSS is unchanged from the original file */
 
     /* Ensure Aptos font is properly defined */
     @font-face {
@@ -345,6 +365,7 @@
         outline-offset: 2px;
     }
 }
+
 
 /* Make skeleton loading states easier on the eyes */
 .skeleton {
