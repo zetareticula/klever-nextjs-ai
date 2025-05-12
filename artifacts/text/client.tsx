@@ -18,20 +18,29 @@ interface TextArtifactMetadata {
   suggestions: Array<Suggestion>;
 }
 
+/// This is the metadata for the artifact
+/// This is used to store the suggestions for the text artifact
+/// This is used to store the metadata for the artifact 
 export const textArtifact = new Artifact<'text', TextArtifactMetadata>({
   kind: 'text',
   description: 'Useful for text content, like drafting essays and emails.',
   initialize: async ({ documentId, setMetadata }) => {
     const suggestions = await getSuggestions({ documentId });
 
+    /// Set the metadata for the artifact
     setMetadata({
       suggestions,
     });
   },
+  /// This is used to handle the different types of artifacts
   onStreamPart: ({ streamPart, setMetadata, setArtifact }) => {
+    /// This is used to handle the different types of artifacts
     if (streamPart.type === 'suggestion') {
+      /// This is used to handle the suggestion type of artifact
       setMetadata((metadata) => {
+        /// This is used to handle the metadata for the artifact
         return {
+          /// This is used to handle the suggestions for the artifact
           suggestions: [
             ...metadata.suggestions,
             streamPart.content as Suggestion,
@@ -40,9 +49,13 @@ export const textArtifact = new Artifact<'text', TextArtifactMetadata>({
       });
     }
 
+    /// This is used to handle the text-delta type of artifact
     if (streamPart.type === 'text-delta') {
+      /// This is used to handle the text-delta type of artifact
       setArtifact((draftArtifact) => {
+        //// This is used to handle the text-delta type of artifact
         return {
+          /// This is used to handle the text-delta type of artifact
           ...draftArtifact,
           content: draftArtifact.content + (streamPart.content as string),
           isVisible:

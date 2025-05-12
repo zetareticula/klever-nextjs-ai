@@ -20,8 +20,12 @@ export const user = pgTable('User', {
   password: varchar('password', { length: 64 }),
 });
 
+//InferSelectModel is used to infer the type of the model from the schema
+// The InferSelectModel type is used to infer the type of the model from the schema
 export type User = InferSelectModel<typeof user>;
 
+/// The chat table stores the chat information.
+// it contains the chat id, created at timestamp, title, user id, and visibility type.
 export const chat = pgTable('Chat', {
   id: uuid('id').primaryKey().notNull().defaultRandom(),
   createdAt: timestamp('createdAt').notNull(),
@@ -34,8 +38,12 @@ export const chat = pgTable('Chat', {
     .default('private'),
 });
 
+//InferSelectModel is used to infer the type of the model from the schema
+// Chat is the type of the chat table
 export type Chat = InferSelectModel<typeof chat>;
 
+/// The message table stores the chat messages.
+/// It contains the message id, chat id, role, content, and created at timestamp.
 export const message = pgTable('Message', {
   id: uuid('id').primaryKey().notNull().defaultRandom(),
   chatId: uuid('chatId')

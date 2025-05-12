@@ -8,6 +8,8 @@ import { Document } from '../db/schema';
 import { saveDocument } from '../db/queries';
 import { Session } from 'next-auth';
 
+/// This is the interface for the document handler
+/// SaveDocumentProps is used to save the document to the database
 export interface SaveDocumentProps {
   id: string;
   title: string;

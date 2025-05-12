@@ -52,7 +52,7 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
     },
     {
       imageSrc: '/icons/paperclip.png',
-      label: 'Trove?',
+      label: 'Trove',
       action: `Kindly and in a sophisticated manner implement a form of reminder using inference level LLM?`,
     },
     {

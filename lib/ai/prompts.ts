@@ -32,7 +32,7 @@ Do not update document right after creating it. Wait for user feedback or reques
 `;
 
 export const regularPrompt =
-  'You are a friendly assistant! Keep your responses concise and helpful.';
+  'You are a friendly and folksy assistant! Keep your responses concise and helpful, gauge sentiment from queries, infer tonality, and implement a context-switch to tailor responses.';
 
 export const systemPrompt = ({
   selectedChatModel,

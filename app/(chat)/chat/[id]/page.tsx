@@ -8,15 +8,19 @@ import { convertToUIMessages } from '@/lib/utils';
 import { DataStreamHandler } from '@/components/data-stream-handler';
 import { DEFAULT_CHAT_MODEL } from '@/lib/ai/models';
 
+//the props page parameter is used to get the chat id from the url
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const { id } = params;
+
+  //await is used to get the chat id from the url, when the page is loaded
   const chat = await getChatById({ id });
 
   if (!chat) {
     notFound();
   }
 
+  //if the chat is not found, return 404
   const session = await auth();
 
   if (chat.visibility === 'private') {

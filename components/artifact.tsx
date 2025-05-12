@@ -28,6 +28,8 @@ import { textArtifact } from '@/artifacts/text/client';
 import equal from 'fast-deep-equal';
 import { UseChatHelpers } from '@ai-sdk/react';
 
+/// This is the type of the artifact that is used in the backend
+/// It contains the title, documentId, kind, content and isVisible
 export const artifactDefinitions = [
   textArtifact,
   codeArtifact,
@@ -44,12 +46,12 @@ export type ArtifactKind = (typeof artifactDefinitions)[number]['kind'];
 /// The content is the content of the artifact, it can be text, code or image
 /// The isVisible is a boolean that indicates if the artifact is visible or not
 export interface UIArtifact {
-  title: string;
-  documentId: string;
-  kind: ArtifactKind;
-  content: string;
-  isVisible: boolean;
-  status: 'streaming' | 'idle';
+  title: string; // The title of the artifact
+  documentId: string; // The id of the document that is used to create the artifact
+  kind: ArtifactKind; // The kind of the artifact, it can be text, code, image or sheet
+  content: string; // The content of the artifact, it can be text, code or image
+  isVisible: boolean; // The artifact is visible or not
+  status: 'streaming' | 'idle'; // The status of the artifact, it can be streaming or idle
   boundingBox: {
     top: number;
     left: number;
@@ -58,6 +60,8 @@ export interface UIArtifact {
   };
 }
 
+//the PureArtifact component is the main component that is used to create the artifact, it contains the
+// artifact definition, the artifact content and the artifact actions.
 function PureArtifact({
   chatId,
   input,
@@ -76,12 +80,12 @@ function PureArtifact({
 }: {
   chatId: string;
   input: string;
-  setInput: UseChatHelpers['setInput'];
-  status: UseChatHelpers['status'];
-  stop: UseChatHelpers['stop'];
-  attachments: Array<Attachment>;
-  setAttachments: Dispatch<SetStateAction<Array<Attachment>>>;
-  messages: Array<Message>;
+  setInput: UseChatHelpers['setInput']; // The input of the chat
+  status: UseChatHelpers['status']; // The status of the chat
+  stop: UseChatHelpers['stop']; // The stop function of the chat
+  attachments: Array<Attachment>; // The attachments of the chat as an array of Attachment
+  setAttachments: Dispatch<SetStateAction<Array<Attachment>>>; //A collection of attachments dispatched by the user
+  messages: Array<Message>; //the messages stack.
   setMessages: Dispatch<SetStateAction<Array<Message>>>;
   votes: Array<Vote> | undefined;
   append: UseChatHelpers['append'];
@@ -89,8 +93,12 @@ function PureArtifact({
   reload: UseChatHelpers['reload'];
   isReadonly: boolean;
 }) {
-  const { artifact, setArtifact, metadata, setMetadata } = useArtifact();
+  //artifact, setArtifact, metadata, setMetadata are used to set the artifact and the metadata
+  const { artifact, setArtifact, metadata, setMetadata } = useArtifact(); //useArtifact is used to get the artifact state and set the artifact state
 
+  //SWR is used to fetch the data from the server
+  //mutate is used to update the data in the cache
+  //data is used to get the data from the server
   const {
     data: documents,
     isLoading: isDocumentsFetching,
@@ -108,13 +116,22 @@ function PureArtifact({
 
   const { open: isSidebarOpen } = useSidebar();
 
+  /// This is used to set the artifact state
+  /// useEffect is used to set the artifact state when the component is mounted
   useEffect(() => {
+    //if documents is not null and documents is not empty
     if (documents && documents.length > 0) {
-      const mostRecentDocument = documents.at(-1);
+      //if the documents are not empty, we want to set the document to the most recent document
+      const mostRecentDocument = documents.at(-1); //at -1 is used to get the last element of the array
 
+      //if mostRecentDocument is not null, we want to set the document to the most recent document
       if (mostRecentDocument) {
+        //setDocument is the setter function that is used to set the document state
         setDocument(mostRecentDocument);
+        //currentVersionIndex is used to set the current version index of the document
+        //documents.length - 1 is used to get the last element of the array
         setCurrentVersionIndex(documents.length - 1);
+        //this sets the currentArtifact to the most recent document
         setArtifact((currentArtifact) => ({
           ...currentArtifact,
           content: mostRecentDocument.content ?? '',
@@ -130,10 +147,13 @@ function PureArtifact({
   const { mutate } = useSWRConfig();
   const [isContentDirty, setIsContentDirty] = useState(false);
 
+  /// This function is used to save the content of the artifact
   const handleContentChange = useCallback(
     (updatedContent: string) => {
       if (!artifact) return;
 
+      /// If the content is empty, we don't want to save it
+      /// and we want to set the content to empty
       mutate<Array<Document>>(
         `/api/document?id=${artifact.documentId}`,
         async (currentDocuments) => {
@@ -141,11 +161,12 @@ function PureArtifact({
 
           const currentDocument = currentDocuments.at(-1);
 
+          //if the current document is not found, we don't want to save it
           if (!currentDocument || !currentDocument.content) {
-            setIsContentDirty(false);
-            return currentDocuments;
+            setIsContentDirty(false); //not dirty
+            return currentDocuments; 
           }
-
+          //if the current document is found, we want to save it
           if (currentDocument.content !== updatedContent) {
             await fetch(`/api/document?id=${artifact.documentId}`, {
               method: 'POST',

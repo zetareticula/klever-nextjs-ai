@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 
 type Metadata = any;
 
+/// This is the metadata for the artifact
 export const sheetArtifact = new Artifact<'sheet', Metadata>({
   kind: 'sheet',
   description: 'Useful for working with spreadsheets',

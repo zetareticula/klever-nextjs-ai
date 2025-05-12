@@ -9,7 +9,7 @@ interface MessageReasoningProps {
   isLoading: boolean;
   reasoning: string;
 }
-
+//MessageReasoning is used to display the reasoning of the message.
 export function MessageReasoning({
   isLoading,
   reasoning,

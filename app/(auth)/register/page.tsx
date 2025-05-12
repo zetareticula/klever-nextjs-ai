@@ -10,12 +10,17 @@ import { SubmitButton } from '@/components/submit-button';
 import { register, type RegisterActionState } from '../actions';
 import { toast } from '@/components/toast';
 
+/// This is a client component, so we can use hooks like useState and useEffect
 export default function Page() {
   const router = useRouter();
 
-  const [email, setEmail] = useState('');
-  const [isSuccessful, setIsSuccessful] = useState(false);
+  //isSuccessful is used to determine if the form was submitted successfully
+  //setIsSuccessful is used to set the state of isSuccessful
+  const [email, setEmail] = useState(''); //default to empty string
+  const [isSuccessful, setIsSuccessful] = useState(false); //default to false
 
+  //for every action, we need to create a new state; the state is used to determine the status of the action
+  //we Register the action and the state with the useActionState hook
   const [state, formAction] = useActionState<RegisterActionState, FormData>(
     register,
     {

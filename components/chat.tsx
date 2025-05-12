@@ -3,16 +3,20 @@
 import type { Attachment, Message } from 'ai';
 import { useChat } from '@ai-sdk/react';
 import { useState } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
-import { ChatHeader } from '@/components/chat-header';
-import type { Vote } from '@/lib/db/schema';
+import useSWR, { useSWRConfig } from 'swr'; //this is used to fetch data from the server
+import { ChatHeader } from '@/components/chat-header'; //this is used to display the chat header
+import type { Vote } from '@/lib/db/schema'; //this is a vote type
 import { fetcher, generateUUID } from '@/lib/utils';
 import { Artifact } from './artifact';
 import { MultimodalInput } from './multimodal-input';
-import { Messages } from './messages';
-import { VisibilityType } from './visibility-selector';
+import { Messages } from './messages'; //messages is used to display the chat messages
+import { VisibilityType } from './visibility-selector'; //this is used to determine the visibility type of the chat
 import { useArtifactSelector } from '@/hooks/use-artifact';
 import { toast } from 'sonner';
+
+//this is the chat component that is used in the chat page
+// it is used to display the chat messages and the input box
+// it is also used to display the chat header and the artifact
 
 export function Chat({
   id,
@@ -22,13 +26,14 @@ export function Chat({
   isReadonly,
 }: {
   id: string;
-  initialMessages: Array<Message>;
-  selectedChatModel: string;
-  selectedVisibilityType: VisibilityType;
+  initialMessages: Array<Message>; //this is used to set the initial messages in the chat.
+  selectedChatModel: string; //this is used to set the selected chat model
+  selectedVisibilityType: VisibilityType; //this is used to set the selected visibility type
   isReadonly: boolean;
 }) {
-  const { mutate } = useSWRConfig();
+  const { mutate } = useSWRConfig(); //this is used to mutate the swr cache
 
+  //the consts below are used to set the messages and the input box using the useChat hook
   const {
     messages,
     setMessages,
@@ -54,12 +59,15 @@ export function Chat({
     },
   });
 
+  // this is used to fetch the votes from the server
   const { data: votes } = useSWR<Array<Vote>>(
     `/api/vote?chatId=${id}`,
     fetcher,
   );
 
+  // setAttachments is used to set the attachments in the input box i.e: images, videos, etc.
   const [attachments, setAttachments] = useState<Array<Attachment>>([]);
+  //isArtifactVisible is used to determine if the artifact is visible or not
   const isArtifactVisible = useArtifactSelector((state) => state.isVisible);
 
   return (

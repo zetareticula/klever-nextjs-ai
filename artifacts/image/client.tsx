@@ -7,6 +7,7 @@ export const imageArtifact = new Artifact({
   kind: 'image',
   description: 'Useful for image generation',
   onStreamPart: ({ streamPart, setArtifact }) => {
+    /// This is used to handle the image-delta type of artifact
     if (streamPart.type === 'image-delta') {
       setArtifact((draftArtifact) => ({
         ...draftArtifact,

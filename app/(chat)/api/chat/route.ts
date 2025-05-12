@@ -65,11 +65,11 @@ export async function POST(request: Request) {
     // if the chat exists, check if the user is authorized to access it
     // if the user is not authorized, return 401
     if (!chat) {
-      //
       const title = await generateTitleFromUserMessage({
         message: userMessage,
       });
 
+      //save the chat to the database, using the user id and the title
       await saveChat({ id, userId: session.user.id, title });
     } else {
       if (chat.userId !== session.user.id) {

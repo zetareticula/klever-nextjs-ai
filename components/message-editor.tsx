@@ -7,15 +7,20 @@ import { Textarea } from './ui/textarea';
 import { deleteTrailingMessages } from '@/app/(chat)/actions';
 import { toast } from 'sonner';
 
+/// This component is used to edit a message in the chat
 export type MessageEditorProps = {
-  message: Message;
+  message: Message; // This is the message that is being edited
+  /// Dispatch is used to update the state of the message, if 'view' is selected, the message will be displayed in view mode
+  /// if 'edit' is selected, the message will be displayed in edit mode
   setMode: Dispatch<SetStateAction<'view' | 'edit'>>;
   setMessages: (
+    ///Promise is used to update the state of the messages
+    /// the messages are updated by calling the setMessages function
     messages: Message[] | ((messages: Message[]) => Message[]),
   ) => void;
   reload: (
     chatRequestOptions?: ChatRequestOptions,
-  ) => Promise<string | null | undefined>;
+  ) => Promise<string | null | undefined>; //Promise is used to reload the messages
 };
 
 export function MessageEditor({
@@ -24,24 +29,34 @@ export function MessageEditor({
   setMessages,
   reload,
 }: MessageEditorProps) {
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false); //the phase of the message is used to determine if the message is being submitted
 
-  const [draftContent, setDraftContent] = useState<string>(message.content);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [draftContent, setDraftContent] = useState<string>(message.content); //draftContent is used to set the content of the message, it is used to display the content of the message in the input box
+  const textareaRef = useRef<HTMLTextAreaElement>(null); //
 
+  //textareaRef is used to set the textarea element, it is used to get the height of the textarea element
   useEffect(() => {
+    //this is used to set the height of the textarea element
     if (textareaRef.current) {
+      //adjustHeight is not defined yet, so we call it here
       adjustHeight();
     }
   }, []);
 
+  //const to make adjustHeight function a function which is used to set the height of the textarea element
   const adjustHeight = () => {
+    //if the current textareaRef is not null, we set the height of the textarea element to auto and then set the height of the textarea element to the scrollHeight + 2px
     if (textareaRef.current) {
+
+      //set to auto to get the correct height
       textareaRef.current.style.height = 'auto';
+
+      //set the height of the textarea element to the scrollHeight + 2px
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight + 2}px`;
     }
   };
 
+  //this is how we handle input in the textarea element
   const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDraftContent(event.target.value);
     adjustHeight();

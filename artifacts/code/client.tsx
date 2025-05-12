@@ -66,6 +66,7 @@ interface Metadata {
   outputs: Array<ConsoleOutput>;
 }
 
+/// This is the code artifact that is used to display the code editor and the console output
 export const codeArtifact = new Artifact<'code', Metadata>({
   kind: 'code',
   description:

@@ -141,6 +141,7 @@ const LoadingSkeleton = ({ artifactKind }: { artifactKind: ArtifactKind }) => (
   </div>
 );
 
+/// HitboxLayer is used to detect clicks on the document preview and set the artifact
 const PureHitboxLayer = ({
   hitboxRef,
   result,
@@ -194,8 +195,11 @@ const PureHitboxLayer = ({
   );
 };
 
+/// Memoized HitboxLayer to prevent unnecessary re-renders
 const HitboxLayer = memo(PureHitboxLayer, (prevProps, nextProps) => {
-  if (!equal(prevProps.result, nextProps.result)) return false;
+  /// Check if the hitboxRef is the same
+  if (!equal(prevProps.result, nextProps.result)) return false; //return false if different
+  //true if the hitboxRef is the same
   return true;
 });
 
@@ -226,6 +230,7 @@ const PureDocumentHeader = ({
     <div className="w-8" />
   </div>
 );
+
 
 const DocumentHeader = memo(PureDocumentHeader, (prevProps, nextProps) => {
   if (prevProps.title !== nextProps.title) return false;

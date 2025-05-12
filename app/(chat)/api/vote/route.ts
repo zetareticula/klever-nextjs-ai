@@ -1,9 +1,11 @@
 import { auth } from '@/app/(auth)/auth';
 import { getChatById, getVotesByChatId, voteMessage } from '@/lib/db/queries';
 
+// the GET request is used to get a request.url which is assigned to a constant with chadid 
 export async function GET(request: Request) {
+  // Get the chatId from the request URL
   const { searchParams } = new URL(request.url);
-  const chatId = searchParams.get('chatId');
+  const chatId = searchParams.get('chatId'); 
 
   if (!chatId) {
     return new Response('chatId is required', { status: 400 });

@@ -10,7 +10,9 @@ import { SubmitButton } from '@/components/submit-button';
 
 import { login, type LoginActionState } from '../actions';
 
+//Page is the login page
 export default function Page() {
+  // This is a client component, so we can use hooks like useState and useEffect
   const router = useRouter();
 
   const [email, setEmail] = useState('');

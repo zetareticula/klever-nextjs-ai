@@ -88,7 +88,8 @@ export class Artifact<T extends string, M = any> {
   readonly content: ComponentType<ArtifactContent<M>>;
   readonly actions: Array<ArtifactAction<M>>;
   readonly toolbar: ArtifactToolbarItem[];
-  readonly initialize?: (parameters: InitializeParameters) => void;
+  readonly initialize?: (parameters: InitializeParameters) => void; //switch to optional, 'initialize' is not always needed
+  //onStreamPart is used to handle the stream part of the artifact
   readonly onStreamPart: (args: {
     setMetadata: Dispatch<SetStateAction<M>>;
     setArtifact: Dispatch<SetStateAction<UIArtifact>>;

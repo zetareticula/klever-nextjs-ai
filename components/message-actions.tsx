@@ -16,6 +16,7 @@ import { memo } from 'react';
 import equal from 'fast-deep-equal';
 import { toast } from 'sonner';
 
+//PureMessageActions is used to display the message actions.
 export function PureMessageActions({
   chatId,
   message,
@@ -32,6 +33,7 @@ export function PureMessageActions({
 
   if (isLoading) return null;
   if (message.role === 'user') return null;
+  //the toolInvocations are used to display the tool invocations in the message
   if (message.toolInvocations && message.toolInvocations.length > 0)
     return null;
 
@@ -45,6 +47,7 @@ export function PureMessageActions({
               variant="outline"
               onClick={async () => {
                 await copyToClipboard(message.content as string);
+                // Copy the message content to the clipboard
                 toast.success('Copied to clipboard!');
               }}
             >

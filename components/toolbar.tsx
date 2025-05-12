@@ -255,6 +255,7 @@ const ReadingLevelSelector = ({
   );
 };
 
+//the tools are the buttons that are shown when the user hovers over the toolbar
 export const Tools = ({
   isToolbarVisible,
   selectedTool,
