@@ -8,60 +8,60 @@
     --background-start-rgb: 158, 195, 210;  /* Misty Cyan Sky #9EC3D2 */
     --background-end-rgb: 218, 140, 106;    /* Blush Terracotta #DA8C6A */
     
-    /* Color system variables */
+    /* Color system variables - ENHANCED CONTRAST FOR SENIORS */
     --background: linear-gradient(135deg, hsl(195, 35%, 72%), hsl(36, 85%, 73%), hsl(15, 60%, 63%));
-    --foreground: hsl(0, 0%, 15%);
-    --card: hsl(20, 75%, 80%);             /* Soft peach */
-    --card-foreground: hsl(0, 0%, 15%);
-    --popover: hsl(20, 75%, 80%);
-    --popover-foreground: hsl(0, 0%, 15%);
-    --primary: hsl(43, 85%, 55%);          /* Mexican yellow */
-    --primary-foreground: hsl(0, 0%, 15%);
-    --secondary: hsl(75, 45%, 45%);        /* Warm olive accent */
+    --foreground: hsl(0, 0%, 0%);            /* Pure black text for maximum readability */
+    --card: hsl(20, 75%, 85%);               /* Lighter peach for better contrast */
+    --card-foreground: hsl(0, 0%, 0%);       /* Pure black text on cards */
+    --popover: hsl(20, 75%, 85%);
+    --popover-foreground: hsl(0, 0%, 0%);
+    --primary: hsl(43, 85%, 45%);            /* Darker Mexican yellow for better contrast */
+    --primary-foreground: hsl(0, 0%, 0%);
+    --secondary: hsl(75, 45%, 40%);          /* Darker olive accent for better contrast */
     --secondary-foreground: hsl(0, 0%, 100%);
     --muted: hsl(15, 50%, 90%);
-    --muted-foreground: hsl(0, 0%, 20%);
-    --accent: hsl(75, 45%, 45%);
+    --muted-foreground: hsl(0, 0%, 0%);      /* Pure black for maximum readability */
+    --accent: hsl(75, 45%, 40%);
     --accent-foreground: hsl(0, 0%, 100%);
-    --destructive: hsl(0, 70%, 60%);
-    --destructive-foreground: hsl(0, 0%, 98%);
-    --border: hsl(15, 60%, 65%);
-    --input: hsl(20, 75%, 80%);
+    --destructive: hsl(0, 70%, 50%);         /* Darker red for better visibility */
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --border: hsl(15, 60%, 55%);             /* Darker border for better visibility */
+    --input: hsl(20, 75%, 85%);
     --ring: hsl(10, 70%, 62%);
     --chart-1: hsl(10, 70%, 62%);
     --chart-2: hsl(20, 75%, 80%);
     --chart-3: hsl(75, 45%, 45%);
     --chart-4: hsl(15, 75%, 60%);
     --chart-5: hsl(75, 50%, 40%);
-    --radius: 1.5rem;                      /* Increased border radius for more pronounced rounded corners */
+    --radius: 0.75rem;                      /* Reduced border radius for clearer boundaries */
     
-    /* 3D effect variables */
-    --shadow-light: hsla(10, 70%, 45%, 0.5);
-    --shadow-dark: hsla(10, 70%, 20%, 0.4);
-    --highlight: hsla(20, 70%, 95%, 0.6);
-    --depth-small: 3px;
-    --depth-medium: 6px;
-    --depth-large: 12px;
+    /* 3D effect variables - REDUCED for seniors */
+    --shadow-light: hsla(10, 70%, 45%, 0.3);
+    --shadow-dark: hsla(10, 70%, 20%, 0.3);
+    --highlight: hsla(20, 70%, 95%, 0.4);
+    --depth-small: 2px;
+    --depth-medium: 4px;
+    --depth-large: 8px;
     --bevel-angle: 135deg;
     
     /* Sidebar specific variables */
-    --sidebar-background: hsl(15, 80%, 70%);
-    --sidebar-foreground: hsl(0, 0%, 15%);
-    --sidebar-primary: hsl(43, 85%, 55%);
-    --sidebar-primary-foreground: hsl(0, 0%, 15%);
-    --sidebar-accent: hsl(75, 45%, 45%);
+    --sidebar-background: hsl(15, 80%, 75%);
+    --sidebar-foreground: hsl(0, 0%, 0%);
+    --sidebar-primary: hsl(43, 85%, 45%);
+    --sidebar-primary-foreground: hsl(0, 0%, 0%);
+    --sidebar-accent: hsl(75, 45%, 40%);
     --sidebar-accent-foreground: hsl(0, 0%, 100%);
-    --sidebar-border: hsl(15, 60%, 65%);
-    --sidebar-ring: hsl(43, 85%, 55%);
+    --sidebar-border: hsl(15, 60%, 55%);
+    --sidebar-ring: hsl(43, 85%, 45%);
     
-    /* Gradient definitions - UPDATED based on the image */
+    /* Gradient definitions - SIMPLIFIED for seniors */
     --main-gradient: linear-gradient(135deg, #9EC3D2, #F4C181, #DA8C6A);
     --bottom-gradient: linear-gradient(135deg, #F2B2A1, #F6A96F);
-    --button-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
+    --button-gradient: linear-gradient(to right, hsl(10, 70%, 50%), hsl(20, 70%, 60%));
     --header-gradient: linear-gradient(to right, hsl(10, 70%, 62%), hsl(20, 70%, 75%));
-    --table-header-gradient: linear-gradient(to right, hsl(15, 70%, 75%), hsl(20, 60%, 80%));
+    --table-header-gradient: linear-gradient(to right, hsl(15, 70%, 65%), hsl(20, 60%, 70%));
     --scrollbar-track-gradient: linear-gradient(to bottom, hsl(20, 50%, 85%), hsl(20, 40%, 90%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 70%, 62%), hsl(20, 60%, 80%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 70%, 50%), hsl(20, 60%, 65%));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,55 +73,75 @@
 }
 
 .dark {
-    /* Dark mode with reduced contrast for eye strain */
-    --background: linear-gradient(135deg, hsl(195, 25%, 35%), hsl(36, 45%, 45%), hsl(15, 40%, 42%));
-    --foreground: hsl(0, 0%, 95%);
-    --card: hsl(15, 55%, 40%);            /* Darker terracotta peach */
-    --card-foreground: hsl(0, 0%, 95%);
-    --popover: hsl(15, 55%, 40%);
-    --popover-foreground: hsl(0, 0%, 95%);
-    --primary: hsl(43, 60%, 55%);
-    --primary-foreground: hsl(0, 0%, 15%);
-    --secondary: hsl(75, 35%, 35%);
-    --secondary-foreground: hsl(0, 0%, 95%);
+    /* Dark mode with HIGH CONTRAST for seniors */
+    --background: linear-gradient(135deg, hsl(195, 25%, 30%), hsl(36, 45%, 40%), hsl(15, 40%, 38%));
+    --foreground: hsl(0, 0%, 100%);             /* Pure white text for maximum contrast */
+    --card: hsl(15, 55%, 45%);                  /* Lighter background for better contrast */
+    --card-foreground: hsl(0, 0%, 100%);        /* Pure white text for maximum contrast */
+    --popover: hsl(15, 55%, 45%);
+    --popover-foreground: hsl(0, 0%, 100%);
+    --primary: hsl(43, 60%, 65%);               /* Brighter yellow for better visibility */
+    --primary-foreground: hsl(0, 0%, 0%);
+    --secondary: hsl(75, 35%, 45%);             /* Brighter olive for better visibility */
+    --secondary-foreground: hsl(0, 0%, 100%);
     --muted: hsl(15, 40%, 30%);
-    --muted-foreground: hsl(0, 0%, 85%);
-    --accent: hsl(75, 35%, 35%);
-    --accent-foreground: hsl(0, 0%, 95%);
-    --destructive: hsl(0, 50%, 40%);
-    --destructive-foreground: hsl(0, 0%, 95%);
-    --border: hsl(15, 50%, 45%);
+    --muted-foreground: hsl(0, 0%, 100%);       /* Pure white for maximum contrast */
+    --accent: hsl(75, 35%, 45%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --destructive: hsl(0, 70%, 50%);            /* Brighter red for better visibility */
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --border: hsl(15, 50%, 55%);                /* Brighter border for better visibility */
     --input: hsl(15, 50%, 45%);
-    --ring: hsl(10, 45%, 50%);
-    --chart-1: hsl(10, 60%, 50%);
-    --chart-2: hsl(20, 60%, 60%);
-    --chart-3: hsl(75, 35%, 45%);
-    --chart-4: hsl(15, 65%, 45%);
-    --chart-5: hsl(75, 45%, 35%);
+    --ring: hsl(10, 45%, 60%);
+    --chart-1: hsl(10, 70%, 60%);
+    --chart-2: hsl(20, 70%, 70%);
+    --chart-3: hsl(75, 45%, 55%);
+    --chart-4: hsl(15, 65%, 55%);
+    --chart-5: hsl(75, 45%, 45%);
     
-    /* 3D effect variables for dark mode */
-    --shadow-light: hsla(10, 60%, 45%, 0.5);
-    --shadow-dark: hsla(10, 60%, 10%, 0.5);
-    --highlight: hsla(20, 50%, 60%, 0.4);
+    /* 3D effect variables for dark mode - REDUCED for seniors */
+    --shadow-light: hsla(10, 60%, 45%, 0.4);
+    --shadow-dark: hsla(10, 60%, 10%, 0.4);
+    --highlight: hsla(20, 50%, 60%, 0.3);
     
     /* Sidebar dark mode variables */
-    --sidebar-background: hsl(15, 55%, 35%);
-    --sidebar-foreground: hsl(0, 0%, 95%);
-    --sidebar-primary: hsl(43, 70%, 45%);
-    --sidebar-primary-foreground: hsl(0, 0%, 95%);
-    --sidebar-accent: hsl(75, 35%, 35%);
-    --sidebar-accent-foreground: hsl(0, 0%, 95%);
-    --sidebar-border: hsl(15, 50%, 40%);
-    --sidebar-ring: hsl(43, 70%, 50%);
+    --sidebar-background: hsl(15, 55%, 40%);
+    --sidebar-foreground: hsl(0, 0%, 100%);
+    --sidebar-primary: hsl(43, 70%, 55%);
+    --sidebar-primary-foreground: hsl(0, 0%, 0%);
+    --sidebar-accent: hsl(75, 35%, 45%);
+    --sidebar-accent-foreground: hsl(0, 0%, 100%);
+    --sidebar-border: hsl(15, 50%, 50%);
+    --sidebar-ring: hsl(43, 70%, 55%);
     
-    /* Dark mode gradient definitions - UPDATED based on the image with darker tones */
+    /* Dark mode gradient definitions - SIMPLIFIED for seniors */
     --main-gradient: linear-gradient(135deg, #527A8C, #B38556, #A55F46);
     --bottom-gradient: linear-gradient(135deg, #A57265, #B37347);
-    --button-gradient: linear-gradient(to right, hsl(10, 60%, 40%), hsl(20, 55%, 50%));
-    --header-gradient: linear-gradient(to right, hsl(10, 60%, 35%), hsl(20, 50%, 45%));
-    --table-header-gradient: linear-gradient(to right, hsl(15, 55%, 40%), hsl(20, 50%, 45%));
-    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(15, 30%, 25%), hsl(15, 25%, 30%));
-    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 50%, 40%), hsl(20, 45%, 45%));
+    --button-gradient: linear-gradient(to right, hsl(10, 70%, 50%), hsl(20, 60%, 60%));
+    --header-gradient: linear-gradient(to right, hsl(10, 60%, 45%), hsl(20, 50%, 55%));
+    --table-header-gradient: linear-gradient(to right, hsl(15, 55%, 50%), hsl(20, 50%, 55%));
+    --scrollbar-track-gradient: linear-gradient(to bottom, hsl(15, 30%, 35%), hsl(15, 25%, 40%));
+    --scrollbar-thumb-gradient: linear-gradient(to bottom, hsl(10, 60%, 50%), hsl(20, 55%, 55%));
+}
+
+/* Disable animations by default for seniors - prevent motion sickness */
+@media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transform: none !important;
+        text-shadow: none !important;
+    }
+    
+    .main-panel {
+        transform: none !important;
+    }
+    
+    body::before {
+        animation: none !important;
+    }
 }
 
 @layer utilities {
@@ -129,23 +149,23 @@
         text-wrap: balance;
     }
     
-    /* 3D utility classes */
+    /* 3D utility classes - SIMPLIFIED for seniors */
     .embossed {
         box-shadow: 
-            inset 2px 2px 5px var(--highlight),
-            inset -2px -2px 5px var(--shadow-dark);
+            inset 1px 1px 3px var(--highlight),
+            inset -1px -1px 3px var(--shadow-dark);
     }
     
     .pressed {
         box-shadow: 
-            inset -2px -2px 5px var(--highlight),
-            inset 2px 2px 5px var(--shadow-dark);
+            inset -1px -1px 3px var(--highlight),
+            inset 1px 1px 3px var(--shadow-dark);
     }
     
     .floating {
         box-shadow: 
-            5px 5px 15px var(--shadow-dark),
-            -5px -5px 15px var(--highlight);
+            3px 3px 8px var(--shadow-dark),
+            -2px -2px 8px var(--highlight);
     }
     
     .bevel {
@@ -164,8 +184,51 @@
                                    transparent 0%, 
                                    var(--highlight) 50%, 
                                    transparent 100%);
-        opacity: 0.5;
+        opacity: 0.4;
         pointer-events: none;
+    }
+    
+    /* New utilities for seniors */
+    .text-senior-base {
+        font-size: 1.6rem !important;
+        line-height: 1.6 !important;
+        letter-spacing: 0.01em !important;
+    }
+    
+    .text-senior-lg {
+        font-size: 1.8rem !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0.01em !important;
+    }
+    
+    .text-senior-xl {
+        font-size: 2rem !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.02em !important;
+    }
+    
+    .text-senior-2xl {
+        font-size: 2.25rem !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.02em !important;
+    }
+    
+    .senior-spacing {
+        letter-spacing: 0.02em !important;
+        word-spacing: 0.05em !important;
+    }
+    
+    .senior-line-height {
+        line-height: 1.8 !important;
+    }
+    
+    .senior-paragraph {
+        margin-bottom: 1.5em !important;
+    }
+    
+    .senior-focus {
+        outline: 4px solid var(--primary) !important;
+        outline-offset: 2px !important;
     }
 }
 
@@ -174,22 +237,22 @@
         @apply border-border;
     }
 
-    /* Body with updated background implementation to match the image */
+    /* Body with updated font sizing for seniors */
     body {
         font-family: "Aptos", sans-serif;
-        font-size: 1.4rem;
-        line-height: 1.5;
-        color: rgba(0, 0, 0, 0.85) !important;
-        /* Create the panel effect with positioning */
+        font-size: 1.6rem !important; /* Bigger base font size for seniors */
+        line-height: 1.6 !important;  /* Improved line height for readability */
+        letter-spacing: 0.01em;       /* Slightly increased letter spacing */
+        word-spacing: 0.05em;         /* Slightly increased word spacing */
+        color: rgba(0, 0, 0, 1) !important; /* Maximum contrast */
         position: relative;
         min-height: 100vh;
         @apply text-foreground;
         overflow-x: hidden;
-        /* 3D perspective for the entire page */
         perspective: 1000px;
     }
     
-    /* Main background gradient with 3D depth - UPDATED to match the image */
+    /* Main background gradient with REDUCED 3D depth for seniors */
     body::before {
         content: '';
         position: absolute;
@@ -198,27 +261,33 @@
         width: 100%;
         height: 100%;
         background: var(--main-gradient);
-        background-size: 400% 400%;
+        background-size: 200% 200%; /* Reduced complexity */
         background-position: 0% 50%;
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: -2;
-        /* Add subtle texture for depth */
-        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
-        /* Slight animation for subtle movement - optional */
-        animation: gradient-shift 15s ease infinite alternate;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+        /* Disable animation by default for seniors */
+        animation: none;
     }
     
-    @keyframes gradient-shift {
-        0% {
-            background-position: 0% 50%;
+    /* Enable animation only for those who prefer it */
+    @media (prefers-reduced-motion: no-preference) {
+        body::before {
+            animation: subtle-gradient-shift 30s ease infinite alternate; /* Slower animation */
         }
-        100% {
-            background-position: 100% 50%;
+        
+        @keyframes subtle-gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
     }
     
-    /* Bottom gradient overlay with 3D effect - UPDATED to match the image */
+    /* Bottom gradient overlay with REDUCED 3D effect for seniors */
     body::after {
         content: '';
         position: absolute;
@@ -231,41 +300,38 @@
         background-position: 0% 50%;
         background-repeat: no-repeat;
         z-index: -1;
-        /* 3D shadow for depth */
-        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-        opacity: 0.8;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0.7;
     }
     
-    /* Rest of your CSS remains unchanged */
-    /* Panel effect with border radius and 3D effect */
+    /* Panel effect with REDUCED 3D effect for seniors */
     .main-panel {
-        background-color: hsl(20, 75%, 80%);  /* Soft peach */
+        background-color: hsl(20, 75%, 88%);  /* Lighter peach for better contrast */
         border-radius: var(--radius);
-        margin-left: 10%;
-        margin-right: 2%;
+        margin-left: 5%;              /* Reduced side margin for better readability */
+        margin-right: 5%;             /* More symmetric margins */
         margin-top: 2%;
-        margin-bottom: 8%;
+        margin-bottom: 5%;
         min-height: 80vh;
-        /* Enhanced 3D shadow */
+        /* Simplified 3D shadow */
         box-shadow: 
-            5px 5px 20px var(--shadow-dark),
-            -2px -2px 10px var(--highlight),
-            0 12px 30px rgba(0, 0, 0, 0.15);
+            3px 3px 10px var(--shadow-dark),
+            -1px -1px 5px var(--highlight);
         overflow: hidden;
         position: relative;
         z-index: 1;
-        /* 3D transformation */
-        transform: rotateX(1deg) rotateY(-1deg);
+        /* Reduced 3D transformation */
+        transform: none;              /* Remove 3D rotation for seniors */
         transform-style: preserve-3d;
         transition: transform 0.3s ease;
     }
     
-    /* Add hover effect to enhance 3D */
+    /* Remove hover effect for seniors to reduce confusion */
     .main-panel:hover {
-        transform: rotateX(0.5deg) rotateY(-0.5deg) translateZ(5px);
+        transform: none;
     }
     
-    /* Add inner highlight to main panel */
+    /* Add inner highlight to main panel - SIMPLIFIED */
     .main-panel::after {
         content: '';
         position: absolute;
@@ -274,34 +340,28 @@
         right: 0;
         height: 40%;
         background: linear-gradient(to bottom, 
-                                  hsla(20, 75%, 95%, 0.15), 
+                                  hsla(20, 75%, 95%, 0.1), 
                                   transparent);
         pointer-events: none;
         border-radius: var(--radius) var(--radius) 0 0;
     }
 
     .dark body {
-        color: rgba(245, 245, 245, 0.95) !important;
+        color: rgba(255, 255, 255, 1) !important; /* Pure white text for maximum contrast */
     }
     
     .dark .main-panel {
-        background-color: hsl(15, 55%, 40%); /* Darker terracotta peach */
+        background-color: hsl(15, 55%, 45%); /* Lighter background for better contrast */
         box-shadow: 
-            8px 8px 30px rgba(0, 0, 0, 0.3),
-            -2px -2px 10px var(--shadow-light),
-            0 12px 30px rgba(0, 0, 0, 0.25);
+            5px 5px 15px rgba(0, 0, 0, 0.25),
+            -1px -1px 5px var(--shadow-light);
     }
     
     .dark .main-panel::after {
         background: linear-gradient(to bottom, 
-                                  hsla(15, 55%, 50%, 0.15), 
+                                  hsla(15, 55%, 55%, 0.1), 
                                   transparent);
     }
-
-    /* The rest of your CSS remains unchanged */
-
-
-/* The remaining CSS is unchanged from the original file */
 
     /* Ensure Aptos font is properly defined */
     @font-face {
@@ -321,53 +381,117 @@
         src: url(/fonts/geist-mono.woff2) format("woff2");
     }
     
-    /* Accessibility improvements with 3D headers - UPDATED */
+    /* ENHANCED headings for seniors */
     h1, h2, h3, h4, h5, h6 {
         line-height: 1.3;
-        margin-bottom: 0.8em;
+        margin-bottom: 1em;         /* Increased bottom margin */
+        margin-top: 1em;            /* Added top margin */
         position: relative;
-        /* Text shadow for 3D effect - NEW */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        font-weight: 700;           /* Bolder headings */
+        letter-spacing: 0.02em;     /* Slightly increased letter spacing */
+        /* Reduced text shadow for better readability */
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     }
     
-    /* 3D heading effect - NEW */
+    /* Header sizes optimized for seniors */
+    h1 {
+        font-size: 2.6rem !important;
+        margin-bottom: 1.2em;
+    }
+    
+    h2 {
+        font-size: 2.3rem !important;
+        margin-bottom: 1.1em;
+    }
+    
+    h3 {
+        font-size: 2rem !important;
+        margin-bottom: 1em;
+    }
+    
+    h4 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.9em;
+    }
+    
+    h5 {
+        font-size: 1.7rem !important;
+        margin-bottom: 0.8em;
+    }
+    
+    h6 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.7em;
+    }
+    
+    /* Simplified heading effect for seniors */
     h1::after, h2::after, h3::after {
         content: '';
         position: absolute;
         left: 0;
-        bottom: -0.2em;
+        bottom: -0.3em;
         width: 100%;
         height: 2px;
         background: linear-gradient(to right, 
-                                  var(--shadow-light), 
+                                  var(--primary), 
                                   transparent 80%);
         border-radius: 1px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
     
+    /* Enhanced links for seniors */
     a {
         text-decoration: underline;
-        text-underline-offset: 0.2em;
-        /* 3D link hover effect - NEW */
+        text-underline-offset: 0.3em;   /* Increased underline offset for clarity */
+        text-decoration-thickness: 2px; /* Thicker underline for better visibility */
         transition: all 0.2s ease;
         position: relative;
+        color: hsl(200, 80%, 35%);     /* Distinct link color with high contrast */
+        font-weight: 500;              /* Slightly bolder links */
+    }
+    
+    .dark a {
+        color: hsl(200, 80%, 65%);     /* Brighter link color for dark mode */
     }
     
     a:hover {
-        /* Text shadow for 3D effect - NEW */
-        text-shadow: 0 0 1px currentColor;
-        transform: translateY(-1px);
+        text-decoration-thickness: 3px; /* Even thicker underline on hover */
+        color: hsl(200, 100%, 30%);    /* Darker color on hover for light mode */
     }
     
-    /* Improve focus states for accessibility */
+    .dark a:hover {
+        color: hsl(200, 100%, 75%);    /* Brighter color on hover for dark mode */
+    }
+    
+    /* Greatly enhanced focus states for seniors */
     :focus {
-        outline: 3px solid var(--primary);
-        outline-offset: 2px;
+        outline: 4px solid var(--primary) !important;
+        outline-offset: 4px !important;
+    }
+    
+    /* New - Skip to content link positioned for better visibility */
+    .skip-to-content {
+        position: absolute;
+        z-index: 1000;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0.5rem;
+        background: var(--primary);
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        font-size: 1.6rem;
+        font-weight: bold;
+        border: 2px solid var(--foreground);
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .skip-to-content:focus {
+        opacity: 1;
+        pointer-events: auto;
     }
 }
 
-
-/* Make skeleton loading states easier on the eyes */
+/* Make skeleton loading states more visible for seniors */
 .skeleton {
     * {
         pointer-events: none !important;
@@ -375,46 +499,51 @@
 
     *[class^="text-"] {
         color: transparent; 
-        @apply rounded-md bg-foreground/15 select-none animate-pulse;
+        @apply rounded-md bg-foreground/25 select-none animate-pulse;
     }
 
     .skeleton-bg {
-        @apply bg-foreground/5;
+        @apply bg-foreground/10;
     }
 
     .skeleton-div {
-        @apply bg-foreground/15 animate-pulse;
+        @apply bg-foreground/25 animate-pulse;
     }
 }
 
-/* CodeMirror editor with eye-friendly colors */
+/* CodeMirror editor with ENHANCED contrast for seniors */
 .ProseMirror {
     outline: none;
+    font-size: 1.6rem !important;
 }
 
 .cm-editor,
 .cm-gutters {
-    @apply outline-none selection:bg-zinc-200 dark:selection:bg-zinc-700 !important;
-    /* Match main gradient */
-    background: var(--main-gradient) !important;
-    /* Add subtle 3D effect to editor - NEW */
-    box-shadow: inset 1px 1px 3px var(--highlight),
-                inset -1px -1px 3px var(--shadow-dark) !important;
+    @apply outline-none selection:bg-zinc-300 dark:selection:bg-zinc-600 !important;
+    background: linear-gradient(135deg, hsl(195, 35%, 85%), hsl(36, 85%, 85%)) !important;
+    box-shadow: inset 1px 1px 2px var(--highlight),
+                inset -1px -1px 2px var(--shadow-dark) !important;
+    font-size: 1.6rem !important;
 }
 
-/* Softer selection colors */
+.dark .cm-editor,
+.dark .cm-gutters {
+    background: linear-gradient(135deg, hsl(195, 25%, 35%), hsl(36, 45%, 35%)) !important;
+}
+
+/* Enhanced selection colors for seniors */
 .ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
 .ͼo.cm-selectionBackground,
 .ͼo.cm-content::selection {
-    @apply bg-zinc-200/60 dark:bg-zinc-700/60 !important;
+    @apply bg-zinc-300 dark:bg-zinc-500 !important;
 }
 
 .cm-activeLine,
 .cm-activeLineGutter {
     @apply bg-transparent !important;
-    /* 3D active line effect - NEW */
-    box-shadow: inset 1px 1px 3px var(--highlight),
-                inset -1px -1px 3px var(--shadow-dark) !important;
+    /* Simplified 3D active line effect */
+    box-shadow: inset 1px 1px 2px var(--highlight),
+                inset -1px -1px 2px var(--shadow-dark) !important;
 }
 
 .cm-activeLine {
@@ -423,6 +552,7 @@
 
 .cm-lineNumbers {
     @apply min-w-7;
+    font-size: 1.6rem !important;
 }
 
 .cm-foldGutter {
@@ -433,96 +563,95 @@
     @apply rounded-l-sm !important;
 }
 
-/* Softer highlight colors */
+/* Stronger highlight colors for seniors */
 .suggestion-highlight {
-    @apply bg-green-200/70 hover:bg-green-300/70 dark:hover:bg-green-400/40 dark:text-green-50 dark:bg-green-500/30;
-    /* 3D highlight effect - NEW */
-    box-shadow: inset 1px 1px 2px var(--highlight),
+    @apply bg-green-300 hover:bg-green-400 dark:hover:bg-green-400 dark:text-green-50 dark:bg-green-500/50;
+    /* Simplified 3D highlight effect */
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.2),
                 inset -1px -1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Component styles with eye-friendly gradients and 3D - UPDATED */
+/* Component styles with ENHANCED CONTRAST for seniors */
 .card, .button, .input {
-    background: var(--main-gradient);
-    @apply border-green-500/60 text-green-900 shadow-sm;
-    /* 3D effect - NEW */
+    background: var(--card);
+    @apply border-green-600 text-green-900 shadow-sm;
+    /* Simplified 3D effect */
     box-shadow:
-        2px 2px 5px var(--shadow-dark),
-        -1px -1px 3px var(--highlight),
-        inset 1px 1px 1px var(--highlight),
-        inset -1px -1px 1px var(--shadow-dark);
+        2px 2px 4px var(--shadow-dark),
+        -1px -1px 2px var(--highlight);
 }
 
 .dark .card, .dark .button, .dark .input {
-    background: var(--main-gradient);
-    @apply border-green-700/60 text-green-100 shadow-sm;
-    /* 3D effect for dark mode - NEW */
+    background: var(--card);
+    @apply border-green-500 text-green-50 shadow-sm;
+    /* Simplified 3D effect for dark mode */
     box-shadow:
-        2px 2px 5px rgba(0, 0, 0, 0.3),
-        -1px -1px 3px var(--shadow-light),
-        inset 1px 1px 1px rgba(255, 255, 255, 0.1),
-        inset -1px -1px 1px rgba(0, 0, 0, 0.2);
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        -1px -1px 2px var(--shadow-light);
 }
 
-/* Softer footer gradient with 3D - UPDATED */
+/* Enhanced footer for seniors */
 .footer {
     background: var(--bottom-gradient);
-    /* 3D effect for footer - NEW */
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    /* Simplified 3D effect for footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
+    padding: 2rem 0;    /* Increased padding */
+    font-size: 1.6rem;  /* Larger text */
+    line-height: 1.6;
 }
 
 .dark .footer {
     background: var(--bottom-gradient);
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Accessibility improvements for interactive elements with 3D - UPDATED */
+/* ENHANCED BUTTONS for seniors - bigger, more visible */
 button, 
 input[type="button"], 
 input[type="submit"],
 input[type="reset"] {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    padding: 0.75rem 1.5rem;        /* Larger padding */
+    font-size: 1.6rem;              /* Larger text */
+    font-weight: 600;               /* Bolder text */
     border-radius: var(--radius);
     position: relative;
     transition: all 0.2s ease;
-    /* 3D button effect - NEW */
+    /* Simplified 3D button effect */
     box-shadow:
-        2px 2px 5px var(--shadow-dark),
-        -1px -1px 3px var(--highlight),
-        inset 1px 1px 2px var(--highlight),
-        inset -1px -1px 1px var(--shadow-dark);
+        2px 2px 4px var(--shadow-dark),
+        -1px -1px 2px var(--highlight);
     transform: translateY(0);
+    margin: 0.5rem 0;               /* Add margin between buttons */
 }
 
-/* 3D button press effect - NEW */
+/* Simplified button press effect for seniors */
 button:active, 
 input[type="button"]:active, 
 input[type="submit"]:active,
 input[type="reset"]:active {
     box-shadow:
-        1px 1px 3px var(--shadow-dark),
-        -1px -1px 2px var(--highlight),
-        inset 2px 2px 5px var(--shadow-dark),
-        inset -1px -1px 2px var(--highlight);
+        1px 1px 2px var(--shadow-dark),
+        -1px -1px 1px var(--highlight),
+        inset 1px 1px 3px var(--shadow-dark),
+        inset -1px -1px 1px var(--highlight);
     transform: translateY(1px);
 }
 
-/* Improved contrast for form elements with 3D - UPDATED */
+/* ENHANCED FORM ELEMENTS for seniors */
 input, 
 textarea, 
 select {
-    font-size: 1rem;
-    padding: 0.75rem;
+    font-size: 1.6rem;              /* Larger text */
+    padding: 1rem;                  /* More padding */
     border-radius: var(--radius);
-    border: 2px solid var(--border);
-    /* 3D input effect - NEW */
+    border: 3px solid var(--border); /* Thicker border */
+    /* Simplified 3D input effect */
     box-shadow:
-        inset 2px 2px 5px var(--shadow-dark),
-        inset -2px -2px 5px var(--highlight),
-        1px 1px 3px rgba(255, 255, 255, 0.1);
+        inset 1px 1px 3px var(--shadow-dark),
+        inset -1px -1px 3px var(--highlight);
+    margin: 0.75rem 0;              /* Add margin between inputs */
 }
 
 /* Reduce motion for users who prefer it */
@@ -532,7 +661,6 @@ select {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-        /* Remove 3D effects for reduced motion - NEW */
         transform: none !important;
         text-shadow: none !important;
     }
@@ -542,573 +670,118 @@ select {
     }
 }
 
-/* Improve readability of long text */
+/* Improved readability for mobile devices */
 @media (max-width: 768px) {
     body {
-        font-size: 1.2rem;
+        font-size: 1.6rem !important; /* Keep font size large even on mobile */
     }
     
     .main-panel {
         margin-left: 5%;
         margin-right: 5%;
-        /* Reduce 3D effect on mobile - NEW */
-        transform: rotateX(0.5deg) rotateY(-0.5deg);
+        /* Remove 3D effect on mobile */
+        transform: none;
+    }
+    
+    /* Stack buttons vertically on mobile for bigger touch targets */
+    button, 
+    input[type="button"], 
+    input[type="submit"],
+    input[type="reset"] {
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    /* Full width inputs on mobile */
+    input, 
+    textarea, 
+    select {
+        width: 100%;
     }
 }
 
-/* Improve readability of code blocks with 3D - UPDATED */
+/* Improved readability of code blocks for seniors */
 pre {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 1rem;
+    font-size: 1.6rem;            /* Larger code text */
+    line-height: 1.8;             /* Increased line height */
+    padding: 1.5rem;              /* More padding */
     border-radius: var(--radius);
     background: var(--input);
     color: var(--foreground);
-    /* Add 3D effect to code blocks - NEW */
+    /* Simplified 3D effect for code blocks */
     box-shadow:
-        inset 2px 2px 5px var(--shadow-dark),
-        inset -2px -2px 5px var(--highlight);
+        inset 1px 1px 3px var(--shadow-dark),
+        inset -1px -1px 3px var(--highlight);
     position: relative;
+    margin: 1.5rem 0;            /* Add margin above and below */
+    border: 2px solid var(--border); /* Add border for visibility */
 }
 
-/* Add 3D code block glow - NEW */
+/* Simplified code block styling */
 pre::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 10px;
+    height: 40%;
     background: linear-gradient(to bottom, 
-                              rgba(255, 255, 255, 0.1), 
-                              transparent);
+                                  hsla(20, 75%, 95%, 0.1), 
+                                  transparent);
+    pointer-events: none;
     border-radius: var(--radius) var(--radius) 0 0;
+    z-index: 1;
+    opacity: 0.5;                /* Reduced opacity for better readability */
 }
 
-/* Improved spacing and layout */
-.container {
-    padding: 1rem;
-    margin: 0 auto;
-    max-width: 1440px;
-}
-
-/* Enhanced typography scale with 3D effect - UPDATED */
-.text-xs {
-    font-size: 0.875rem;
-    line-height: 1.5;
-}
-
-.text-sm {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.text-base {
-    font-size: 1.25rem;
-    line-height: 1.6;
-}
-
-.text-lg {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    /* Subtle text shadow for 3D effect - NEW */
-    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
-}
-
-.text-xl {
-    font-size: 1.625rem;
-    line-height: 1.4;
-    /* Enhanced text shadow - NEW */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.text-2xl {
-    font-size: 1.875rem;
-    line-height: 1.3;
-    /* Enhanced text shadow - NEW */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.text-3xl {
-    font-size: 2.25rem;
-    line-height: 1.2;
-    /* Enhanced text shadow - NEW */
-    text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.15);
-}
-
-/* Enhanced form elements with eye-friendly styling and 3D - UPDATED */
-input, select, textarea {
-    background-color: hsla(15, 70%, 85%, 0.5);
-    border: 2px solid hsla(15, 60%, 65%, 0.6);
-    box-shadow: 
-        inset 0 1px 3px hsla(0, 0%, 0%, 0.05),
-        inset 2px 2px 5px var(--shadow-dark),
-        inset -2px -2px 5px var(--highlight);
-    transition: all 0.2s ease;
-}
-
-.dark input, .dark select, .dark textarea {
-    background-color: hsla(15, 40%, 25%, 0.5);
-    border: 2px solid hsla(15, 50%, 45%, 0.6);
-    color: hsla(0, 0%, 95%, 0.9);
-    box-shadow: 
-        inset 0 1px 3px hsla(0, 0%, 0%, 0.15),
-        inset 2px 2px 5px rgba(0, 0, 0, 0.2),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.05);
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: hsla(10, 70%, 62%, 0.8);
-    box-shadow: 
-        0 0 0 3px hsla(10, 70%, 62%, 0.2),
+/* Enhanced code block line numbers */
+pre .line-numbers {
+    font-size: 1.6rem;           /* Larger line numbers */
+    color: var(--foreground);    /* High contrast color */
+    background: var(--input);    /* Match input background */
+    padding: 1rem;               /* More padding */
+    border-radius: var(--radius);
+    box-shadow:
         inset 1px 1px 3px var(--shadow-dark),
         inset -1px -1px 3px var(--highlight);
 }
 
-.dark input:focus, .dark select:focus, .dark textarea:focus {
-    border-color: hsla(10, 60%, 50%, 0.8);
-    box-shadow: 
-        0 0 0 3px hsla(10, 60%, 50%, 0.2),
-        inset 1px 1px 3px rgba(0, 0, 0, 0.2),
-        inset -1px -1px 3px rgba(255, 255, 255, 0.05);
-}
-
-/* Improved buttons with proper states and 3D - UPDATED */
-button, .btn {
-    padding: 0.65rem 1.25rem;
+/* Enhanced code block line highlighting */
+pre .line-highlight {
+    background: var(--highlight);
     border-radius: var(--radius);
-    font-weight: 500;
-    transition: all 0.2s ease;
-    background: var(--button-gradient);
-    border: 1px solid transparent;
-    color: hsla(0, 0%, 10%, 0.9);
-    /* 3D button effect - NEW */
     box-shadow:
-        2px 2px 5px var(--shadow-dark),
-        -1px -1px 3px var(--highlight),
-        inset 1px 1px 2px var(--highlight),
-        inset -1px -1px 1px var(--shadow-dark);
-    position: relative;
-    overflow: hidden;
+        inset 1px 1px 3px var(--shadow-dark),
+        inset -1px -1px 3px var(--highlight);
 }
 
-button:hover, .btn:hover {
-    background: linear-gradient(to right, hsl(10, 75%, 65%), hsl(20, 70%, 80%));
-    transform: translateY(-1px);
+/* Enhanced code block selection */
+pre .cm-selectionBackground {
+    background: var(--highlight);
+    border-radius: var(--radius);
     box-shadow:
-        3px 3px 7px var(--shadow-dark),
-        -1px -1px 3px var(--highlight),
-        inset 1px 1px 2px var(--highlight),
-        inset -1px -1px 1px var(--shadow-dark);
+        inset 1px 1px 3px var(--shadow-dark),
+        inset -1px -1px 3px var(--highlight);
 }
 
-button:active, .btn:active {
-    transform: translateY(1px);
-    /* Pressed effect - NEW */
-    box-shadow:
-        1px 1px 3px var(--shadow-dark),
-        -1px -1px 2px var(--highlight),
-        inset 2px 2px 5px var(--shadow-dark),
-        inset -1px -1px 2px var(--highlight);
+/* Enhanced code block focus */
+pre:focus {
+    outline: 4px solid var(--primary) !important;
+    outline-offset: 4px !important;
 }
 
-/* Add button highlight effect - NEW */
-button::after, .btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-                              rgba(255, 255, 255, 0.2), 
-                              transparent);
-    pointer-events: none;
-    border-radius: var(--radius) var(--radius) 0 0;
+/* Enhanced code block focus for dark mode */
+.dark pre:focus {
+    outline: 4px solid var(--primary) !important;
+    outline-offset: 4px !important;
 }
 
-.dark button, .dark .btn {
-    background: var(--button-gradient);
-    color: hsla(0, 0%, 95%, 0.9);
-    box-shadow:
-        2px 2px 5px rgba(0, 0, 0, 0.3),
-        -1px -1px 3px var(--shadow-light),
-        inset 1px 1px 1px rgba(255, 255, 255, 0.1),
-        inset -1px -1px 1px rgba(0, 0, 0, 0.2);
-
-        
-
-.dark button:hover, .dark .btn:hover {
-    background: linear-gradient(to right, hsl(10, 65%, 45%), hsl(20, 60%, 55%));
-
+/* Enhanced code block focus for seniors */
+.senior-focus {
+    outline: 4px solid var(--primary) !important;
+    outline-offset: 4px !important;
 }
 
-/* Enhanced card components */
-.card {
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-}
-
-.dark .card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.dark .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* Navigation enhancement */
-.nav {
-    padding: 1rem;
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(15, 60%, 65%, 0.3);
-}
-
-.dark .nav {
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(15, 50%, 45%, 0.3);
-}
-
-.nav-link {
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    color: hsla(0, 0%, 10%, 0.9);
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-}
-
-.nav-link:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
-}
-
-.dark .nav-link {
-    color: hsla(0, 0%, 95%, 0.9);
-}
-
-.dark .nav-link:hover {
-    background-color: hsla(0, 0%, 0%, 0.15);
-}
-
-/* Tables with soft styling */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 1.5rem 0;
-}
-
-th {
-    text-align: left;
-    padding: 0.75rem 1rem;
-    background: var(--table-header-gradient);
-    font-weight: 600;
-    border-bottom: 2px solid hsla(15, 60%, 60%, 0.5);
-}
-
-.dark th {
-    background: var(--table-header-gradient);
-    border-bottom: 2px solid hsla(15, 50%, 40%, 0.5);
-}
-
-td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid hsla(15, 60%, 70%, 0.3);
-}
-
-.dark td {
-    border-bottom: 1px solid hsla(15, 50%, 40%, 0.3);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-/* Helper classes for eye comfort */
-.soft-shadow {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 2px rgba(0, 0, 0, 0.06);
-}
-
-.dark .soft-shadow {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.2);
-}
-
-.glass {
-    background: linear-gradient(to right, hsla(10, 70%, 62%, 0.15), hsla(20, 70%, 80%, 0.15));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsla(15, 70%, 70%, 0.3);
-}
-
-.dark .glass {
-    background: linear-gradient(to right, hsla(10, 60%, 40%, 0.2), hsla(20, 55%, 50%, 0.2));
-    border: 1px solid hsla(15, 50%, 50%, 0.3);
-}
-
-/* Code blocks with eye-friendly styling */
-pre, code {
-    font-family: "Aptos Mono", monospace;
-    font-size: 1rem;
-    background-color: hsla(15, 30%, 95%, 0.7);
-    border-radius: calc(var(--radius) - 0.25rem);
-    padding: 0.2em 0.4em;
-}
-
-pre {
-    padding: 1rem;
-    overflow-x: auto;
-    line-height: 1.45;
-}
-
-pre code {
-    background-color: transparent;
-    padding: 0;
-}
-
-.dark pre, .dark code {
-    background-color: hsla(15, 20%, 20%, 0.7);
-}
-
-/* Custom scrollbar for eye comfort */
-::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-gradient);
-}
-
-.dark ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-gradient);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-gradient);
-    border-radius: 7px;
-    border: 3px solid transparent;
-    background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(10, 75%, 65%), hsl(20, 65%, 75%));
-    background-clip: content-box;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-gradient);
-    background-clip: content-box;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(10, 55%, 50%), hsl(20, 50%, 55%));
-    background-clip: content-box;
-}
-
-/* Custom highlighting and selection */
-::selection {
-    background-color: hsla(10, 70%, 62%, 0.25);
-    color: inherit;
-}
-
-.dark ::selection {
-    background-color: hsla(10, 60%, 50%, 0.3);
-    color: inherit;
-}
-
-/* Print styles for accessibility */
-@media print {
-    body {
-        background: none !important;
-        color: black !important;
-        font-size: 12pt;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        color: black !important;
-        page-break-after: avoid;
-    }
-    
-    a {
-        color: black !important;
-        text-decoration: underline;
-    }
-    
-    .card, .btn, .nav {
-        background: none !important;
-        border: 1px solid #ddd;
-    }
-    
-    .no-print {
-        display: none !important;
-    }
-}
-
-/* Header component with eye-friendly styling */
-.header {
-    padding: 1.5rem 1rem;
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(15, 60%, 60%, 0.3);
-}
-
-.dark .header {
-    background: var(--header-gradient);
-    border-bottom: 1px solid hsla(15, 50%, 40%, 0.3);
-}
-
-/* Enhanced loading indicators */
-.loading-spinner {
-    border: 4px solid hsla(15, 50%, 80%, 0.3);
-    border-top-color: hsl(10, 70%, 62%);
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    animation: spin 0.8s linear infinite;
-}
-
-.dark .loading-spinner {
-    border-color: hsla(15, 30%, 30%, 0.3);
-    border-top-color: hsl(10, 60%, 50%);
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Progress bar */
-.progress {
-    height: 0.5rem;
-    background-color: hsla(15, 50%, 80%, 0.3);
-    border-radius: var(--radius);
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: var(--button-gradient);
-    border-radius: var(--radius);
-    transition: width 0.3s ease;
-}
-
-.dark .progress {
-    background-color: hsla(15, 30%, 30%, 0.3);
-}
-
-.dark .progress-bar {
-    background: var(--button-gradient);
-}
-
-/* Media queries for responsive design */
-@media (max-width: 640px) {
-    body {
-        font-size: 1.2rem;
-    }
-    
-    .container {
-        padding: 0.75rem;
-    }
-    
-    .card {
-        padding: 1rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        padding: 1.5rem;
-    }
-    
-    .text-lg {
-        font-size: 1.5rem;
-    }
-    
-    .text-xl {
-        font-size: 1.75rem;
-    }
-}
-
-/* High contrast mode */
-@media (forced-colors: active) {
-    * {
-        border-color: CanvasText;
-    }
-    
-    a, button, .btn {
-        color: LinkText;
-    }
-    
-    input, textarea, select {
-        border: 2px solid CanvasText;
-    }
-}
-
-/* Skip to main content link for keyboard accessibility */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 0.5rem 1rem;
-    background: hsl(10, 70%, 62%);
-    color: black;
-    z-index: 100;
-    transition: top 0.2s ease;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-.dark .skip-link {
-    background: hsl(10, 60%, 50%);
-    color: white;
-}
-
-/* Special embedding effect for switching background colors */
-.embedding-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-    transition: background 0.5s ease;
-}
-
-.embedding-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, 
-                               hsla(10, 70%, 62%, 0.25), 
-                               hsla(20, 70%, 80%, 0.25));
-    z-index: -1;
-    transition: opacity 0.5s ease;
-}
-
-.embedding-container:hover::before {
-    background: linear-gradient(to right, 
-                              hsla(20, 70%, 80%, 0.25), 
-                              hsla(10, 70%, 62%, 0.25));
-}
-
-.dark .embedding-container::before {
-    background: linear-gradient(to right, 
-                               hsla(10, 60%, 40%, 0.25), 
-                               hsla(20, 55%, 50%, 0.25));
-}
-
-.dark .embedding-container:hover::before {
-    background: linear-gradient(to right, 
-                              hsla(20, 55%, 50%, 0.25), 
-                              hsla(10, 60%, 40%, 0.25));
-} /* End of embedding effect */
-} /* End of CSS file */
 
