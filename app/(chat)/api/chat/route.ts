@@ -33,6 +33,7 @@ export const maxDuration = 60;
 // if the chat already exists, it will append the message to the existing chat
 // if the chat does not exist, it will create a new chat
 export async function POST(request: Request) {
+  //we try the data for the request, it contains the id, messages and selectedChatModel
   try {
     const {
       id,
@@ -84,6 +85,24 @@ export async function POST(request: Request) {
       messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
     });
 
+    /**
+     * let activeTools = selectedChatModel === 'chat-model-reasoning'
+     * ? []
+     * : [
+     *  'getWeather',
+     *  'createDocument',
+     * 'updateDocument',
+     * 'requestSuggestions',
+     * //'pagingEmergency'
+     * ];
+     */
+    // if (selectedChatModel !== 'chat-model-reasoning') {
+     // activeTools.push('emergencyProtocol');
+    // }
+    // const initialPrompt = isEmergencyRequest
+    // ? `Emergency request detected. Priority: inittiate emergencyProtocol to contact emergency services and provide assistance. ${systemPrompt({selectedChatModel})}
+   // : systemPrompt({ selectedChatModel });
+
     // Check if the chat model is valid
     // if the chat model is not valid, return 400
     // streamText is used to stream the response from the AI model
@@ -92,10 +111,55 @@ export async function POST(request: Request) {
       execute: (dataStream) => {
         const result = streamText({
           model: myProvider.languageModel(selectedChatModel),
-          system: systemPrompt({ selectedChatModel }),
+          system: systemPrompt({ selectedChatModel }), //initialPrompt,
           messages,
           maxSteps: 5,
-          experimental_activeTools:
+          experimental_activeTools: //activeTools,
+          //experimental_transform : smoothStream({ chunking: 'word' }),
+          //experimental_generalMessageId : generateUUID,
+          //tools:
+          //getWeather,
+          //createDocument({ session, dataStream }),
+          //updateDocument({ session, dataStream }),
+          //requestSuggestions({ session, dataStream }),
+          // session,
+          //dataStream,
+          // }),
+          //},
+          //onFinish: async ({ response, reasoning }) => {
+          //   if (session.user?.id) {
+            //     try {
+            //       const sanitizedResponseMessages = sanitizeResponseMessages({
+            //         messages: response.messages,
+            //         reasoning,
+            //       });
+
+            //  if (isEmergencyRequest) {
+            //   **log the emergency request**
+            //   console.log(`Emergency request processed at ${new Date().toISOString()} for user ${session.user.id}`);
+            // }
+            //       await saveMessages({
+            //         messages: sanitizedResponseMessages.map((message) => {
+            //           return {
+            //             id: message.id,
+            //             chatId: id,
+            //             role: message.role,
+            //             content: message.content,
+            //             createdAt: new Date(),
+            //           };
+            //         }),
+            //       });
+            //     } catch (error) {
+            //       console.error('Failed to save chat');
+            //     }
+            //   }
+            // }
+          // }),
+          // experimental_telemetry: {
+          //   isEnabled: isProductionEnvironment,
+          //  functionId: 'stream-text',
+          // },
+          //})
             selectedChatModel === 'chat-model-reasoning'
               ? []
               : [
@@ -103,6 +167,7 @@ export async function POST(request: Request) {
                   'createDocument',
                   'updateDocument',
                   'requestSuggestions',
+                  //'pagingEmergency'
                 ],
           experimental_transform: smoothStream({ chunking: 'word' }),
           experimental_generateMessageId: generateUUID,

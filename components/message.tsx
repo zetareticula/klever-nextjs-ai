@@ -19,6 +19,8 @@ import { MessageEditor } from './message-editor';
 import { DocumentPreview } from './document-preview';
 import { MessageReasoning } from './message-reasoning';
 
+
+//The Pure Message with distilled content, Complete Prop!
 const PurePreviewMessage = ({
   chatId,
   message,
@@ -32,6 +34,8 @@ const PurePreviewMessage = ({
   message: Message;
   vote: Vote | undefined;
   isLoading: boolean;
+
+  //setMessages is a sequence that takes as input a list of messages and returns a new list of messages. Since messages are props, we need to use a function to update the messages. The message contains syntactic sugar for the setMessages function.
   setMessages: (
     messages: Message[] | ((messages: Message[]) => Message[]),
   ) => void;

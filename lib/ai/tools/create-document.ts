@@ -7,7 +7,10 @@ import {
   documentHandlersByArtifactKind,
 } from '@/lib/artifacts/server';
 
+
+//This is where chain of thought begins.
 interface CreateDocumentProps {
+  //the root session is used to get the a data stream
   session: Session;
   dataStream: DataStreamWriter;
 }

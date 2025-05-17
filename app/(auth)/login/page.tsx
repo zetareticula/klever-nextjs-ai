@@ -15,7 +15,10 @@ export default function Page() {
   // This is a client component, so we can use hooks like useState and useEffect
   const router = useRouter();
 
+  //the email is implicitly passed to the AuthForm component
   const [email, setEmail] = useState('');
+  //flags if the login was successful
+  //setIsSuccessful is used to set the state of the button
   const [isSuccessful, setIsSuccessful] = useState(false);
 
   const [state, formAction] = useActionState<LoginActionState, FormData>(

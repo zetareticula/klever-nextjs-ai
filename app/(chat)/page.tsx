@@ -5,6 +5,7 @@ import { DEFAULT_CHAT_MODEL } from '@/lib/ai/models';
 import { generateUUID } from '@/lib/utils';
 import { DataStreamHandler } from '@/components/data-stream-handler';
 
+/// This is the skeleton to create a new page in Next.js with UUID sessions.
 export default async function Page() {
   const id = generateUUID();
 

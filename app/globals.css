@@ -784,4 +784,25 @@ pre:focus {
     outline-offset: 4px !important;
 }
 
+/* Enhanced code block focus for seniors in dark mode */
+.dark .senior-focus {
+    outline: 4px solid var(--primary) !important;
+    outline-offset: 4px !important;
+}
+
+/* Enhanced code block focus for seniors in light mode */
+.senior-focus-light {
+    outline: 4px solid var(--primary) !important;
+    outline-offset: 4px !important;
+}
+
+
+
+
+
+
+
+
+
+
 
