@@ -208,7 +208,7 @@ export async function POST(request: Request) {
             isEnabled: isProductionEnvironment,
             functionId: 'stream-text',
           },
-        });
+        }); //end of streamText
 
         result.consumeStream();
 
@@ -223,7 +223,7 @@ export async function POST(request: Request) {
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 });
   }
-}
+} //end of POST
 
 export async function DELETE(request: Request) {
   const { searchParams } = new URL(request.url);
