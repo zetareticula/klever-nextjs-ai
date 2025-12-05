@@ -5,7 +5,7 @@ import {
   streamText,
 } from 'ai';
 import { auth } from '@/app/(auth)/auth';
-import { systemPrompt } from '@/lib/ai/prompts';
+import { systemPrompt, ragEnhancedPrompt } from '@/lib/ai/prompts';
 import {
   deleteChatById,
   getChatById,
@@ -16,15 +16,17 @@ import {
   generateUUID,
   getMostRecentUserMessage,
   sanitizeResponseMessages,
+  extractTextFromMessageContent,
 } from '@/lib/utils';
 import { generateTitleFromUserMessage } from '../../actions';
 import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
-import { isProductionEnvironment } from '@/lib/constants';
+import { isProductionEnvironment, isTestEnvironment } from '@/lib/constants';
 import { NextResponse } from 'next/server';
 import { myProvider } from '@/lib/ai/providers';
+import { getDefaultContextPulseEngine } from '@/lib/ai/context-pulse';
 
 export const maxDuration = 60;
 
@@ -85,6 +87,49 @@ export async function POST(request: Request) {
       messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
     });
 
+    // Get the user message content for RAG retrieval
+    const userMessageContent = extractTextFromMessageContent(userMessage.content);
+
+    // Use ContextPulse Engine for RAG-enhanced context retrieval
+    // Skip in test environment to avoid embedding generation
+    let enhancedSystemPrompt = systemPrompt({ selectedChatModel });
+    
+    if (!isTestEnvironment && userMessageContent) {
+      try {
+        const cpe = getDefaultContextPulseEngine();
+        
+        // Retrieve relevant context for the user's query
+        const contextResults = await cpe.retrieveContext(
+          userMessageContent,
+          session.user.id,
+          { topK: 3, minScore: 0.6 }
+        );
+
+        // Build context string from retrieved results
+        if (contextResults.length > 0) {
+          const retrievedContext = contextResults
+            .map((result) => `[${result.entry.metadata.category}] ${result.entry.content}`)
+            .join('\n\n');
+
+          enhancedSystemPrompt = ragEnhancedPrompt({
+            basePrompt: systemPrompt({ selectedChatModel }),
+            retrievedContext,
+          });
+        }
+
+        // Store the current user message as context for future retrieval
+        await cpe.processMessage(
+          userMessageContent,
+          'user',
+          session.user.id,
+          id
+        );
+      } catch (error) {
+        // Log error but continue without RAG enhancement
+        console.error('ContextPulse Engine error:', error);
+      }
+    }
+
     /**
      * let activeTools = selectedChatModel === 'chat-model-reasoning'
      * ? []
@@ -111,7 +156,7 @@ export async function POST(request: Request) {
       execute: (dataStream) => {
         const result = streamText({
           model: myProvider.languageModel(selectedChatModel),
-          system: systemPrompt({ selectedChatModel }), //initialPrompt,
+          system: enhancedSystemPrompt,
           messages,
           maxSteps: 5,
           experimental_activeTools: //activeTools,
@@ -199,6 +244,29 @@ export async function POST(request: Request) {
                     };
                   }),
                 });
+
+                // Store assistant responses in ContextPulse Engine for future RAG retrieval
+                if (!isTestEnvironment) {
+                  try {
+                    const cpe = getDefaultContextPulseEngine();
+                    for (const message of sanitizedResponseMessages) {
+                      if (message.role === 'assistant') {
+                        const content = extractTextFromMessageContent(message.content);
+                        
+                        if (content) {
+                          await cpe.processMessage(
+                            content,
+                            'assistant',
+                            session.user.id,
+                            id
+                          );
+                        }
+                      }
+                    }
+                  } catch (cpeError) {
+                    console.error('Failed to store context in ContextPulse Engine:', cpeError);
+                  }
+                }
               } catch (error) {
                 console.error('Failed to save chat');
               }

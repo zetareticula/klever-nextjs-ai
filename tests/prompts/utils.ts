@@ -1,4 +1,4 @@
-import { CoreMessage, LanguageModelV1StreamPart } from 'ai';
+import type { CoreMessage, LanguageModelV1StreamPart } from 'ai';
 import { TEST_PROMPTS } from './basic';
 
 // This function compares two messages to check if they are the same
@@ -72,7 +72,7 @@ const reasoningToDeltas = (text: string): LanguageModelV1StreamPart[] => {
 // If the prompt is not a recent message, it throws an error
 export const getResponseChunksByPrompt = (
   prompt: CoreMessage[],
-  isReasoningEnabled: boolean = false,
+  isReasoningEnabled = false,
 ): Array<LanguageModelV1StreamPart> => {
   const recentMessage = prompt.at(-1);
 

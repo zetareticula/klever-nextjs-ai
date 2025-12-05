@@ -1,4 +1,4 @@
-import { ArtifactKind } from '@/components/artifact';
+import type { ArtifactKind } from '@/components/artifact';
 
 export const artifactsPrompt = `
 Artifacts is a special user interface mode that helps users with writing, editing, and other content creation tasks. When artifact is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the artifacts and visible to the user.
@@ -33,6 +33,36 @@ Do not update document right after creating it. Wait for user feedback or reques
 
 export const regularPrompt =
   'You are a friendly and folksy assistant! Keep your responses concise and helpful, gauge sentiment from queries, infer tonality, and implement a context-switch to tailor responses.';
+
+/**
+ * RAG-enhanced prompt template for the ContextPulse Engine
+ * Used when relevant context is retrieved from the FAISS index
+ */
+export const ragEnhancedPrompt = ({
+  basePrompt,
+  retrievedContext,
+}: {
+  basePrompt: string;
+  retrievedContext: string;
+}) => {
+  if (!retrievedContext || retrievedContext.trim() === '') {
+    return basePrompt;
+  }
+
+  return `${basePrompt}
+
+You have access to the following relevant context from previous interactions with this user. Use this context to provide more personalized and relevant responses when appropriate:
+
+<retrieved_context>
+${retrievedContext}
+</retrieved_context>
+
+When using this context:
+- Reference it naturally if it helps answer the user's question
+- Don't explicitly mention that you're using stored context unless asked
+- Prioritize recent and highly relevant context
+- If the context doesn't apply to the current query, simply respond as normal`;
+};
 
 export const systemPrompt = ({
   selectedChatModel,
