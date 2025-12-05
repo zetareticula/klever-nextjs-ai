@@ -16,6 +16,7 @@ import {
   generateUUID,
   getMostRecentUserMessage,
   sanitizeResponseMessages,
+  extractTextFromMessageContent,
 } from '@/lib/utils';
 import { generateTitleFromUserMessage } from '../../actions';
 import { createDocument } from '@/lib/ai/tools/create-document';
@@ -87,15 +88,7 @@ export async function POST(request: Request) {
     });
 
     // Get the user message content for RAG retrieval
-    const userMessageContent =
-      typeof userMessage.content === 'string'
-        ? userMessage.content
-        : Array.isArray(userMessage.content)
-          ? userMessage.content
-              .filter((c): c is { type: 'text'; text: string } => c.type === 'text')
-              .map((c) => c.text)
-              .join(' ')
-          : '';
+    const userMessageContent = extractTextFromMessageContent(userMessage.content);
 
     // Use ContextPulse Engine for RAG-enhanced context retrieval
     // Skip in test environment to avoid embedding generation
@@ -258,14 +251,7 @@ export async function POST(request: Request) {
                     const cpe = getDefaultContextPulseEngine();
                     for (const message of sanitizedResponseMessages) {
                       if (message.role === 'assistant') {
-                        const content = typeof message.content === 'string'
-                          ? message.content
-                          : Array.isArray(message.content)
-                            ? message.content
-                                .filter((c): c is { type: 'text'; text: string } => c.type === 'text')
-                                .map((c) => c.text)
-                                .join(' ')
-                            : '';
+                        const content = extractTextFromMessageContent(message.content);
                         
                         if (content) {
                           await cpe.processMessage(

@@ -50,6 +50,26 @@ export function generateUUID(): string {
   });
 }
 
+/**
+ * Extract text content from a message that may have string or array content
+ * @param content - The message content (string or array)
+ * @returns string - The extracted text content
+ */
+export function extractTextFromMessageContent(
+  content: string | Array<{ type: string; text?: string }>
+): string {
+  if (typeof content === 'string') {
+    return content;
+  }
+  if (Array.isArray(content)) {
+    return content
+      .filter((c): c is { type: 'text'; text: string } => c.type === 'text' && typeof c.text === 'string')
+      .map((c) => c.text)
+      .join(' ');
+  }
+  return '';
+}
+
 function addToolMessageToChat({
   toolMessage,
   messages,

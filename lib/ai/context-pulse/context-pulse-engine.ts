@@ -18,6 +18,7 @@ import type {
   UserGoal,
   RAGAugmentedResult,
   ProactiveSuggestion,
+  TemporalMarker,
 } from './types';
 import { type FAISSService, getDefaultFAISSService, createFAISSService } from './faiss-service';
 import {
@@ -292,13 +293,13 @@ export class ContextPulseEngine {
    * Add a scheduled trigger for proactive conversations
    * @param userId - The user ID
    * @param message - The message to send
-   * @param schedule - The schedule configuration
+   * @param schedule - The schedule configuration using TemporalMarker format
    * @returns string - The trigger ID
    */
   addScheduledTrigger(
     userId: string,
     message: string,
-    schedule: { type: 'daily' | 'weekly' | 'monthly'; time: string; dayOfWeek?: number; dayOfMonth?: number }
+    schedule: Pick<TemporalMarker, 'type' | 'time' | 'dayOfWeek' | 'dayOfMonth'>
   ): string {
     return this.triggerService.addTemporalTrigger({
       userId,

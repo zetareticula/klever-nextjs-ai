@@ -9,6 +9,7 @@ import type {
   ProactiveSuggestion,
   ProactiveTriggerConfig,
   SearchResult,
+  TemporalMarker,
 } from './types';
 import { type FAISSService, getDefaultFAISSService } from './faiss-service';
 import { generateUUID } from '@/lib/utils';
@@ -241,7 +242,7 @@ export class TemporalTriggerService {
    * @returns boolean - Whether the trigger should fire
    */
   private shouldTriggerFire(
-    marker: TemporalTrigger['schedule'],
+    marker: TemporalMarker | undefined,
     now: Date
   ): boolean {
     if (!marker) return false;
