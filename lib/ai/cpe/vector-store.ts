@@ -244,14 +244,14 @@ export class VectorStore {
       const score = cosineSimilarity(queryEmbedding, entry.embedding);
 
       if (score >= minScore) {
-        results.push({ entry: { ...entry, score }, score });
+        results.push({ entry, score });
       }
     }
 
     // Sort by score descending and return top results
     results.sort((a, b) => b.score - a.score);
 
-    return results.slice(0, maxResults).map(r => r.entry);
+    return results.slice(0, maxResults).map(r => ({ ...r.entry, score: r.score }));
   }
 
   /**
@@ -292,11 +292,13 @@ export class VectorStore {
    */
   import(entries: ContextEntry[]): void {
     for (const entry of entries) {
+      // Create a copy to avoid mutating the input
+      const entryCopy = { ...entry };
       // Ensure embedding exists
-      if (!entry.embedding) {
-        entry.embedding = simpleTextEmbedding(entry.content, this.dimension);
+      if (!entryCopy.embedding) {
+        entryCopy.embedding = simpleTextEmbedding(entryCopy.content, this.dimension);
       }
-      this.entries.set(entry.id, entry);
+      this.entries.set(entryCopy.id, entryCopy);
     }
   }
 }

@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-import { MessageIcon, VercelIcon } from './icons';
-
 
 //Overview component is exported
 //This component is used to display the overview of the chatbot
@@ -23,7 +21,7 @@ export const Overview = () => {
       <div className="rounded-xl p-6 flex flex-col gap-8 leading-relaxed text-center max-w-xl">
         <p className="flex flex-row justify-center gap-4 items-center">
           
-          <span></span>
+          <span />
           
         </p>
         <p>
@@ -36,9 +34,9 @@ export const Overview = () => {
             AI
           </Link>{' '}
           {' '}
-          <code className="rounded-md bg-muted px-1 py-0.5"></code>{' '}
+          <code className="rounded-md bg-muted px-1 py-0.5" />{' '}
           {' '}
-          <code className="rounded-md bg-muted px-1 py-0.5"></code> 
+          <code className="rounded-md bg-muted px-1 py-0.5" /> 
           
         </p>
         <p>

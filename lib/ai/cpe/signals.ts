@@ -146,7 +146,7 @@ export function analyzeBehavioralSignals(
 
   // Find peak hours
   const sortedHours = Object.entries(hourCounts)
-    .map(([hour, count]) => ({ hour: Number.parseInt(hour), count }))
+    .map(([hour, count]) => ({ hour: Number.parseInt(hour, 10), count }))
     .sort((a, b) => b.count - a.count);
 
   if (sortedHours.length > 0 && sortedHours[0].count >= 3) {

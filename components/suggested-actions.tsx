@@ -8,7 +8,15 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import { fetcher } from '@/lib/utils';
 
-// Interface for CPE-provided suggested actions
+// Unified interface for suggested actions (both CPE and default)
+interface SuggestedAction {
+  imageSrc: string;
+  label: string;
+  action: string;
+  reason?: string;
+}
+
+// Interface for CPE-provided suggested actions from API
 interface CPESuggestedAction {
   label: string;
   action: string;
@@ -32,7 +40,7 @@ interface SuggestedActionsProps {
 }
 
 // Default suggested actions as fallback
-const defaultSuggestedActions = [
+const defaultSuggestedActions: SuggestedAction[] = [
   {
     imageSrc: '/icons/image.png',
     label: 'Genie',
@@ -68,10 +76,10 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   });
 
   // Merge CPE suggestions with defaults, preferring CPE suggestions when available
-  const suggestedActions = useMemo(() => {
+  const suggestedActions: SuggestedAction[] = useMemo(() => {
     if (cpeData?.success && cpeData.suggestedActions?.length) {
       // Map CPE suggestions to the expected format
-      const cpeSuggestions = cpeData.suggestedActions.slice(0, 4).map((s, i) => ({
+      const cpeSuggestions: SuggestedAction[] = cpeData.suggestedActions.slice(0, 4).map((s, i) => ({
         imageSrc: defaultSuggestedActions[i]?.imageSrc || '/icons/spiral.png',
         label: s.label,
         action: s.action,
@@ -116,11 +124,7 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
               });
             }}
             className="text-left border rounded-xl px-4 py-3.5 text-sm flex-1 gap-1 sm:flex-col w-full h-auto justify-start items-start"
-            title={
-              'reason' in suggestedAction
-                ? (suggestedAction as { reason: string }).reason
-                : undefined
-            }
+            title={suggestedAction.reason}
           >
             <span className="font-medium">
               {suggestedAction.imageSrc && (

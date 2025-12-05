@@ -1,4 +1,4 @@
-import { CoreMessage } from 'ai';
+import type { CoreMessage } from 'ai';
 
 // This file contains test prompts for the AI model
 // It defines the prompts and their expected responses using the `CoreMessage` type
