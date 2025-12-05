@@ -1,7 +1,7 @@
 'use client';
 
 import useSWR from 'swr';
-import { UIArtifact } from '@/components/artifact';
+import type { UIArtifact } from '@/components/artifact';
 import { useCallback, useMemo } from 'react';
 
 /// This is the initial artifact data that is used to set the artifact state

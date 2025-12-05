@@ -10,7 +10,7 @@ import { fetcher, generateUUID } from '@/lib/utils';
 import { Artifact } from './artifact';
 import { MultimodalInput } from './multimodal-input';
 import { Messages } from './messages'; //messages is used to display the chat messages
-import { VisibilityType } from './visibility-selector'; //this is used to determine the visibility type of the chat
+import type { VisibilityType } from './visibility-selector'; //this is used to determine the visibility type of the chat
 import { useArtifactSelector } from '@/hooks/use-artifact';
 import { toast } from 'sonner';
 
