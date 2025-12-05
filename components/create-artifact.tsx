@@ -1,8 +1,8 @@
-import { Suggestion } from '@/lib/db/schema';
-import { UseChatHelpers } from '@ai-sdk/react';
-import { ComponentType, Dispatch, ReactNode, SetStateAction } from 'react';
-import { DataStreamDelta } from './data-stream-handler';
-import { UIArtifact } from './artifact';
+import type { Suggestion } from '@/lib/db/schema';
+import type { UseChatHelpers } from '@ai-sdk/react';
+import type { ComponentType, Dispatch, ReactNode, SetStateAction } from 'react';
+import type { DataStreamDelta } from './data-stream-handler';
+import type { UIArtifact } from './artifact';
 // ArtifactActionContext is used to define the context of the artifact action
 // it contains the content, handleVersionChange, currentVersionIndex, isCurrentVersion, mode, metadata and setMetadata
 // the content is the content of the artifact, handleVersionChange is a function that is used to handle the version change

@@ -1,4 +1,26 @@
-import { ArtifactKind } from '@/components/artifact';
+import type { ArtifactKind } from '@/components/artifact';
+
+/**
+ * Context-aware prompt enhancement using CPE retrieved context
+ */
+export const contextAwarePrompt = (retrievedContext?: string) => {
+  if (!retrievedContext) {
+    return '';
+  }
+
+  return `
+## Contextual Information
+The following context has been retrieved to help you provide more relevant responses:
+
+${retrievedContext}
+
+Use this context to:
+- Personalize your responses based on user preferences and history
+- Reference relevant past interactions when appropriate
+- Consider the user's goals and priorities
+- Adapt your communication style to match the user's needs
+`;
+};
 
 export const artifactsPrompt = `
 Artifacts is a special user interface mode that helps users with writing, editing, and other content creation tasks. When artifact is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the artifacts and visible to the user.
@@ -34,16 +56,26 @@ Do not update document right after creating it. Wait for user feedback or reques
 export const regularPrompt =
   'You are a friendly and folksy assistant! Keep your responses concise and helpful, gauge sentiment from queries, infer tonality, and implement a context-switch to tailor responses.';
 
+/**
+ * Generate the system prompt with optional CPE context
+ */
 export const systemPrompt = ({
   selectedChatModel,
+  retrievedContext,
 }: {
   selectedChatModel: string;
+  retrievedContext?: string;
 }) => {
-  if (selectedChatModel === 'chat-model-reasoning') {
-    return regularPrompt;
-  } else {
-    return `${regularPrompt}\n\n${artifactsPrompt}`;
-  }
+  const basePrompt = selectedChatModel === 'chat-model-reasoning'
+    ? regularPrompt
+    : `${regularPrompt}\n\n${artifactsPrompt}`;
+
+  // Add context-aware enhancements if context is provided
+  const contextEnhancement = contextAwarePrompt(retrievedContext);
+
+  return contextEnhancement
+    ? `${basePrompt}\n${contextEnhancement}`
+    : basePrompt;
 };
 
 export const codePrompt = `
