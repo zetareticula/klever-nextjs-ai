@@ -22,11 +22,35 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
+import { retrieveContext } from '@/lib/ai/tools/retrieve-context';
 import { isProductionEnvironment } from '@/lib/constants';
 import { NextResponse } from 'next/server';
 import { myProvider } from '@/lib/ai/providers';
+import { getCPE } from '@/lib/ai/cpe';
 
 export const maxDuration = 60;
+
+/**
+ * Helper function to extract text content from a message content field
+ */
+function extractTextContent(content: unknown): string {
+  if (typeof content === 'string') {
+    return content;
+  }
+  if (Array.isArray(content)) {
+    return content
+      .map((part: unknown) => {
+        if (typeof part === 'string') return part;
+        if (part && typeof part === 'object' && 'text' in part) {
+          return String((part as { text: unknown }).text || '');
+        }
+        return '';
+      })
+      .join(' ')
+      .trim();
+  }
+  return '';
+}
 
 // POST is used to create a new chat, or append a message to an existing chat
 // it is a server action that is used to handle the chat messages
@@ -85,6 +109,29 @@ export async function POST(request: Request) {
       messages: [{ ...userMessage, createdAt: new Date(), chatId: id }],
     });
 
+    // Use CPE to retrieve relevant context based on user message
+    const cpe = getCPE();
+    let retrievedContext: string | undefined;
+
+    try {
+      // Get the user message content for context retrieval
+      const userContent = extractTextContent(userMessage.content);
+
+      if (userContent) {
+        const contextResult = await cpe.retrieveContext({
+          query: userContent,
+          userId: session.user.id,
+          maxResults: 5,
+          minScore: 0.3,
+        });
+
+        retrievedContext = contextResult.aggregatedContext;
+      }
+    } catch (error) {
+      // Context retrieval is optional - continue without it on error
+      console.error('CPE context retrieval failed:', error);
+    }
+
     /**
      * let activeTools = selectedChatModel === 'chat-model-reasoning'
      * ? []
@@ -111,10 +158,10 @@ export async function POST(request: Request) {
       execute: (dataStream) => {
         const result = streamText({
           model: myProvider.languageModel(selectedChatModel),
-          system: systemPrompt({ selectedChatModel }), //initialPrompt,
+          system: systemPrompt({ selectedChatModel, retrievedContext }),
           messages,
           maxSteps: 5,
-          experimental_activeTools: //activeTools,
+          experimental_activeTools:
           //experimental_transform : smoothStream({ chunking: 'word' }),
           //experimental_generalMessageId : generateUUID,
           //tools:
@@ -167,7 +214,7 @@ export async function POST(request: Request) {
                   'createDocument',
                   'updateDocument',
                   'requestSuggestions',
-                  //'pagingEmergency'
+                  'retrieveContext',
                 ],
           experimental_transform: smoothStream({ chunking: 'word' }),
           experimental_generateMessageId: generateUUID,
@@ -179,6 +226,7 @@ export async function POST(request: Request) {
               session,
               dataStream,
             }),
+            retrieveContext,
           },
           onFinish: async ({ response, reasoning }) => {
             if (session.user?.id) {
@@ -199,6 +247,30 @@ export async function POST(request: Request) {
                     };
                   }),
                 });
+
+                // Record interaction in CPE for behavioral analysis
+                try {
+                  const userContent = extractTextContent(userMessage.content);
+
+                  const assistantMessage = sanitizedResponseMessages.find(
+                    (m) => m.role === 'assistant'
+                  );
+
+                  if (userContent && assistantMessage) {
+                    const assistantContent = extractTextContent(
+                      assistantMessage.content as Message['content']
+                    );
+
+                    cpe.recordInteraction(
+                      session.user.id,
+                      id,
+                      userContent,
+                      assistantContent
+                    );
+                  }
+                } catch (cpeError) {
+                  console.error('Failed to record interaction in CPE:', cpeError);
+                }
               } catch (error) {
                 console.error('Failed to save chat');
               }
